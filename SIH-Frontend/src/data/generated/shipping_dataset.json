@@ -1,0 +1,1102 @@
+{
+  "01_BDI": [
+    {
+      "Date": 46254,
+      "BDI": 2791,
+      "Source": "Baltic Dry Index historical series",
+      "Status": "Observed"
+    },
+    {
+      "Date": 46255,
+      "BDI": 2841,
+      "Source": "Baltic Dry Index historical series",
+      "Status": "Observed"
+    },
+    {
+      "Date": 46258,
+      "BDI": 2882,
+      "Source": "Baltic Dry Index historical series",
+      "Status": "Observed"
+    },
+    {
+      "Date": 46259,
+      "BDI": 2926,
+      "Source": "Baltic Dry Index historical series",
+      "Status": "Observed"
+    },
+    {
+      "Date": 46260,
+      "BDI": 3056,
+      "Source": "Baltic Dry Index historical series",
+      "Status": "Observed"
+    },
+    {
+      "Date": 46261,
+      "BDI": 3107,
+      "Source": "Baltic Dry Index historical series",
+      "Status": "Observed"
+    },
+    {
+      "Date": 46262,
+      "BDI": 3186,
+      "Source": "Baltic Dry Index historical series",
+      "Status": "Observed"
+    }
+  ],
+  "02_Segment_Indices": [
+    {
+      "Date": 46260,
+      "BCI": 5033,
+      "BPI": "",
+      "BSI": 1644,
+      "BHSI": "",
+      "Source": "Baltic Exchange benchmark/market data",
+      "Status": "Observed/publicly reported"
+    },
+    {
+      "Date": 46261,
+      "BCI": 5138,
+      "BPI": 2292,
+      "BSI": 1645,
+      "BHSI": 881,
+      "Source": "Baltic Exchange benchmark/market data",
+      "Status": "Observed/publicly reported"
+    }
+  ],
+  "03_Vessel_Master": [
+    {
+      "Vessel Type": "Capesize",
+      "DWT (mt)": 182000,
+      "SSW Draft (m)": 18.2,
+      "LOA (m)": 290,
+      "Beam (m)": 45,
+      "Grain Capacity (cbm)": 198000,
+      "Laden Speed (kn)": 14,
+      "Ballast Speed (kn)": 15,
+      "Max Age (yr)": 10,
+      "Geared": false,
+      "Source": "Baltic Exchange standard"
+    },
+    {
+      "Vessel Type": "Panamax",
+      "DWT (mt)": 82500,
+      "SSW Draft (m)": 14.43,
+      "LOA (m)": 229,
+      "Beam (m)": 32.25,
+      "Grain Capacity (cbm)": 97000,
+      "Laden Speed (kn)": 13.5,
+      "Ballast Speed (kn)": 14,
+      "Max Age (yr)": 12,
+      "Geared": false,
+      "Source": "Baltic Exchange standard"
+    },
+    {
+      "Vessel Type": "Supramax",
+      "DWT (mt)": 58328,
+      "SSW Draft (m)": 12.8,
+      "LOA (m)": 189.99,
+      "Beam (m)": 32.26,
+      "Grain Capacity (cbm)": 72360,
+      "Laden Speed (kn)": 14,
+      "Ballast Speed (kn)": 14,
+      "Max Age (yr)": 15,
+      "Geared": true,
+      "Source": "Baltic Exchange standard"
+    },
+    {
+      "Vessel Type": "Handysize",
+      "DWT (mt)": 38200,
+      "SSW Draft (m)": 10.538,
+      "LOA (m)": 180,
+      "Beam (m)": 29.8,
+      "Grain Capacity (cbm)": 47125,
+      "Laden Speed (kn)": 14,
+      "Ballast Speed (kn)": 14,
+      "Max Age (yr)": 15,
+      "Geared": true,
+      "Source": "Baltic Exchange standard"
+    }
+  ],
+  "04_Port_Berth_Master": [
+    {
+      "Port": "Paradip",
+      "Berth/Facility": "New Coal Import Berth (Berth 03)",
+      "Commodity": "Coking Coal",
+      "Max LOA (m)": 300,
+      "Max Beam (m)": 46,
+      "Max Draft (m)": 16,
+      "High Tide Qualification": true,
+      "Handling / Facility": "Mechanised",
+      "Source": "Paradip Port Authority",
+      "Remarks": "Current public specification; 16m during high tide"
+    },
+    {
+      "Port": "Paradip",
+      "Berth/Facility": "Coal Berth 01 (Berth 05)",
+      "Commodity": "Thermal Coal",
+      "Max LOA (m)": 300,
+      "Max Beam (m)": 46,
+      "Max Draft (m)": 14.5,
+      "High Tide Qualification": true,
+      "Handling / Facility": "Mechanised",
+      "Source": "Paradip Port Authority",
+      "Remarks": "16m allowed during high tide"
+    },
+    {
+      "Port": "Paradip",
+      "Berth/Facility": "Coal Berth 02 (Berth 06)",
+      "Commodity": "Thermal Coal",
+      "Max LOA (m)": 300,
+      "Max Beam (m)": 46,
+      "Max Draft (m)": 14.5,
+      "High Tide Qualification": true,
+      "Handling / Facility": "Mechanised",
+      "Source": "Paradip Port Authority",
+      "Remarks": ""
+    },
+    {
+      "Port": "Paradip",
+      "Berth/Facility": "EQ-3 (Berth 07)",
+      "Commodity": "Thermal Coal",
+      "Max LOA (m)": 300,
+      "Max Beam (m)": 46,
+      "Max Draft (m)": 14.5,
+      "High Tide Qualification": true,
+      "Handling / Facility": "General cargo",
+      "Source": "Paradip Port Authority",
+      "Remarks": ""
+    },
+    {
+      "Port": "Paradip",
+      "Berth/Facility": "EQ-2 (Berth 08)",
+      "Commodity": "Thermal Coal",
+      "Max LOA (m)": 300,
+      "Max Beam (m)": 46,
+      "Max Draft (m)": 14.5,
+      "High Tide Qualification": true,
+      "Handling / Facility": "General cargo",
+      "Source": "Paradip Port Authority",
+      "Remarks": ""
+    },
+    {
+      "Port": "Paradip",
+      "Berth/Facility": "EQ-1 (Berth 09)",
+      "Commodity": "Thermal Coal",
+      "Max LOA (m)": 230,
+      "Max Beam (m)": 38,
+      "Max Draft (m)": 12.5,
+      "High Tide Qualification": true,
+      "Handling / Facility": "General cargo",
+      "Source": "Paradip Port Authority",
+      "Remarks": ""
+    },
+    {
+      "Port": "Dhamra",
+      "Berth/Facility": "Port overall",
+      "Commodity": "Dry bulk / coal",
+      "Max LOA (m)": "",
+      "Max Beam (m)": "",
+      "Max Draft (m)": "",
+      "High Tide Qualification": "",
+      "Handling / Facility": "Deep-draft multi-cargo",
+      "Source": "Adani Ports",
+      "Remarks": "Accommodates Super Capesize, Panamax and Handymax"
+    },
+    {
+      "Port": "Dhamra",
+      "Berth/Facility": "BB-3 coal terminal",
+      "Commodity": "Coal",
+      "Max LOA (m)": "",
+      "Max Beam (m)": "",
+      "Max Draft (m)": "",
+      "High Tide Qualification": "",
+      "Handling / Facility": "Mechanised; ship loader 5000 TPH",
+      "Source": "Ministry of Coal",
+      "Remarks": "Coal handling capacity reference"
+    }
+  ],
+  "05_Cargo_Master": [
+    {
+      "Cargo": "Thermal Coal",
+      "Cargo Class": "Dry bulk",
+      "Use": "Typical project cargo",
+      "Example Quantity": 70000,
+      "Unit": "mt",
+      "Origin Example": "Australia",
+      "Destination Example": "Dhamra",
+      "Candidate Vessel Types": "Panamax/Supramax/Handymax",
+      "Source": "Project input / example",
+      "Status": "Scenario"
+    },
+    {
+      "Cargo": "Coking Coal",
+      "Cargo Class": "Dry bulk",
+      "Use": "Steelmaking feedstock",
+      "Example Quantity": 80000,
+      "Unit": "mt",
+      "Origin Example": "Australia",
+      "Destination Example": "Paradip",
+      "Candidate Vessel Types": "Panamax/Capesize",
+      "Source": "Project input / example",
+      "Status": "Scenario"
+    },
+    {
+      "Cargo": "Iron Ore",
+      "Cargo Class": "Dry bulk",
+      "Use": "Steelmaking raw material",
+      "Example Quantity": 80000,
+      "Unit": "mt",
+      "Origin Example": "Australia",
+      "Destination Example": "Paradip",
+      "Candidate Vessel Types": "Capesize/Panamax",
+      "Source": "Project input / example",
+      "Status": "Scenario"
+    }
+  ],
+  "06_Route_Benchmarks": [
+    {
+      "Origin": "Gladstone",
+      "Destination": "Dhamra",
+      "Cargo": "Coal",
+      "Vessel Type": "Panamax",
+      "Cargo Quantity (mt)": 80000,
+      "Freight Rate": "",
+      "Rate Unit": "USD/mt",
+      "Baltic Route": "P9_82",
+      "Source": "Baltic Exchange route listing",
+      "Status": "Route exists; public spot value not populated"
+    },
+    {
+      "Origin": "West Australia",
+      "Destination": "Qingdao",
+      "Cargo": "Iron Ore",
+      "Vessel Type": "Capesize",
+      "Cargo Quantity (mt)": "",
+      "Freight Rate": 11.81,
+      "Rate Unit": "USD/mt",
+      "Baltic Route": "C5",
+      "Source": "Public benchmark report",
+      "Status": "Observed benchmark"
+    },
+    {
+      "Origin": "West Australia",
+      "Destination": "Qingdao",
+      "Cargo": "Iron Ore",
+      "Vessel Type": "Capesize",
+      "Cargo Quantity (mt)": "",
+      "Freight Rate": 12.1,
+      "Rate Unit": "USD/mt",
+      "Baltic Route": "C5",
+      "Source": "Public benchmark report",
+      "Status": "Observed benchmark"
+    }
+  ],
+  "07_Bunker_Prices": [
+    {
+      "Date": 46254,
+      "Singapore VLSFO Indicative (USD/mt)": 749,
+      "Source": "Alghaf Marine historical indicative board mids",
+      "Status": "Indicative/reference only"
+    },
+    {
+      "Date": 46255,
+      "Singapore VLSFO Indicative (USD/mt)": 745,
+      "Source": "Alghaf Marine historical indicative board mids",
+      "Status": "Indicative/reference only"
+    },
+    {
+      "Date": 46258,
+      "Singapore VLSFO Indicative (USD/mt)": 741,
+      "Source": "Alghaf Marine historical indicative board mids",
+      "Status": "Indicative/reference only"
+    },
+    {
+      "Date": 46259,
+      "Singapore VLSFO Indicative (USD/mt)": 722,
+      "Source": "Alghaf Marine historical indicative board mids",
+      "Status": "Indicative/reference only"
+    },
+    {
+      "Date": 46260,
+      "Singapore VLSFO Indicative (USD/mt)": 690,
+      "Source": "Alghaf Marine historical indicative board mids",
+      "Status": "Indicative/reference only"
+    },
+    {
+      "Date": 46261,
+      "Singapore VLSFO Indicative (USD/mt)": 699,
+      "Source": "Alghaf Marine historical indicative board mids",
+      "Status": "Indicative/reference only"
+    },
+    {
+      "Date": 46262,
+      "Singapore VLSFO Indicative (USD/mt)": 715,
+      "Source": "Alghaf Marine historical indicative board mids",
+      "Status": "Indicative/reference only"
+    }
+  ],
+  "08_Model_Assumptions": [
+    {
+      "Parameter": "Ballast factor",
+      "Value": 1,
+      "Unit": "Multiplier",
+      "Source/Meaning": "User/model assumption",
+      "Status": "Editable"
+    },
+    {
+      "Parameter": "Port time loading",
+      "Value": 2,
+      "Unit": "days",
+      "Source/Meaning": "Illustrative model input",
+      "Status": "Editable"
+    },
+    {
+      "Parameter": "Port time discharge",
+      "Value": 2,
+      "Unit": "days",
+      "Source/Meaning": "Illustrative model input",
+      "Status": "Editable"
+    },
+    {
+      "Parameter": "Demurrage",
+      "Value": 15000,
+      "Unit": "USD/day",
+      "Source/Meaning": "Illustrative model input",
+      "Status": "Editable"
+    },
+    {
+      "Parameter": "Despatch",
+      "Value": 7500,
+      "Unit": "USD/day",
+      "Source/Meaning": "Illustrative model input",
+      "Status": "Editable"
+    },
+    {
+      "Parameter": "Commission",
+      "Value": 0.025,
+      "Unit": "% of freight",
+      "Source/Meaning": "Illustrative model input",
+      "Status": "Editable"
+    },
+    {
+      "Parameter": "Weather contingency",
+      "Value": 0.1,
+      "Unit": "% of sea days",
+      "Source/Meaning": "Illustrative model input",
+      "Status": "Editable"
+    },
+    {
+      "Parameter": "Fuel contingency",
+      "Value": 0.05,
+      "Unit": "% of fuel burn",
+      "Source/Meaning": "Illustrative model input",
+      "Status": "Editable"
+    }
+  ],
+  "09_Compatibility": [
+    {
+      "Vessel Type": "Capesize",
+      "Port": "Paradip",
+      "Berth": "New Coal Import Berth (Berth 03)",
+      "Vessel LOA": 290,
+      "Allowed LOA": 300,
+      "Vessel Beam": 45,
+      "Allowed Beam": 46,
+      "Vessel Draft": 18.2,
+      "Allowed Draft": 16,
+      "Compatible": "NO"
+    },
+    {
+      "Vessel Type": "Capesize",
+      "Port": "Paradip",
+      "Berth": "Coal Berth 01 (Berth 05)",
+      "Vessel LOA": 290,
+      "Allowed LOA": 300,
+      "Vessel Beam": 45,
+      "Allowed Beam": 46,
+      "Vessel Draft": 18.2,
+      "Allowed Draft": 14.5,
+      "Compatible": "NO"
+    },
+    {
+      "Vessel Type": "Capesize",
+      "Port": "Paradip",
+      "Berth": "Coal Berth 02 (Berth 06)",
+      "Vessel LOA": 290,
+      "Allowed LOA": 300,
+      "Vessel Beam": 45,
+      "Allowed Beam": 46,
+      "Vessel Draft": 18.2,
+      "Allowed Draft": 14.5,
+      "Compatible": "NO"
+    },
+    {
+      "Vessel Type": "Capesize",
+      "Port": "Paradip",
+      "Berth": "EQ-3 (Berth 07)",
+      "Vessel LOA": 290,
+      "Allowed LOA": 300,
+      "Vessel Beam": 45,
+      "Allowed Beam": 46,
+      "Vessel Draft": 18.2,
+      "Allowed Draft": 14.5,
+      "Compatible": "NO"
+    },
+    {
+      "Vessel Type": "Capesize",
+      "Port": "Paradip",
+      "Berth": "EQ-2 (Berth 08)",
+      "Vessel LOA": 290,
+      "Allowed LOA": 300,
+      "Vessel Beam": 45,
+      "Allowed Beam": 46,
+      "Vessel Draft": 18.2,
+      "Allowed Draft": 14.5,
+      "Compatible": "NO"
+    },
+    {
+      "Vessel Type": "Capesize",
+      "Port": "Paradip",
+      "Berth": "EQ-1 (Berth 09)",
+      "Vessel LOA": 290,
+      "Allowed LOA": 230,
+      "Vessel Beam": 45,
+      "Allowed Beam": 38,
+      "Vessel Draft": 18.2,
+      "Allowed Draft": 12.5,
+      "Compatible": "NO"
+    },
+    {
+      "Vessel Type": "Panamax",
+      "Port": "Paradip",
+      "Berth": "New Coal Import Berth (Berth 03)",
+      "Vessel LOA": 229,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.25,
+      "Allowed Beam": 46,
+      "Vessel Draft": 14.43,
+      "Allowed Draft": 16,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Panamax",
+      "Port": "Paradip",
+      "Berth": "Coal Berth 01 (Berth 05)",
+      "Vessel LOA": 229,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.25,
+      "Allowed Beam": 46,
+      "Vessel Draft": 14.43,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Panamax",
+      "Port": "Paradip",
+      "Berth": "Coal Berth 02 (Berth 06)",
+      "Vessel LOA": 229,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.25,
+      "Allowed Beam": 46,
+      "Vessel Draft": 14.43,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Panamax",
+      "Port": "Paradip",
+      "Berth": "EQ-3 (Berth 07)",
+      "Vessel LOA": 229,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.25,
+      "Allowed Beam": 46,
+      "Vessel Draft": 14.43,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Panamax",
+      "Port": "Paradip",
+      "Berth": "EQ-2 (Berth 08)",
+      "Vessel LOA": 229,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.25,
+      "Allowed Beam": 46,
+      "Vessel Draft": 14.43,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Panamax",
+      "Port": "Paradip",
+      "Berth": "EQ-1 (Berth 09)",
+      "Vessel LOA": 229,
+      "Allowed LOA": 230,
+      "Vessel Beam": 32.25,
+      "Allowed Beam": 38,
+      "Vessel Draft": 14.43,
+      "Allowed Draft": 12.5,
+      "Compatible": "NO"
+    },
+    {
+      "Vessel Type": "Supramax",
+      "Port": "Paradip",
+      "Berth": "New Coal Import Berth (Berth 03)",
+      "Vessel LOA": 189.99,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.26,
+      "Allowed Beam": 46,
+      "Vessel Draft": 12.8,
+      "Allowed Draft": 16,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Supramax",
+      "Port": "Paradip",
+      "Berth": "Coal Berth 01 (Berth 05)",
+      "Vessel LOA": 189.99,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.26,
+      "Allowed Beam": 46,
+      "Vessel Draft": 12.8,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Supramax",
+      "Port": "Paradip",
+      "Berth": "Coal Berth 02 (Berth 06)",
+      "Vessel LOA": 189.99,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.26,
+      "Allowed Beam": 46,
+      "Vessel Draft": 12.8,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Supramax",
+      "Port": "Paradip",
+      "Berth": "EQ-3 (Berth 07)",
+      "Vessel LOA": 189.99,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.26,
+      "Allowed Beam": 46,
+      "Vessel Draft": 12.8,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Supramax",
+      "Port": "Paradip",
+      "Berth": "EQ-2 (Berth 08)",
+      "Vessel LOA": 189.99,
+      "Allowed LOA": 300,
+      "Vessel Beam": 32.26,
+      "Allowed Beam": 46,
+      "Vessel Draft": 12.8,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Supramax",
+      "Port": "Paradip",
+      "Berth": "EQ-1 (Berth 09)",
+      "Vessel LOA": 189.99,
+      "Allowed LOA": 230,
+      "Vessel Beam": 32.26,
+      "Allowed Beam": 38,
+      "Vessel Draft": 12.8,
+      "Allowed Draft": 12.5,
+      "Compatible": "NO"
+    },
+    {
+      "Vessel Type": "Handysize",
+      "Port": "Paradip",
+      "Berth": "New Coal Import Berth (Berth 03)",
+      "Vessel LOA": 180,
+      "Allowed LOA": 300,
+      "Vessel Beam": 29.8,
+      "Allowed Beam": 46,
+      "Vessel Draft": 10.538,
+      "Allowed Draft": 16,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Handysize",
+      "Port": "Paradip",
+      "Berth": "Coal Berth 01 (Berth 05)",
+      "Vessel LOA": 180,
+      "Allowed LOA": 300,
+      "Vessel Beam": 29.8,
+      "Allowed Beam": 46,
+      "Vessel Draft": 10.538,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Handysize",
+      "Port": "Paradip",
+      "Berth": "Coal Berth 02 (Berth 06)",
+      "Vessel LOA": 180,
+      "Allowed LOA": 300,
+      "Vessel Beam": 29.8,
+      "Allowed Beam": 46,
+      "Vessel Draft": 10.538,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Handysize",
+      "Port": "Paradip",
+      "Berth": "EQ-3 (Berth 07)",
+      "Vessel LOA": 180,
+      "Allowed LOA": 300,
+      "Vessel Beam": 29.8,
+      "Allowed Beam": 46,
+      "Vessel Draft": 10.538,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Handysize",
+      "Port": "Paradip",
+      "Berth": "EQ-2 (Berth 08)",
+      "Vessel LOA": 180,
+      "Allowed LOA": 300,
+      "Vessel Beam": 29.8,
+      "Allowed Beam": 46,
+      "Vessel Draft": 10.538,
+      "Allowed Draft": 14.5,
+      "Compatible": "YES"
+    },
+    {
+      "Vessel Type": "Handysize",
+      "Port": "Paradip",
+      "Berth": "EQ-1 (Berth 09)",
+      "Vessel LOA": 180,
+      "Allowed LOA": 230,
+      "Vessel Beam": 29.8,
+      "Allowed Beam": 38,
+      "Vessel Draft": 10.538,
+      "Allowed Draft": 12.5,
+      "Compatible": "YES"
+    }
+  ],
+  "10_Forecast_Features": [
+    {
+      "Date": 46254,
+      "BDI": 2791,
+      "Daily Return %": "",
+      "3-Day MA": 2791,
+      "7-Day MA": 2791,
+      "Trend": "FLAT",
+      "Next-Day Target": 2841,
+      "Source": "Derived from observed BDI"
+    },
+    {
+      "Date": 46255,
+      "BDI": 2841,
+      "Daily Return %": 1.791472590469367,
+      "3-Day MA": 2816,
+      "7-Day MA": 2816,
+      "Trend": "UP",
+      "Next-Day Target": 2882,
+      "Source": "Derived from observed BDI"
+    },
+    {
+      "Date": 46258,
+      "BDI": 2882,
+      "Daily Return %": 1.44315381907778,
+      "3-Day MA": 2838,
+      "7-Day MA": 2838,
+      "Trend": "UP",
+      "Next-Day Target": 2926,
+      "Source": "Derived from observed BDI"
+    },
+    {
+      "Date": 46259,
+      "BDI": 2926,
+      "Daily Return %": 1.526717557251911,
+      "3-Day MA": 2883,
+      "7-Day MA": 2860,
+      "Trend": "UP",
+      "Next-Day Target": 3056,
+      "Source": "Derived from observed BDI"
+    },
+    {
+      "Date": 46260,
+      "BDI": 3056,
+      "Daily Return %": 4.442925495557071,
+      "3-Day MA": 2954.666666666667,
+      "7-Day MA": 2899.2,
+      "Trend": "UP",
+      "Next-Day Target": 3107,
+      "Source": "Derived from observed BDI"
+    },
+    {
+      "Date": 46261,
+      "BDI": 3107,
+      "Daily Return %": 1.668848167539272,
+      "3-Day MA": 3029.666666666667,
+      "7-Day MA": 2933.833333333333,
+      "Trend": "UP",
+      "Next-Day Target": 3186,
+      "Source": "Derived from observed BDI"
+    },
+    {
+      "Date": 46262,
+      "BDI": 3186,
+      "Daily Return %": 2.542645638879959,
+      "3-Day MA": 3116.333333333333,
+      "7-Day MA": 2969.857142857143,
+      "Trend": "UP",
+      "Next-Day Target": "",
+      "Source": "Derived from observed BDI"
+    }
+  ],
+  "11_Decision_Input": [
+    {
+      "Scenario ID": "SIH-001",
+      "Origin": "Australia",
+      "Destination": "Dhamra",
+      "Cargo": "Thermal Coal",
+      "Cargo Quantity (mt)": 70000,
+      "Candidate Vessel": "Panamax",
+      "BDI": 3186,
+      "Vessel DWT (mt)": 82500,
+      "Vessel Draft (m)": 14.43,
+      "Vessel LOA (m)": 229,
+      "Vessel Beam (m)": 32.25,
+      "Port Max Draft (m)": 14.5,
+      "Port Max LOA (m)": 300,
+      "Port Max Beam (m)": 46,
+      "Port Compatible": "YES",
+      "Freight Rate (USD/mt)": "",
+      "Bunker (USD/mt)": 715,
+      "Distance (nm)": "",
+      "Sea Days": "",
+      "Estimated Freight Cost (USD)": "",
+      "Recommendation": "Requires route quote/distance before economic decision",
+      "Status": "Illustrative scenario"
+    }
+  ],
+  "12_ML_Schema": [
+    {
+      "Field": "timestamp",
+      "Domain": "Market",
+      "Type": "Datetime",
+      "Required?": "Yes",
+      "Meaning": "BDI/segment observation time",
+      "Use": "Model feature"
+    },
+    {
+      "Field": "route",
+      "Domain": "Voyage",
+      "Type": "Categorical",
+      "Required?": "Yes",
+      "Meaning": "Origin-destination pair",
+      "Use": "Model feature"
+    },
+    {
+      "Field": "cargo_type",
+      "Domain": "Cargo",
+      "Type": "Categorical",
+      "Required?": "Yes",
+      "Meaning": "Coal/iron ore/etc.",
+      "Use": "Model feature"
+    },
+    {
+      "Field": "cargo_quantity_mt",
+      "Domain": "Cargo",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Required cargo quantity",
+      "Use": "Decision constraint"
+    },
+    {
+      "Field": "vessel_type",
+      "Domain": "Vessel",
+      "Type": "Categorical",
+      "Required?": "Yes",
+      "Meaning": "Capesize/Panamax/Supramax/Handysize",
+      "Use": "Decision variable"
+    },
+    {
+      "Field": "vessel_dwt_mt",
+      "Domain": "Vessel",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Vessel capacity",
+      "Use": "Constraint"
+    },
+    {
+      "Field": "vessel_draft_m",
+      "Domain": "Vessel",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Loaded draft",
+      "Use": "Constraint"
+    },
+    {
+      "Field": "vessel_loa_m",
+      "Domain": "Vessel",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Length overall",
+      "Use": "Constraint"
+    },
+    {
+      "Field": "vessel_beam_m",
+      "Domain": "Vessel",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Beam",
+      "Use": "Constraint"
+    },
+    {
+      "Field": "port_max_draft_m",
+      "Domain": "Port",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Berth restriction",
+      "Use": "Constraint"
+    },
+    {
+      "Field": "port_max_loa_m",
+      "Domain": "Port",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Berth restriction",
+      "Use": "Constraint"
+    },
+    {
+      "Field": "port_max_beam_m",
+      "Domain": "Port",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Berth restriction",
+      "Use": "Constraint"
+    },
+    {
+      "Field": "freight_rate_usd_mt",
+      "Domain": "Market",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Observed quote/benchmark",
+      "Use": "Prediction target"
+    },
+    {
+      "Field": "bdi",
+      "Domain": "Market",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Baltic Dry Index",
+      "Use": "Model feature"
+    },
+    {
+      "Field": "bci",
+      "Domain": "Market",
+      "Type": "Numeric",
+      "Required?": "No",
+      "Meaning": "Capesize index",
+      "Use": "Model feature"
+    },
+    {
+      "Field": "bpi",
+      "Domain": "Market",
+      "Type": "Numeric",
+      "Required?": "No",
+      "Meaning": "Panamax index",
+      "Use": "Model feature"
+    },
+    {
+      "Field": "bsi",
+      "Domain": "Market",
+      "Type": "Numeric",
+      "Required?": "No",
+      "Meaning": "Supramax index",
+      "Use": "Model feature"
+    },
+    {
+      "Field": "bhsi",
+      "Domain": "Market",
+      "Type": "Numeric",
+      "Required?": "No",
+      "Meaning": "Handysize index",
+      "Use": "Model feature"
+    },
+    {
+      "Field": "bunker_usd_mt",
+      "Domain": "Fuel",
+      "Type": "Numeric",
+      "Required?": "No",
+      "Meaning": "Marine fuel price",
+      "Use": "Cost feature"
+    },
+    {
+      "Field": "distance_nm",
+      "Domain": "Route",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Nautical-mile route distance",
+      "Use": "Cost feature"
+    },
+    {
+      "Field": "sea_days",
+      "Domain": "Voyage",
+      "Type": "Numeric",
+      "Required?": "Yes",
+      "Meaning": "Estimated sailing duration",
+      "Use": "Cost feature"
+    },
+    {
+      "Field": "port_days",
+      "Domain": "Voyage",
+      "Type": "Numeric",
+      "Required?": "No",
+      "Meaning": "Loading/discharge time",
+      "Use": "Cost feature"
+    },
+    {
+      "Field": "demurrage_usd_day",
+      "Domain": "Contract",
+      "Type": "Numeric",
+      "Required?": "No",
+      "Meaning": "Delay cost",
+      "Use": "Risk feature"
+    },
+    {
+      "Field": "laycan_start",
+      "Domain": "Contract",
+      "Type": "Datetime",
+      "Required?": "No",
+      "Meaning": "Earliest laycan",
+      "Use": "Scheduling"
+    },
+    {
+      "Field": "laycan_end",
+      "Domain": "Contract",
+      "Type": "Datetime",
+      "Required?": "No",
+      "Meaning": "Latest laycan",
+      "Use": "Scheduling"
+    },
+    {
+      "Field": "weather_factor",
+      "Domain": "Risk",
+      "Type": "Numeric",
+      "Required?": "No",
+      "Meaning": "Weather delay factor",
+      "Use": "Risk feature"
+    },
+    {
+      "Field": "market_volatility",
+      "Domain": "Market",
+      "Type": "Numeric",
+      "Required?": "No",
+      "Meaning": "Rolling volatility",
+      "Use": "Risk feature"
+    },
+    {
+      "Field": "total_voyage_cost",
+      "Domain": "Output",
+      "Type": "Numeric",
+      "Required?": "Derived",
+      "Meaning": "Computed cost",
+      "Use": "Decision output"
+    },
+    {
+      "Field": "estimated_freight_cost",
+      "Domain": "Output",
+      "Type": "Numeric",
+      "Required?": "Derived",
+      "Meaning": "Quantity × freight rate",
+      "Use": "Decision output"
+    },
+    {
+      "Field": "expected_margin",
+      "Domain": "Output",
+      "Type": "Numeric",
+      "Required?": "Derived",
+      "Meaning": "Revenue-cost measure",
+      "Use": "Decision output"
+    },
+    {
+      "Field": "recommendation",
+      "Domain": "Output",
+      "Type": "Categorical",
+      "Required?": "Derived",
+      "Meaning": "Book/wait/alternative vessel",
+      "Use": "Decision output"
+    }
+  ],
+  "13_Sources": [
+    {
+      "Publisher": "Baltic Exchange",
+      "Dataset/Use": "Dry bulk indices/routes and standard vessel specifications",
+      "URL": "https://www.balticexchange.com/en/data-services/market-information0/indices.html",
+      "Status": "Observed/reference"
+    },
+    {
+      "Publisher": "Baltic Exchange",
+      "Dataset/Use": "Dry market methodology / BDI composition",
+      "URL": "https://www.balticexchange.com/en/data-services/market-information0/dry-services.html",
+      "Status": "Reference"
+    },
+    {
+      "Publisher": "Paradip Port Authority",
+      "Dataset/Use": "Maximum permissible LOA/beam/draft by berth",
+      "URL": "https://paradipport.gov.in/Writereaddata/RTI/DRAFT%20NOTIFICATIONrti-09022024.pdf",
+      "Status": "Current public specification"
+    },
+    {
+      "Publisher": "Paradip Port Authority",
+      "Dataset/Use": "Berthing policy page (FY 2026-27)",
+      "URL": "https://paradipport.gov.in/berthing-policy/",
+      "Status": "Current"
+    },
+    {
+      "Publisher": "Paradip Port Authority",
+      "Dataset/Use": "General cargo berth infrastructure",
+      "URL": "https://paradipport.gov.in/infrastructure/general-cargo-berth/",
+      "Status": "Current"
+    },
+    {
+      "Publisher": "Adani Ports",
+      "Dataset/Use": "Dhamra port operational performance / capacity / vessel classes",
+      "URL": "https://www.adaniports.com/digital-reports/ports/2026/operational-performance-ports.html",
+      "Status": "Current"
+    },
+    {
+      "Publisher": "Ministry of Coal",
+      "Dataset/Use": "Dhamra coal handling capacity reference",
+      "URL": "https://www.coal.nic.in/sites/default/files/2023-10/09-10-2023-rsr.pdf",
+      "Status": "Reference"
+    },
+    {
+      "Publisher": "Coal Controller Organization",
+      "Dataset/Use": "India coal import/export statistics portal",
+      "URL": "https://coalcontroller.gov.in/coal-import-export",
+      "Status": "Current data portal"
+    },
+    {
+      "Publisher": "Ministry of Coal",
+      "Dataset/Use": "India coal import statistics",
+      "URL": "https://www.coal.gov.in/sites/default/files/2025-05/srn-march-2025.pdf",
+      "Status": "Observed/reference"
+    },
+    {
+      "Publisher": "Asian Oil Group",
+      "Dataset/Use": "Singapore VLSFO indicative prices",
+      "URL": "https://www.asianoil.com/markets/vlsfo",
+      "Status": "Indicative"
+    },
+    {
+      "Publisher": "Alghaf Marine",
+      "Dataset/Use": "Singapore VLSFO historical indicative board mids",
+      "URL": "https://alghafmarine.com/prices/history/vlsfo-sg/",
+      "Status": "Indicative"
+    }
+  ]
+}

@@ -81,7 +81,7 @@ export function DecisionWorkspace() {
                           <span className="text-xs text-slate-500 block">Total Cost</span>
                           <span className="text-sm font-semibold text-slate-900">
                             {evalData.totalCost === "Unavailable" ? (
-                              <span className="text-slate-400 text-xs italic">Requires model</span>
+                              <span className="text-slate-400 text-xs italic">Unavailable</span>
                             ) : `$${evalData.totalCost.toLocaleString()}`}
                           </span>
                         </div>
@@ -89,7 +89,7 @@ export function DecisionWorkspace() {
                           <span className="text-xs text-slate-500 block">Risk Score</span>
                           <span className="text-sm font-semibold text-slate-900">
                             {evalData.riskScore === "Unavailable" ? (
-                              <span className="text-slate-400 text-xs italic">Requires model</span>
+                              <span className="text-slate-400 text-xs italic">Unavailable</span>
                             ) : evalData.riskScore}
                           </span>
                         </div>
@@ -97,7 +97,7 @@ export function DecisionWorkspace() {
                           <span className="text-xs text-slate-500 block">Deadline Buffer</span>
                           <span className="text-sm font-semibold text-slate-900">
                             {evalData.deadlineBuffer === "Unavailable" ? (
-                              <span className="text-slate-400 text-xs italic">Requires model</span>
+                              <span className="text-slate-400 text-xs italic">Unavailable</span>
                             ) : evalData.deadlineBuffer < 0 ? (
                               <span className="text-red-600 font-bold">{Math.abs(evalData.deadlineBuffer as number)} days late</span>
                             ) : (
@@ -147,7 +147,7 @@ export function DecisionWorkspace() {
                     </div>
                   ) : (
                     <div className="flex items-center gap-2 text-slate-500 text-sm">
-                      <AlertCircle size={16} /> Requires model
+                      <AlertCircle size={16} /> Unavailable
                     </div>
                   )}
                 </div>
@@ -174,7 +174,7 @@ export function DecisionWorkspace() {
                     </div>
                   ) : (
                     <div className="flex items-center gap-2 text-slate-500 text-sm">
-                      <AlertCircle size={16} /> Requires model
+                      <AlertCircle size={16} /> Unavailable
                     </div>
                   )}
                 </div>

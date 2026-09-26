@@ -74,7 +74,7 @@ export function HumanApproval() {
   const [mode, setMode] = useState<"idle" | "approving" | "modifying" | "approved">("idle");
 
   // Modify fields — start with current decision values
-  const [modTime, setModTime] = useState<ScenarioType | "Unavailable">(decision.bestTime);
+  const [modTime, setModTime] = useState<ScenarioType | "Unavailable">(decision?.bestTime);
   const [modVessel, setModVessel] = useState<any | "Unavailable">(decision.bestVessel);
   const [modPort, setModPort] = useState<any | "Unavailable">(decision.bestPort);
   const [modRec, setModRec] = useState<FinalRecommendationType>(finalRec.recommendation);
@@ -91,7 +91,7 @@ export function HumanApproval() {
       approvedAt: new Date().toISOString(),
       originalRecommendation: finalRec.recommendation,
       finalDecision: {
-        bestTime: decision.bestTime,
+        bestTime: decision?.bestTime,
         bestVessel: decision.bestVessel,
         bestPort: decision.bestPort,
         recommendation: finalRec.recommendation,
@@ -107,7 +107,7 @@ export function HumanApproval() {
   function handleModifySave() {
     // Warn if time was changed
     let warning: string | null = null;
-    if (modTime !== decision.bestTime && modTime !== "Unavailable") {
+    if (modTime !== decision?.bestTime && modTime !== "Unavailable") {
       warning = `Modified time (${modTime}) requires revalidation before finalization — deadline feasibility may change.`;
     }
     setModWarning(warning);
@@ -181,11 +181,11 @@ export function HumanApproval() {
           <div className="px-8 py-2 grid grid-cols-1 md:grid-cols-2 gap-x-12 divide-y md:divide-y-0">
             <div className="divide-y divide-slate-100">
               <SummaryRow icon={<CalendarClock size={15} />} label="Best Time"
-                value={decision.bestTime === "Unavailable" ? <UnavailablePill /> : decision.bestTime} />
+                value={decision?.bestTime === "Unavailable" ? <UnavailablePill /> : decision?.bestTime} />
               <SummaryRow icon={<Anchor size={15} />} label="Best Vessel"
-                value={decision.bestVessel !== "Unavailable" ? decision.bestVessel["Vessel Type"] : <UnavailablePill />} />
+                value={decision?.bestVessel !== "Unavailable" ? decision?.bestVessel?.["Vessel Type"] : <UnavailablePill />} />
               <SummaryRow icon={<Map size={15} />} label="Best Port"
-                value={decision.bestPort !== "Unavailable" ? decision.bestPort["Port"] : <UnavailablePill />} />
+                value={decision?.bestPort !== "Unavailable" ? decision?.bestPort?.["Port"] : <UnavailablePill />} />
             </div>
             <div className="divide-y divide-slate-100">
               <SummaryRow icon={<AlertCircle size={15} />} label="Risk Score"

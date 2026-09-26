@@ -1,0 +1,1 @@
+date,origin_port,destination_port,vessel_type,cargo_type,quantity_mt,freight_rate_usd_per_mt,bunker_cost_usd,demurrage_usd_day,bdi_value,bdi_30_day_avg,route_distance_nm,fuel_price_midpoint_usd_per_mt,selected_option

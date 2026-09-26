@@ -7,6 +7,7 @@ import { SearchableSelect } from "../../components/ui/SearchableSelect";
 import { DatePicker } from "../../components/ui/DatePicker";
 import type { DateRange } from "react-day-picker";
 import { format } from "date-fns";
+import { submitVoyage } from "../../services/api";
 
 import { DatasetService } from "../../data/DatasetService";
 import { DEMO_SCENARIOS } from "../../data/demo/demoVoyages";
@@ -98,12 +99,12 @@ export function VoyageRequirementInput() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
       setIsLoading(true);
-      setTimeout(() => {
-        setRequirements({
+      try {
+        const reqPayload = {
           origin: PORT_OPTIONS.find(o => o.value === origin)?.label || origin,
           destination: PORT_OPTIONS.find(o => o.value === destination)?.label || destination,
           commodity: COMMODITY_OPTIONS.find(o => o.value === commodity)?.label || commodity,
@@ -112,11 +113,17 @@ export function VoyageRequirementInput() {
           contract: CONTRACT_OPTIONS.find(o => o.value === contract)?.label || contract,
           laycan: (laycan?.from && laycan?.to) ? `${format(laycan.from, "dd MMM yyyy")} - ${format(laycan.to, "dd MMM yyyy")}` : "",
           noOfVoyages: calculatedVoyages
-        });
-        setIsLoading(false);
+        };
+        await submitVoyage(reqPayload);
+        setRequirements(reqPayload);
         markStepComplete("/voyage-requirement-input");
         navigate("/freight-forecasting");
-      }, 800);
+      } catch (err) {
+        console.error(err);
+        alert("Failed to submit voyage: " + (err as any).message + " " + JSON.stringify((err as any).response?.data || {}));
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -287,3 +294,5 @@ export function VoyageRequirementInput() {
     </div>
   );
 }
+
+

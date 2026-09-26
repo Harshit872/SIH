@@ -5,12 +5,9 @@ import {
   RefreshCw, Info, Anchor, Map, CalendarClock, BarChart3
 } from "lucide-react";
 import { Button } from "../../components/ui/button";
-import {
-  evaluateScenarios,
-  runDecisionEngine,
-  generateFinalRecommendation,
-  type FinalRecommendationType
-} from "../../utils/DecisionLogic";
+import { useState, useEffect } from "react";
+import { evaluateScenarios as apiEvaluateScenarios, generateRecommendation as apiRunDecision } from "../../services/api";
+type FinalRecommendationType = "BOOK NOW" | "WAIT" | "CHANGE PLAN" | "UNAVAILABLE";
 
 function RecommendationBadge({ rec }: { rec: FinalRecommendationType }) {
   if (rec === "BOOK NOW") {
@@ -60,11 +57,85 @@ function ContextRow({ label, value, icon }: { label: string; value: string; icon
 export function FinalRecommendation() {
   const { requirements, markStepComplete } = useVoyage();
   const navigate = useNavigate();
-  const evaluations = evaluateScenarios(requirements);
-  const decision = runDecisionEngine(evaluations, requirements);
-  const finalRec = generateFinalRecommendation(evaluations, decision);
+
+  const [evaluations, setEvaluations] = useState<any[]>([]);
+  const [decision, setDecision] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [finalRec, setFinalRec] = useState<{recommendation: FinalRecommendationType, reason: string}>({
+    recommendation: "UNAVAILABLE",
+    reason: "Awaiting calculation..."
+  });
+
+  useEffect(() => {
+    async function loadData() {
+      if (!requirements) {
+        setIsLoading(false);
+        return;
+      }
+      try {
+        const payload = {
+          origin: requirements.origin,
+          destination: requirements.destination,
+          commodity: requirements.commodity,
+          cargoMt: requirements.cargoMt,
+          deliveryDate: requirements.deliveryDate || new Date().toISOString(),
+          contract: requirements.contract,
+          laycan: requirements.laycan,
+          noOfVoyages: requirements.noOfVoyages
+        };
+        const scenariosRes = await apiEvaluateScenarios(payload);
+        
+        const mappedScenarios = scenariosRes.scenarios.map((s: any) => {
+          const getComp = (name: string) => {
+            if (!s.cost_report || !s.cost_report.components) return "Unavailable";
+            const c = s.cost_report.components.find((x: any) => x.name === name);
+            return c && c.amount !== null ? c.amount : "Unavailable";
+          };
+          return {
+            scenario: s.name.toUpperCase(),
+            totalCost: (s.cost_report && s.cost_report.total_amount !== null) ? s.cost_report.total_amount : "Unavailable",
+            riskScore: (s.risk_report && s.risk_report.score !== null) ? s.risk_report.score : "Unavailable",
+            deadlineBuffer: (s.schedule_report && s.schedule_report.buffer_days !== null) ? s.schedule_report.buffer_days : "Unavailable",
+            details: {
+              freightCost: getComp("Freight Cost"),
+              bunkerCost: getComp("Bunker Cost"),
+              portCost: getComp("Port Charges"),
+              delayCost: getComp("Waiting Cost"),
+            }
+          };
+        });
+        setEvaluations(mappedScenarios);
+
+        try {
+          const decisionRes = await apiRunDecision(payload);
+          setDecision(decisionRes);
+          setFinalRec({
+            recommendation: decisionRes.bestTime === "BOOK NOW" ? "BOOK NOW" : (decisionRes.bestTime === "WAIT 7 DAYS" || decisionRes.bestTime === "WAIT 14 DAYS" ? "WAIT" : "CHANGE PLAN"),
+            reason: decisionRes.bestTimeExplanation
+          });
+        } catch(e) {
+          setDecision({
+            bestTime: "Unavailable",
+            bestTimeExplanation: "Backend decision engine not implemented yet.",
+            bestVessel: "Unavailable",
+            bestVesselExplanation: "",
+            bestPort: "Unavailable",
+            bestPortExplanation: ""
+          });
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadData();
+  }, [requirements]);
+
+  if (isLoading) return <div className="p-8 text-center text-slate-500">Generating final recommendation...</div>;
 
   const bookNowEval = evaluations.find(e => e.scenario === "BOOK NOW");
+
 
   return (
     <div className="w-full relative flex flex-col min-h-full">
@@ -98,15 +169,15 @@ export function FinalRecommendation() {
           {/* System Best Choice */}
           <div className="bg-white border border-slate-200 rounded-xl shadow-sm p-6">
             <h4 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4">Recommended Details</h4>
-            <ContextRow label="Recommended Timing" value={decision.bestTime} icon={<CalendarClock size={16} />} />
+            <ContextRow label="Recommended Timing" value={decision?.bestTime} icon={<CalendarClock size={16} />} />
             <ContextRow
               label="Recommended Vessel"
-              value={decision.bestVessel !== "Unavailable" ? decision.bestVessel["Vessel Type"] : "Requires model"}
+              value={decision?.bestVessel !== "Unavailable" ? decision?.bestVessel?.["Vessel Type"] : "Unavailable"}
               icon={<Anchor size={16} />}
             />
             <ContextRow
               label="Recommended Port"
-              value={decision.bestPort !== "Unavailable" ? decision.bestPort["Port"] : "Requires model"}
+              value={decision?.bestPort !== "Unavailable" ? decision?.bestPort?.["Port"] : "Unavailable"}
               icon={<Map size={16} />}
             />
           </div>
@@ -119,9 +190,9 @@ export function FinalRecommendation() {
                 <div key={ev.scenario} className="flex justify-between items-center text-sm py-2 border-b border-slate-100 last:border-0">
                   <span className="font-semibold text-slate-700">{ev.scenario}</span>
                   <div className="text-right text-xs text-slate-500 space-y-0.5">
-                    <div>Cost: <span className="italic">{ev.totalCost === "Unavailable" ? "Requires model" : ev.totalCost}</span></div>
-                    <div>Risk: <span className="italic">{ev.riskScore === "Unavailable" ? "Requires model" : ev.riskScore}</span></div>
-                    <div>Buffer: <span className="italic">{ev.deadlineBuffer === "Unavailable" ? "Requires model" : (ev.deadlineBuffer as number) < 0 ? `${Math.abs(ev.deadlineBuffer as number)} days late` : `+${ev.deadlineBuffer} days`}</span></div>
+                    <div>Cost: <span className="italic">{ev.totalCost === "Unavailable" ? "Unavailable" : ev.totalCost}</span></div>
+                    <div>Risk: <span className="italic">{ev.riskScore === "Unavailable" ? "Unavailable" : ev.riskScore}</span></div>
+                    <div>Buffer: <span className="italic">{ev.deadlineBuffer === "Unavailable" ? "Unavailable" : (ev.deadlineBuffer as number) < 0 ? `${Math.abs(ev.deadlineBuffer as number)} days late` : `+${ev.deadlineBuffer} days`}</span></div>
                   </div>
                 </div>
               ))}
@@ -135,11 +206,11 @@ export function FinalRecommendation() {
               label="Freight Cost"
               value={bookNowEval?.details.freightCost !== "Unavailable" && bookNowEval?.details.freightCost !== undefined
                 ? `$${bookNowEval.details.freightCost.toLocaleString()}`
-                : "Requires model"}
+                : "Unavailable"}
               icon={<BarChart3 size={16} />}
             />
-            <ContextRow label="Bunker Cost" value="Requires model" icon={<BarChart3 size={16} />} />
-            <ContextRow label="Port Cost" value="Requires model" icon={<BarChart3 size={16} />} />
+            <ContextRow label="Bunker Cost" value={bookNowEval?.details.bunkerCost !== "Unavailable" ? "$" + bookNowEval?.details.bunkerCost.toLocaleString() : "Unavailable"} icon={<BarChart3 size={16} />} />
+            <ContextRow label="Port Cost" value={bookNowEval?.details.portCost !== "Unavailable" ? "$" + bookNowEval?.details.portCost.toLocaleString() : "Unavailable"} icon={<BarChart3 size={16} />} />
             <div className="mt-4 p-3 bg-blue-50 border border-blue-100 rounded-lg">
               <p className="text-xs text-blue-700 leading-relaxed">
                 Full cost breakdown requires forecasting model for bunker and port tariffs.

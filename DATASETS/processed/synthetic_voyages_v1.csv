@@ -1,0 +1,501 @@
+date,origin_port,destination_port,vessel_class,cargo_type,quantity_mt,route_distance_nm,bunker_price_usd_per_mt,bunker_cost_usd,hire_cost_usd,port_cost_usd,demurrage_usd,freight_cost_usd,freight_rate_usd_per_mt,bdi_value_synthetic,is_synthetic
+2025-01-03,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,18013,5300,713.79,245201.62,189360.49,62808.53,14233.58,511604.22,28.4,1990,True
+2025-01-03,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,13618,5300,950.57,326538.28,210285.68,57430.32,5709.25,599963.53,44.06,2523,True
+2025-01-04,"Gladstone, Australia","Paradip, India",Handysize,Coal,19651,6300,947.17,386760.75,270262.22,65047.55,3930.05,726000.58,36.94,2958,True
+2025-01-04,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,92806,4600,928.59,395509.98,264823.7,74990.44,41248.09,776572.22,8.37,2579,True
+2025-01-06,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,128683,5300,752.77,515904.29,422263.79,64684.65,0.0,1002852.73,7.79,2621,True
+2025-01-09,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,117555,5300,964.74,661177.32,365334.48,71568.71,20142.52,1118223.03,9.51,1998,True
+2025-01-10,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,45675,6300,880.34,445062.08,196031.11,59146.71,58233.94,758473.85,16.61,534,True
+2025-01-10,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,165483,5300,740.34,507389.22,421898.28,66281.6,0.0,995569.1,6.02,2617,True
+2025-01-10,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,89207,5300,772.1,378903.07,248537.28,76054.63,33492.98,736987.96,8.26,1498,True
+2025-01-11,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,42805,4600,772.41,285123.01,198674.57,65237.29,58223.79,607258.65,14.19,2164,True
+2025-01-12,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,48176,6300,907.95,459020.59,261411.11,59903.13,0.0,780334.84,16.2,1935,True
+2025-01-12,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,32338,4600,965.44,287843.12,150789.14,71677.77,0.0,510310.02,15.78,1592,True
+2025-01-13,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,114748,4600,824.33,490335.84,246417.24,67031.66,0.0,803784.74,7.0,1107,True
+2025-01-13,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,52609,5300,931.37,396118.69,234796.54,59684.73,39720.24,730320.21,13.88,2314,True
+2025-01-15,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,40587,6300,903.02,456529.02,241997.78,59204.11,0.0,757730.91,18.67,1519,True
+2025-01-17,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,49890,4600,701.97,259122.5,172914.57,58940.92,26094.33,517072.32,10.36,1408,True
+2025-01-27,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,21738,5300,937.0,321875.27,169102.72,67543.62,0.0,558521.6,25.69,1474,True
+2025-01-28,"Gladstone, Australia","Paradip, India",Handysize,Coal,22991,6300,850.6,347329.2,200588.89,62881.82,0.0,610799.91,26.57,1465,True
+2025-01-28,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,134803,4600,990.12,588951.41,386162.07,67285.59,0.0,1042399.07,7.73,2869,True
+2025-01-29,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,69312,4600,868.93,370100.95,205398.52,73244.03,79240.28,727983.78,10.5,1271,True
+2025-01-31,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,47623,5300,851.61,362195.64,167820.25,66908.64,0.0,596924.52,12.53,608,True
+2025-02-02,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,164213,4600,857.75,510211.23,389968.97,59886.59,0.0,960066.78,5.85,2917,True
+2025-02-05,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,43941,4600,984.78,363516.24,204637.53,57976.22,96381.8,722511.79,16.44,2339,True
+2025-02-05,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,17733,5300,933.55,320693.3,189753.09,62329.46,0.0,572775.85,32.3,2000,True
+2025-02-08,"Gladstone, Australia","Paradip, India",Panamax,Coal,63184,6300,878.18,512270.05,245528.89,69225.31,17306.88,844331.13,13.36,696,True
+2025-02-08,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,123040,5300,980.18,671759.09,241972.41,76934.95,24674.72,1015341.17,8.25,648,True
+2025-02-09,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,13053,4600,844.67,251837.48,131741.73,74745.65,13530.69,471855.55,36.15,1033,True
+2025-02-11,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,46532,5300,951.77,404795.43,188078.02,59486.53,15901.81,668261.8,14.36,1124,True
+2025-02-13,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,56970,4600,972.32,358917.32,192370.86,62926.14,0.0,614214.33,10.78,1979,True
+2025-02-14,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,50496,6300,854.17,431829.59,212784.44,57850.08,0.0,702464.11,13.91,893,True
+2025-02-14,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,90018,4600,893.0,380352.79,176140.25,55398.98,26402.1,638294.13,7.09,627,True
+2025-02-18,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,77905,4600,737.34,314053.29,238836.54,64049.88,23193.36,640133.07,8.22,2007,True
+2025-02-21,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,44126,6300,936.09,473247.23,233644.44,55578.03,0.0,762469.71,17.28,1340,True
+2025-02-22,"Gladstone, Australia","Paradip, India",Capesize,Coal,114953,6300,946.63,771180.85,449798.28,65310.17,0.0,1286289.3,11.19,2141,True
+2025-02-26,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,56818,6300,824.63,416894.95,302197.78,55327.95,39541.97,813962.64,14.33,2809,True
+2025-02-27,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,146504,5300,980.56,672022.96,293418.97,58050.31,50640.13,1074132.37,7.33,1211,True
+2025-02-28,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,147619,5300,853.93,585233.63,288301.72,75914.16,10075.66,959525.17,6.5,1155,True
+2025-03-01,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,94669,4600,712.2,303342.72,183454.81,73192.5,3210.35,563200.39,5.95,788,True
+2025-03-01,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,135851,5300,762.81,522791.12,291500.0,67254.42,13291.25,894836.78,6.59,1190,True
+2025-03-02,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,23632,5300,973.37,334369.94,208479.75,72452.09,0.0,615301.79,26.04,2477,True
+2025-03-03,"Gladstone, Australia","Paradip, India",Panamax,Coal,92836,6300,930.13,542577.58,341226.67,70141.64,5377.79,959323.68,10.33,2234,True
+2025-03-03,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,70087,5300,910.4,446769.61,219276.05,56894.03,22947.69,745887.38,10.64,939,True
+2025-03-04,"Gladstone, Australia","Paradip, India",Panamax,Coal,67161,6300,774.6,451848.19,281804.44,66334.57,0.0,799987.21,11.91,1279,True
+2025-03-04,"Gladstone, Australia","Paradip, India",Panamax,Coal,72439,6300,990.46,577769.54,349191.11,56108.49,15475.66,998544.79,13.78,2362,True
+2025-03-05,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,12808,5300,900.44,309318.62,217901.98,63521.69,0.0,590742.29,46.12,2717,True
+2025-03-06,"Gladstone, Australia","Paradip, India",Panamax,Coal,60810,6300,911.37,531632.76,367048.89,71653.16,38852.26,1009187.07,16.6,2649,True
+2025-03-09,"Gladstone, Australia","Paradip, India",Capesize,Coal,131278,6300,717.37,584410.63,309894.83,75266.44,0.0,969571.9,7.39,853,True
+2025-03-09,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,53900,5300,950.7,404340.72,196636.54,66368.35,69021.15,736366.76,13.66,1342,True
+2025-03-11,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,53230,4600,735.97,271671.39,221470.12,59662.95,0.0,552804.47,10.39,2833,True
+2025-03-12,"Gladstone, Australia","Paradip, India",Handysize,Coal,19407,6300,822.66,335919.53,181408.89,71614.04,0.0,588942.46,30.35,1054,True
+2025-03-14,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,48475,4600,822.29,303536.62,204910.12,68495.0,11374.19,588315.93,12.14,2347,True
+2025-03-15,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,40778,4600,837.77,309250.0,188247.9,54871.39,0.0,552369.29,13.55,1858,True
+2025-03-15,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,48021,4600,749.02,276490.37,194926.42,60208.8,0.0,531625.59,11.07,2054,True
+2025-03-16,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,55708,5300,762.67,324368.75,217090.62,60973.32,0.0,602432.69,10.81,1863,True
+2025-03-19,"Gladstone, Australia","Paradip, India",Handysize,Coal,11657,6300,895.64,365721.08,258875.56,73228.63,91548.37,789373.64,67.72,2714,True
+2025-03-19,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,36628,5300,874.57,300430.01,195995.31,71691.61,0.0,568116.93,15.51,2159,True
+2025-03-19,"Gladstone, Australia","Paradip, India",Capesize,Coal,142778,6300,708.89,577499.03,393098.28,72021.61,18972.84,1061591.75,7.44,1619,True
+2025-03-21,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,84663,4600,991.8,422434.28,211804.44,65876.55,0.0,700115.28,8.27,1412,True
+2025-03-21,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,75367,4600,781.51,332867.3,229840.99,74539.62,0.0,637247.91,8.46,1809,True
+2025-03-21,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,80939,5300,750.37,368235.28,215297.78,72898.22,0.0,656431.28,8.11,863,True
+2025-03-22,"Gladstone, Australia","Paradip, India",Capesize,Coal,158733,6300,726.41,591770.37,493246.55,64282.57,7395.79,1156695.28,7.29,2541,True
+2025-03-22,"Gladstone, Australia","Paradip, India",Panamax,Coal,66059,6300,860.69,502069.55,281866.67,55185.34,0.0,839121.56,12.7,1280,True
+2025-03-23,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,74956,5300,794.04,389670.04,258744.69,70339.97,33089.83,751844.53,10.03,1693,True
+2025-03-23,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,53010,5300,730.9,310859.27,173826.91,75546.25,13739.85,573972.3,10.83,761,True
+2025-03-24,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,24156,4600,920.36,274403.68,197811.36,59758.46,8871.8,540845.3,22.39,2972,True
+2025-03-24,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,13063,4600,821.58,244953.6,166190.62,66712.13,0.0,477856.35,36.58,2044,True
+2025-03-25,"Gladstone, Australia","Paradip, India",Handysize,Coal,20104,6300,935.46,381980.71,245528.89,65249.23,21044.39,713803.21,35.51,2428,True
+2025-03-25,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,73815,5300,930.09,456431.93,285598.02,68216.49,2776.45,813022.9,11.01,2206,True
+2025-03-28,"Gladstone, Australia","Paradip, India",Capesize,Coal,143054,6300,943.96,768998.18,505737.93,56149.42,0.0,1330885.53,9.3,2656,True
+2025-03-28,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,50262,4600,735.36,271447.15,184567.9,56689.82,0.0,512704.87,10.2,1750,True
+2025-03-28,"Gladstone, Australia","Paradip, India",Panamax,Coal,66120,6300,945.53,551557.44,293191.11,69474.3,0.0,914222.85,13.83,1462,True
+2025-03-31,"Gladstone, Australia","Paradip, India",Handysize,Coal,35415,6300,943.57,385289.73,195642.22,72646.16,30158.92,683737.03,19.31,1359,True
+2025-04-01,"Gladstone, Australia","Paradip, India",Panamax,Coal,81186,6300,734.78,428619.61,336311.11,73892.94,20694.4,859518.06,10.59,2155,True
+2025-04-02,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,127707,5300,974.03,667546.31,380777.59,71041.73,68384.15,1187749.78,9.3,2167,True
+2025-04-03,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,160648,4600,874.1,519938.09,211600.0,64343.88,0.0,795881.97,4.95,668,True
+2025-04-07,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,55493,4600,816.74,301486.83,185521.98,75532.95,12628.29,575170.04,10.36,1778,True
+2025-04-07,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,146438,5300,827.07,566830.6,403165.52,73868.25,4009.16,1047873.53,7.16,2412,True
+2025-04-10,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,20123,4600,936.58,279240.53,118214.32,67330.2,0.0,464785.05,23.1,636,True
+2025-04-12,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,69571,4600,741.28,315730.32,223753.09,75100.11,41261.04,655844.56,9.43,1675,True
+2025-04-13,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,49812,6300,971.03,490908.2,203217.78,61460.62,0.0,755586.6,15.17,688,True
+2025-04-13,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,74908,5300,808.26,396648.23,261100.25,54325.41,24342.33,736416.22,9.83,1738,True
+2025-04-14,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,54966,6300,996.6,503836.56,251004.44,60074.88,4306.31,819222.19,14.9,1712,True
+2025-04-14,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,31690,4600,801.03,238825.41,131843.95,67736.67,5948.52,444354.54,14.02,1036,True
+2025-04-14,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,52626,4600,756.84,279376.05,215404.94,69108.16,54758.43,618647.57,11.76,2655,True
+2025-04-15,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,78525,5300,789.54,387460.81,219433.09,65079.98,0.0,671973.88,8.56,942,True
+2025-04-16,"Gladstone, Australia","Paradip, India",Capesize,Coal,104696,6300,867.14,706419.52,271551.72,72995.9,76991.3,1127958.44,10.77,500,True
+2025-04-18,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,86977,5300,908.1,445642.7,258064.2,69239.42,0.0,772946.32,8.89,1680,True
+2025-04-19,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,35747,4600,785.83,234293.12,188304.69,74243.12,39338.63,536179.56,15.0,2693,True
+2025-04-21,"Gladstone, Australia","Paradip, India",Panamax,Coal,67529,6300,928.78,541789.32,379617.78,59201.66,28781.61,1009390.37,14.95,2851,True
+2025-04-24,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,49868,6300,736.55,372369.22,239991.11,63655.99,0.0,676016.32,13.56,1476,True
+2025-04-24,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,64753,4600,812.08,345884.75,243970.37,67478.38,16557.2,673890.7,10.41,2120,True
+2025-04-25,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,76049,5300,766.96,376380.1,218229.14,69564.09,0.0,664173.32,8.73,919,True
+2025-04-26,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,142534,5300,704.52,482839.35,331706.9,67448.03,17111.47,899105.74,6.31,1630,True
+2025-04-27,"Gladstone, Australia","Paradip, India",Panamax,Coal,78535,6300,707.41,412656.84,365057.78,72908.51,0.0,850623.12,10.83,2617,True
+2025-04-27,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,56352,5300,855.32,363776.51,253876.54,56708.5,0.0,674361.56,11.97,2800,True
+2025-04-28,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,54092,4600,835.47,308400.59,173834.57,63517.71,45429.26,591182.12,10.93,1435,True
+2025-04-30,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,76393,4600,908.26,386850.44,240517.53,66952.88,62991.4,757312.25,9.91,2044,True
+2025-05-01,"Gladstone, Australia","Paradip, India",Handysize,Coal,35715,6300,731.88,298850.64,193495.56,68007.04,67964.37,628317.6,17.59,1313,True
+2025-05-01,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,84087,4600,884.39,376683.62,211122.96,76019.29,28271.74,692097.62,8.23,1397,True
+2025-05-01,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,131797,4600,908.69,540512.62,264658.62,63122.54,0.0,868293.78,6.59,1337,True
+2025-05-02,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,22907,5300,811.96,278923.12,185356.05,66830.13,13096.04,544205.35,23.76,1888,True
+2025-05-03,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,169446,4600,789.51,469620.38,215803.45,74029.53,0.0,759453.36,4.48,721,True
+2025-05-03,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,15876,4600,766.96,228666.37,185544.69,76572.52,0.0,490783.58,30.91,2612,True
+2025-05-03,"Gladstone, Australia","Paradip, India",Handysize,Coal,24041,6300,783.73,320024.58,206048.89,56991.53,0.0,583065.0,24.25,1582,True
+2025-05-03,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,46276,4600,764.92,282357.66,209544.2,60359.49,48355.32,600616.67,12.98,2483,True
+2025-05-03,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,49968,5300,947.92,403156.87,260589.88,54927.59,0.0,718674.33,14.38,2971,True
+2025-05-10,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,110271,5300,996.48,682935.14,391377.59,58644.14,29687.05,1162643.92,10.54,2283,True
+2025-05-11,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,83897,5300,969.69,475868.57,204828.64,74675.27,0.0,755372.48,9.0,663,True
+2025-05-13,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,156283,4600,821.02,488364.18,353327.59,62816.28,0.0,904508.05,5.79,2455,True
+2025-05-16,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,16630,5300,856.81,294331.27,211934.57,69740.46,0.0,576006.3,34.64,2565,True
+2025-05-16,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,54122,5300,834.65,354985.18,252777.28,65786.14,3276.6,676825.2,12.51,2772,True
+2025-05-17,"Gladstone, Australia","Paradip, India",Panamax,Coal,89004,6300,883.8,515547.49,361946.67,63815.04,0.0,941309.19,10.58,2567,True
+2025-05-19,"Gladstone, Australia","Paradip, India",Handysize,Coal,22966,6300,799.67,326529.94,228168.89,72493.76,16511.76,643704.35,28.03,2056,True
+2025-05-20,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,87193,5300,801.96,393555.71,305122.96,60144.97,203.82,759027.46,8.71,2579,True
+2025-05-20,"Gladstone, Australia","Paradip, India",Panamax,Coal,73163,6300,843.7,492160.04,278568.89,76185.22,45393.12,892307.26,12.2,1227,True
+2025-05-22,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,155448,4600,755.73,449526.74,372837.93,69948.96,64521.15,956834.77,6.16,2701,True
+2025-05-24,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,65521,5300,774.45,380054.22,325119.01,67800.18,50687.07,823660.48,12.57,2961,True
+2025-05-24,"Gladstone, Australia","Paradip, India",Panamax,Coal,70649,6300,817.89,477100.39,309555.56,67655.67,0.0,854311.61,12.09,1725,True
+2025-05-27,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,29998,5300,895.01,307451.16,201609.38,62077.32,17283.09,588420.95,19.62,2302,True
+2025-05-28,"Gladstone, Australia","Paradip, India",Handysize,Coal,28428,6300,823.8,336386.33,235168.89,66817.6,0.0,638372.81,22.46,2206,True
+2025-05-29,"Gladstone, Australia","Paradip, India",Capesize,Coal,111552,6300,719.22,585919.66,370179.31,62529.21,48318.59,1066946.77,9.56,1408,True
+2025-05-30,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,85717,5300,721.42,354027.93,297061.73,58176.89,0.0,709266.55,8.27,2425,True
+2025-06-01,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,14798,5300,776.79,266841.91,158738.27,67855.18,0.0,493435.36,33.34,1210,True
+2025-06-02,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,49670,5300,849.67,361370.92,252109.88,65017.71,0.0,678498.51,13.66,2755,True
+2025-06-03,"Gladstone, Australia","Paradip, India",Handysize,Coal,29095,6300,899.08,367125.82,222382.22,61135.33,0.0,650643.37,22.36,1932,True
+2025-06-03,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,94101,5300,832.55,408567.27,240319.01,70489.11,0.0,719375.39,7.64,1341,True
+2025-06-06,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,48850,6300,884.77,447302.26,297297.78,71816.75,40411.52,856828.31,17.54,2704,True
+2025-06-06,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,42104,4600,824.46,304337.84,188145.68,66480.06,0.0,558963.58,13.28,1855,True
+2025-06-07,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,141507,4600,808.21,480745.64,227937.93,54119.49,0.0,762803.07,5.39,874,True
+2025-06-08,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,50571,5300,879.06,373873.56,211986.91,65282.67,29696.98,680840.12,13.46,1733,True
+2025-06-09,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,12571,5300,902.74,310109.16,210050.12,68118.02,0.0,588277.3,46.8,2517,True
+2025-06-11,"Gladstone, Australia","Paradip, India",Capesize,Coal,100088,6300,997.55,812660.47,461855.17,58653.32,24027.37,1357196.33,13.56,2252,True
+2025-06-12,"Gladstone, Australia","Paradip, India",Handysize,Coal,31449,6300,808.13,329986.67,171282.22,62552.41,0.0,563821.3,17.93,837,True
+2025-06-13,"Gladstone, Australia","Paradip, India",Capesize,Coal,165373,6300,963.72,785101.68,492812.07,54533.05,59463.02,1391909.83,8.42,2537,True
+2025-06-13,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,108326,4600,815.43,485040.37,391793.1,76910.79,51763.72,1005507.99,9.28,2940,True
+2025-06-14,"Gladstone, Australia","Paradip, India",Panamax,Coal,69596,6300,951.81,555225.15,308497.78,58692.02,0.0,922414.95,13.25,1708,True
+2025-06-14,"Gladstone, Australia","Paradip, India",Capesize,Coal,167286,6300,744.2,606270.12,466091.38,56109.41,78533.55,1207004.47,7.22,2291,True
+2025-06-16,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,47253,4600,894.21,330086.39,170801.98,60188.92,10853.55,571930.84,12.1,1346,True
+2025-06-19,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,40883,6300,972.08,491439.77,307564.44,66981.02,0.0,865985.23,21.18,2924,True
+2025-06-19,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,105726,4600,823.26,489696.32,275365.52,76300.54,49720.38,891082.76,8.43,1472,True
+2025-06-20,"Gladstone, Australia","Paradip, India",Capesize,Coal,163092,6300,764.12,622497.72,449906.9,74756.19,0.0,1147160.81,7.03,2142,True
+2025-06-22,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,45609,4600,897.62,331343.63,226410.86,61765.25,25952.79,645472.53,14.15,2978,True
+2025-06-24,"Gladstone, Australia","Paradip, India",Panamax,Coal,88686,6300,986.53,575473.94,301653.33,74204.94,0.0,951332.21,10.73,1598,True
+2025-06-24,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,42457,6300,864.11,436857.57,212224.44,61772.86,90637.48,801492.36,18.88,881,True
+2025-06-28,"Gladstone, Australia","Paradip, India",Handysize,Coal,32880,6300,855.46,349313.46,215848.89,69851.84,482.33,635496.53,19.33,1792,True
+2025-06-28,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,86612,4600,864.38,368162.35,170415.8,60989.12,17641.03,617208.31,7.13,501,True
+2025-06-28,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,43976,6300,995.54,503300.66,220951.11,59444.93,25722.36,809419.06,18.41,1068,True
+2025-06-29,"Gladstone, Australia","Paradip, India",Panamax,Coal,79301,6300,738.2,430619.3,233768.89,75822.13,51580.82,791791.13,9.98,507,True
+2025-06-29,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,33196,5300,741.16,254603.4,132670.12,57768.15,61207.85,506249.52,15.25,546,True
+2025-06-29,"Gladstone, Australia","Paradip, India",Handysize,Coal,12957,6300,716.85,292713.91,270542.22,59032.61,13188.2,635476.94,49.05,2964,True
+2025-07-02,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,67563,4600,928.23,395358.29,275000.49,65048.51,0.0,735407.29,10.88,2803,True
+2025-07-04,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,33829,4600,838.49,249993.25,142815.8,64084.46,22421.62,479315.13,14.17,1358,True
+2025-07-04,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,166151,4600,801.25,476607.9,249589.66,66279.71,57000.39,849477.66,5.11,1147,True
+2025-07-04,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,81050,4600,730.78,311257.88,231385.68,69201.14,0.0,611844.7,7.55,1843,True
+2025-07-09,"Gladstone, Australia","Paradip, India",Capesize,Coal,148418,6300,755.97,615858.85,291320.69,60055.81,0.0,967235.35,6.52,682,True
+2025-07-10,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,77641,5300,737.51,361927.07,290256.79,70723.46,0.0,722907.32,9.31,2295,True
+2025-07-10,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,79334,5300,870.33,427108.53,237701.73,58036.38,79003.66,801850.31,10.11,1291,True
+2025-07-11,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,67754,5300,898.33,440848.55,285179.26,72656.97,0.0,798684.78,11.79,2198,True
+2025-07-14,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,47695,6300,920.63,465428.96,245171.11,58755.91,8866.41,778222.39,16.32,1587,True
+2025-07-14,"Gladstone, Australia","Paradip, India",Handysize,Coal,33225,6300,830.82,339250.38,254908.89,75288.23,42514.69,711962.19,21.43,2629,True
+2025-07-17,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,18175,5300,709.92,243871.12,138990.86,75114.71,32094.89,490071.58,26.96,707,True
+2025-07-19,"Gladstone, Australia","Paradip, India",Capesize,Coal,153626,6300,905.41,737596.13,456424.14,70333.27,16663.97,1281017.51,8.34,2202,True
+2025-07-19,"Gladstone, Australia","Paradip, India",Capesize,Coal,100609,6300,778.33,634072.39,452622.41,65643.48,0.0,1152338.28,11.45,2167,True
+2025-07-19,"Gladstone, Australia","Paradip, India",Panamax,Coal,64818,6300,815.9,475944.38,348071.11,71581.29,27743.2,923339.98,14.25,2344,True
+2025-07-21,"Gladstone, Australia","Paradip, India",Capesize,Coal,109171,6300,984.66,802160.27,418406.9,68332.57,22785.3,1311685.05,12.01,1852,True
+2025-07-22,"Gladstone, Australia","Paradip, India",Panamax,Coal,65507,6300,874.7,510240.0,299288.89,75100.86,0.0,884629.74,13.5,1560,True
+2025-07-22,"Gladstone, Australia","Paradip, India",Handysize,Coal,27844,6300,767.44,313372.49,184022.22,74893.46,0.0,572288.18,20.55,1110,True
+2025-07-23,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,70587,5300,861.81,422927.1,309991.11,75125.35,0.0,808043.56,11.45,2672,True
+2025-07-23,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,49326,4600,806.53,297720.1,213190.12,65212.36,0.0,576122.58,11.68,2590,True
+2025-07-24,"Gladstone, Australia","Paradip, India",Panamax,Coal,78704,6300,893.77,521365.47,256106.67,69002.87,18670.85,865145.86,10.99,866,True
+2025-07-24,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,80321,5300,854.62,419394.44,312713.09,64888.19,0.0,796995.72,9.92,2724,True
+2025-07-26,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,71630,5300,975.63,478783.47,265654.32,55369.79,0.0,799807.58,11.17,1825,True
+2025-07-28,"Gladstone, Australia","Paradip, India",Capesize,Coal,108163,6300,911.73,742747.65,502262.07,58768.86,24270.48,1328049.06,12.28,2624,True
+2025-08-01,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,53051,4600,978.66,361259.36,183716.05,57736.36,0.0,602711.77,11.36,1725,True
+2025-08-02,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,110480,4600,840.42,499903.66,217944.83,62301.3,68238.07,848387.85,7.68,748,True
+2025-08-04,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,53464,4600,706.73,260880.75,147972.35,56941.36,20793.95,486588.41,9.1,676,True
+2025-08-05,"Gladstone, Australia","Paradip, India",Handysize,Coal,15146,6300,771.96,315216.82,261022.22,55726.49,157.3,632122.83,41.74,2760,True
+2025-08-07,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,81696,4600,808.24,344250.09,210986.67,75857.09,37476.64,668570.49,8.18,1394,True
+2025-08-08,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,144359,4600,940.26,559290.28,215168.97,57696.97,0.0,832156.22,5.76,713,True
+2025-08-09,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,63188,4600,715.16,304606.09,262461.23,67742.93,0.0,634810.26,10.05,2527,True
+2025-08-11,"Gladstone, Australia","Paradip, India",Capesize,Coal,130947,6300,956.64,779327.7,315651.72,76561.34,34025.21,1205565.97,9.21,906,True
+2025-08-14,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,138663,5300,988.04,677148.3,282362.07,60855.3,86393.8,1106759.47,7.98,1090,True
+2025-08-14,"Gladstone, Australia","Paradip, India",Handysize,Coal,19006,6300,767.45,313376.65,210715.56,57868.81,36900.75,618861.76,32.56,1682,True
+2025-08-15,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,30820,4600,947.16,282392.99,155729.88,68932.51,0.0,507055.37,16.45,1737,True
+2025-08-15,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,42502,6300,853.14,431312.19,216237.78,66203.91,0.0,713753.88,16.79,967,True
+2025-08-15,"Gladstone, Australia","Paradip, India",Panamax,Coal,85633,6300,838.92,489369.39,383288.89,69880.06,0.0,942538.34,11.01,2910,True
+2025-08-19,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,109661,5300,939.76,644058.54,240875.86,60782.9,0.0,945717.3,8.62,636,True
+2025-08-19,"Gladstone, Australia","Paradip, India",Panamax,Coal,65168,6300,775.18,452189.26,373706.67,60312.37,0.0,886208.3,13.6,2756,True
+2025-08-23,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,75453,5300,866.6,425276.91,277955.56,58509.45,0.0,761741.92,10.1,2060,True
+2025-08-24,"Gladstone, Australia","Paradip, India",Capesize,Coal,146281,6300,854.95,696490.47,275787.93,70118.83,0.0,1042397.23,7.13,539,True
+2025-08-24,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,74352,4600,890.99,379493.77,216983.7,69588.58,53664.91,719730.96,9.68,1526,True
+2025-08-25,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,40299,5300,765.62,325623.06,236877.28,62583.62,46341.72,671425.68,16.66,2367,True
+2025-08-26,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,148823,4600,837.54,498190.36,225796.55,67357.72,0.0,791344.63,5.32,847,True
+2025-08-27,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,136434,5300,836.02,572964.1,364968.97,57741.04,26738.79,1022412.9,7.49,1994,True
+2025-08-27,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,40092,6300,783.18,395942.24,222071.11,76713.13,0.0,694726.48,17.33,1092,True
+2025-08-28,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,50140,4600,989.68,365325.95,207431.6,74791.41,14720.59,662269.55,13.21,2421,True
+2025-08-30,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,25250,5300,792.04,272081.06,196034.57,69779.69,84542.76,622438.08,24.65,2160,True
+2025-09-01,"Gladstone, Australia","Paradip, India",Capesize,Coal,128080,6300,861.77,702045.53,525506.9,67252.87,0.0,1294805.3,10.11,2838,True
+2025-09-02,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,15159,4600,726.05,216471.31,152083.95,71932.48,19293.39,459781.13,30.33,1630,True
+2025-09-04,"Gladstone, Australia","Paradip, India",Handysize,Coal,27310,6300,966.62,394702.09,157842.22,76698.3,32592.76,661835.37,24.23,549,True
+2025-09-06,"Gladstone, Australia","Paradip, India",Panamax,Coal,92332,6300,999.34,582946.08,283111.11,70846.66,0.0,936903.85,10.15,1300,True
+2025-09-06,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,67933,5300,938.87,460740.86,317633.58,72000.61,0.0,850375.05,12.52,2818,True
+2025-09-08,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,123600,4600,751.0,446712.6,223893.1,68018.31,0.0,738624.01,5.98,823,True
+2025-09-08,"Gladstone, Australia","Paradip, India",Handysize,Coal,24923,6300,824.33,336602.36,265548.89,58472.01,0.0,660623.26,26.51,2857,True
+2025-09-08,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,23181,4600,831.69,247966.49,188883.95,58997.19,25249.69,521097.32,22.48,2710,True
+2025-09-12,"Gladstone, Australia","Paradip, India",Capesize,Coal,144939,6300,991.15,807443.43,472934.48,72510.33,9698.76,1362587.01,9.4,2354,True
+2025-09-12,"Gladstone, Australia","Paradip, India",Capesize,Coal,167300,6300,714.69,582221.98,404503.45,59983.84,0.0,1046709.27,6.26,1724,True
+2025-09-14,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,148655,5300,866.36,593756.87,266827.59,70362.22,0.0,930946.68,6.26,920,True
+2025-09-18,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,46145,4600,736.22,271766.54,196800.49,58958.56,0.0,527525.59,11.43,2109,True
+2025-09-19,"Gladstone, Australia","Paradip, India",Panamax,Coal,67863,6300,702.32,409686.07,343031.11,58040.98,29570.77,840328.92,12.38,2263,True
+2025-09-23,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,68318,5300,924.93,453902.26,253876.54,70857.52,0.0,778636.33,11.4,1600,True
+2025-09-26,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,148689,4600,732.5,435713.49,274175.86,64843.97,0.0,774733.32,5.21,1457,True
+2025-09-28,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,125200,4600,987.2,587214.52,288848.28,66835.99,0.0,942898.79,7.53,1642,True
+2025-09-29,"Gladstone, Australia","Paradip, India",Capesize,Coal,110527,6300,955.53,778427.12,508887.93,62740.22,24985.77,1375041.04,12.44,2685,True
+2025-09-29,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,29548,5300,830.37,285247.17,181273.09,64037.06,33142.6,563699.92,19.08,1784,True
+2025-10-05,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,32427,5300,977.68,335849.62,218176.79,66960.73,0.0,620987.14,19.15,2724,True
+2025-10-07,"Gladstone, Australia","Paradip, India",Capesize,Coal,161894,6300,773.12,629825.61,516708.62,57326.77,13333.83,1217194.83,7.52,2757,True
+2025-10-09,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,21532,4600,852.2,254082.17,156888.4,64620.08,0.0,475590.64,22.09,1771,True
+2025-10-09,"Gladstone, Australia","Paradip, India",Capesize,Coal,145706,6300,837.7,682436.15,368550.0,64734.05,0.0,1115720.21,7.66,1393,True
+2025-10-10,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,126698,4600,823.97,490119.16,379341.38,65096.76,0.0,934557.3,7.38,2783,True
+2025-10-11,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,44348,4600,774.9,286044.5,186919.01,73055.08,0.0,546018.6,12.31,1819,True
+2025-10-11,"Gladstone, Australia","Paradip, India",Panamax,Coal,72344,6300,744.98,434570.96,294560.0,74692.8,68604.32,872428.08,12.06,1484,True
+2025-10-12,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,65178,5300,853.39,418793.93,239847.9,76409.21,7692.14,742743.18,11.4,1332,True
+2025-10-12,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,89798,4600,985.08,419569.5,231249.38,67384.98,0.0,718203.86,8.0,1840,True
+2025-10-14,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,44202,6300,716.24,362101.36,275317.78,65001.36,0.0,702420.5,15.89,2233,True
+2025-10-15,"Gladstone, Australia","Paradip, India",Handysize,Coal,17469,6300,740.32,302295.56,240208.89,71802.71,25560.36,639867.52,36.63,2314,True
+2025-10-16,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,51235,4600,761.08,280941.58,178809.38,65624.41,0.0,525375.37,10.25,1581,True
+2025-10-17,"Gladstone, Australia","Paradip, India",Panamax,Coal,65661,6300,865.93,505124.33,235324.44,62485.15,24446.76,827380.68,12.6,532,True
+2025-10-18,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,55903,6300,936.49,473448.28,203684.44,55056.69,0.0,732189.41,13.1,698,True
+2025-10-18,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,44301,6300,858.02,433778.14,227017.78,54657.14,0.0,715453.06,16.15,1198,True
+2025-10-18,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,54719,5300,881.96,375104.26,239350.62,73947.96,14886.6,703289.44,12.85,2430,True
+2025-10-20,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,126237,4600,736.79,438263.75,222306.9,64396.98,0.0,724967.63,5.74,803,True
+2025-10-21,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,123496,5300,732.1,501744.33,264451.72,66060.86,0.0,832256.91,6.74,894,True
+2025-10-21,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,45491,6300,892.17,451043.62,258891.11,63701.78,33896.24,807532.75,17.75,1881,True
+2025-10-22,"Gladstone, Australia","Paradip, India",Capesize,Coal,115915,6300,708.66,577314.21,542343.1,72384.22,0.0,1192041.53,10.28,2993,True
+2025-10-23,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,56023,4600,795.11,293504.39,190633.09,66891.21,0.0,551028.69,9.84,1928,True
+2025-10-24,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,19777,5300,870.39,298994.59,148099.01,75354.46,19793.01,542241.07,27.42,939,True
+2025-10-24,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,81015,5300,771.07,378396.06,226970.86,76671.0,0.0,682037.92,8.42,1086,True
+2025-10-24,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,159345,5300,781.64,535693.09,412577.59,58319.16,557.08,1007146.92,6.32,2515,True
+2025-10-25,"Gladstone, Australia","Paradip, India",Panamax,Coal,87918,6300,921.56,537577.87,257537.78,73578.66,0.0,868694.3,9.88,889,True
+2025-10-26,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,49440,5300,912.09,387918.38,236563.21,55637.13,10467.1,690585.82,13.97,2359,True
+2025-10-27,"Gladstone, Australia","Paradip, India",Panamax,Coal,93712,6300,995.65,580793.79,257600.0,57118.54,0.0,895512.33,9.56,890,True
+2025-10-30,"Gladstone, Australia","Paradip, India",Handysize,Coal,13803,6300,949.4,387669.76,182622.22,62011.56,28755.93,661059.47,47.89,1080,True
+2025-11-03,"Gladstone, Australia","Paradip, India",Handysize,Coal,21833,6300,775.51,316666.55,202688.89,70580.69,0.0,589936.13,27.02,1510,True
+2025-11-05,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,52836,5300,788.66,335425.03,172335.06,72027.44,0.0,579787.52,10.97,723,True
+2025-11-05,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,19224,4600,929.58,277153.23,174640.99,62772.51,0.0,514566.73,26.77,2292,True
+2025-11-06,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,163335,5300,732.0,501669.66,371182.76,67154.22,0.0,940006.64,5.76,2062,True
+2025-11-06,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,53306,6300,789.23,398999.69,208351.11,69838.11,0.0,677188.92,12.7,798,True
+2025-11-07,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,27148,5300,944.61,324492.38,152770.86,61909.35,12022.63,551195.22,20.3,1058,True
+2025-11-09,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,54065,4600,896.65,330983.98,155230.12,54024.98,0.0,540239.09,9.99,889,True
+2025-11-10,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,51943,4600,942.31,347840.33,201741.23,57878.71,26286.4,633746.67,12.2,2254,True
+2025-11-11,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,88780,4600,737.31,314037.78,226933.33,70093.87,0.0,611064.99,6.88,1745,True
+2025-11-11,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,47804,5300,825.94,351281.44,173198.77,76368.86,0.0,600849.07,12.57,745,True
+2025-11-11,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,86091,4600,920.73,392164.79,192495.8,71199.73,0.0,655860.32,7.62,987,True
+2025-11-13,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,51197,5300,984.3,418631.5,241745.43,58416.12,0.0,718793.05,14.04,2491,True
+2025-11-15,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,20222,5300,872.74,299802.01,191205.68,63123.05,21950.76,576081.51,28.49,2037,True
+2025-11-17,"Gladstone, Australia","Paradip, India",Panamax,Coal,76704,6300,812.29,473836.01,272222.22,69796.88,0.0,815855.12,10.64,1125,True
+2025-11-17,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,10424,4600,923.1,275220.85,141895.8,68272.92,70485.39,555874.96,53.33,1331,True
+2025-11-18,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,29142,5300,843.04,289598.67,216253.09,57620.95,0.0,563472.71,19.34,2675,True
+2025-11-18,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,169878,5300,802.7,550124.99,361039.66,69544.98,65990.27,1046699.9,6.16,1951,True
+2025-11-19,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,151856,5300,965.4,661635.29,400150.0,57286.05,11292.49,1130363.82,7.44,2379,True
+2025-11-20,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,25017,5300,886.35,304476.88,221396.05,76910.22,0.0,602783.14,24.09,2806,True
+2025-11-20,"Gladstone, Australia","Paradip, India",Panamax,Coal,66985,6300,746.43,435419.58,382480.0,59833.55,0.0,877733.14,13.1,2897,True
+2025-11-22,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,46025,4600,856.18,316047.39,212474.57,57665.52,0.0,586187.48,12.74,2569,True
+2025-11-23,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,153511,4600,744.77,443006.94,320493.1,58229.22,0.0,821729.26,5.35,2041,True
+2025-11-24,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,40834,4600,896.62,330974.61,183204.94,59966.8,0.0,574146.35,14.06,1710,True
+2025-11-24,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,64255,4600,865.0,368425.56,224389.14,74500.63,66734.6,734049.92,11.42,1689,True
+2025-11-24,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,80507,5300,824.18,404458.24,316900.74,73873.95,19433.04,814665.97,10.12,2804,True
+2025-11-24,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,12851,4600,816.43,243417.02,169018.77,66697.25,54803.91,533936.94,41.55,2127,True
+2025-11-26,"Gladstone, Australia","Paradip, India",Panamax,Coal,71784,6300,707.82,412894.35,385466.67,59037.46,0.0,857398.48,11.94,2945,True
+2025-11-26,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,52549,5300,770.07,327516.89,229614.32,55003.89,58006.64,670141.74,12.75,2182,True
+2025-11-26,"Gladstone, Australia","Paradip, India",Capesize,Coal,157954,6300,902.69,735379.59,498894.83,64883.28,0.0,1299157.7,8.22,2593,True
+2025-11-27,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,19139,5300,964.49,331319.95,170044.94,71260.95,0.0,572625.85,29.92,1498,True
+2025-11-28,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,77256,5300,873.59,428705.92,318523.46,57998.55,34250.79,839478.72,10.87,2835,True
+2025-11-29,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,41051,5300,941.51,400433.93,228083.21,60158.04,20194.9,708870.08,17.27,2143,True
+2025-11-29,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,11723,4600,746.67,222619.46,120497.28,69501.28,0.0,412618.03,35.2,703,True
+2025-11-29,"Gladstone, Australia","Paradip, India",Handysize,Coal,19563,6300,824.14,336525.07,171702.22,70671.41,0.0,578898.7,29.59,846,True
+2025-11-30,"Gladstone, Australia","Paradip, India",Panamax,Coal,72265,6300,864.57,504331.93,293751.11,60196.39,0.0,858279.43,11.88,1471,True
+2025-12-01,"Gladstone, Australia","Paradip, India",Capesize,Coal,135645,6300,770.08,627352.4,361706.9,57130.57,0.0,1046189.87,7.71,1330,True
+2025-12-06,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,41615,4600,923.72,340979.95,179456.79,74631.72,0.0,595068.46,14.3,1600,True
+2025-12-09,"Gladstone, Australia","Paradip, India",Panamax,Coal,83613,6300,868.11,506394.59,298977.78,61915.23,21136.42,888424.02,10.63,1555,True
+2025-12-09,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,66193,5300,867.39,425663.1,279159.51,60535.38,53731.66,819089.64,12.37,2083,True
+2025-12-10,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,17282,4600,806.59,240481.83,156411.36,63670.87,46892.9,507456.96,29.36,1757,True
+2025-12-11,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,22449,5300,729.01,250430.12,186141.23,67885.7,64352.24,568809.3,25.34,1908,True
+2025-12-12,"Gladstone, Australia","Paradip, India",Capesize,Coal,164303,6300,838.25,682883.64,428182.76,57893.11,44388.4,1213347.91,7.38,1942,True
+2025-12-12,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,51230,6300,998.84,504969.96,288104.44,62262.77,18108.93,873446.11,17.05,2507,True
+2025-12-13,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,24183,4600,898.51,267890.28,148267.65,65084.38,0.0,481242.32,19.9,1518,True
+2025-12-13,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,47216,5300,702.16,298633.55,173041.73,59265.66,0.0,530940.94,11.24,741,True
+2025-12-14,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,165211,5300,810.2,555269.17,422720.69,60134.58,0.0,1038124.44,6.28,2626,True
+2025-12-15,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,50242,4600,958.45,353796.56,186510.12,70886.59,0.0,611193.28,12.16,1807,True
+2025-12-17,"Gladstone, Australia","Paradip, India",Panamax,Coal,92662,6300,999.39,582976.94,351493.33,70029.5,984.38,1005484.15,10.85,2399,True
+2025-12-17,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,55615,5300,794.16,337763.89,198717.28,74569.27,25840.39,636890.83,11.45,1395,True
+2025-12-18,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,32188,4600,940.02,280263.74,147620.25,65867.86,0.0,493751.85,15.34,1499,True
+2025-12-19,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,167181,5300,742.74,509030.64,297256.9,59078.12,0.0,865365.66,5.18,1253,True
+2025-12-20,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,35280,5300,874.57,300431.33,184296.05,57068.42,17752.72,559548.52,15.86,1861,True
+2025-12-22,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,40699,6300,906.77,458425.14,262904.44,70661.18,7009.88,799000.64,19.63,1967,True
+2025-12-23,"Gladstone, Australia","Paradip, India",Handysize,Coal,24357,6300,916.6,374277.59,242028.89,61334.92,0.0,677641.4,27.82,2353,True
+2025-12-24,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,52108,5300,785.5,334078.33,234011.36,73176.13,49863.98,691129.8,13.26,2294,True
+2025-12-25,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,23942,4600,740.16,220678.8,180160.99,71614.75,28473.22,500927.77,20.92,2454,True
+2025-12-26,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,170282,4600,799.34,475472.43,207237.93,56652.86,37256.19,776619.41,4.56,613,True
+2025-12-29,"Gladstone, Australia","Paradip, India",Capesize,Coal,110357,6300,811.92,661431.14,452187.93,64556.95,0.0,1178176.02,10.68,2163,True
+2025-12-29,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,105544,5300,830.87,569429.63,400515.52,75186.74,58780.33,1103912.22,10.46,2383,True
+2026-01-01,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,43278,5300,785.54,334097.44,174769.14,74702.73,18685.32,602254.62,13.92,785,True
+2026-01-02,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,138712,4600,748.11,444997.7,376327.59,65416.16,0.0,886741.45,6.39,2745,True
+2026-01-03,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,32428,4600,963.99,287410.36,131809.88,65110.83,0.0,484331.07,14.94,1035,True
+2026-01-06,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,113875,5300,772.99,529768.09,448855.17,63210.35,7100.99,1048934.6,9.21,2912,True
+2026-01-07,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,41898,6300,772.26,390421.08,302851.11,75779.84,0.0,769052.03,18.36,2823,True
+2026-01-07,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,154262,4600,750.2,446236.94,205731.03,56875.92,10293.92,719137.81,4.66,594,True
+2026-01-12,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,46340,4600,788.25,290972.52,166713.09,76619.43,7237.32,541542.35,11.69,1226,True
+2026-01-15,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,20456,4600,772.52,230325.81,130651.36,60151.85,0.0,421129.02,20.59,1001,True
+2026-01-18,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,44038,5300,712.53,303045.99,255643.21,67723.06,0.0,626412.26,14.22,2845,True
+2026-01-18,"Gladstone, Australia","Paradip, India",Capesize,Coal,170453,6300,940.6,766263.43,368658.62,71522.77,47410.36,1253855.19,7.36,1394,True
+2026-01-20,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,52454,6300,725.71,366885.83,250864.44,72355.27,0.0,690105.54,13.16,1709,True
+2026-01-20,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,83593,4600,988.5,421025.88,253601.98,76075.96,0.0,750703.81,8.98,2332,True
+2026-01-23,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,83700,5300,873.21,428517.58,211162.47,55053.96,0.0,694734.01,8.3,784,True
+2026-01-24,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,55093,5300,803.85,341883.47,207903.95,58335.05,0.0,608122.47,11.04,1629,True
+2026-01-25,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,41034,5300,871.77,370771.77,181246.91,58388.04,0.0,610406.73,14.88,950,True
+2026-01-27,"Gladstone, Australia","Paradip, India",Capesize,Coal,149236,6300,724.07,589871.44,511386.21,57058.77,29161.55,1187477.97,7.96,2708,True
+2026-01-28,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,13381,5300,794.01,272755.57,178956.79,57153.97,0.0,508866.34,38.03,1725,True
+2026-01-28,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,134995,5300,986.21,675894.23,341393.1,67396.6,0.0,1084683.93,8.03,1736,True
+2026-01-29,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,132541,4600,988.81,588168.94,250144.83,72709.99,0.0,911023.76,6.87,1154,True
+2026-01-31,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,56230,4600,989.45,365240.43,159591.6,65552.7,53250.52,643635.25,11.45,1017,True
+2026-02-01,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,170190,4600,906.12,538985.4,352455.17,67172.43,0.0,958613.0,5.63,2444,True
+2026-02-02,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,114972,4600,804.38,478465.86,346982.76,68199.34,0.0,893647.96,7.77,2375,True
+2026-02-07,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,47297,4600,950.45,350843.83,145144.2,76505.29,0.0,572493.31,12.1,593,True
+2026-02-10,"Gladstone, Australia","Paradip, India",Handysize,Coal,28544,6300,959.52,391804.09,164888.89,74944.19,65174.93,696812.1,24.41,700,True
+2026-02-10,"Gladstone, Australia","Paradip, India",Handysize,Coal,34438,6300,765.37,312526.24,169508.89,55041.67,10260.76,547337.55,15.89,799,True
+2026-02-11,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,65918,4600,937.2,399179.73,172960.0,60082.55,6506.2,638728.48,9.69,557,True
+2026-02-11,"Gladstone, Australia","Paradip, India",Handysize,Coal,31714,6300,771.66,315096.23,187242.22,71415.74,5185.53,578939.72,18.26,1179,True
+2026-02-14,"Gladstone, Australia","Paradip, India",Capesize,Coal,113886,6300,703.16,572836.46,386581.03,59106.02,49926.76,1068450.28,9.38,1559,True
+2026-02-15,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,41004,5300,727.53,309423.65,248851.36,58948.06,0.0,617223.06,15.05,2672,True
+2026-02-15,"Gladstone, Australia","Paradip, India",Capesize,Coal,135629,6300,950.71,774502.86,484231.03,72397.68,0.0,1331131.57,9.81,2458,True
+2026-02-15,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,63765,4600,983.71,418989.62,202945.19,68726.7,17615.09,708276.59,11.11,1217,True
+2026-02-16,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,11484,4600,711.67,212184.34,160057.28,72491.21,18784.55,463517.39,40.36,1864,True
+2026-02-18,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,47350,5300,918.15,390497.41,184662.47,58857.38,0.0,634017.25,13.39,1037,True
+2026-02-22,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,43717,5300,838.43,356593.38,182463.95,68897.32,0.0,607954.66,13.91,981,True
+2026-02-23,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,118242,4600,890.0,529397.03,276872.41,59811.68,0.0,866081.13,7.32,1491,True
+2026-02-24,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,51351,5300,890.78,378857.52,165111.36,75872.78,108.63,619950.28,12.07,539,True
+2026-02-26,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,48742,4600,747.76,276024.75,157036.05,62798.46,0.0,495859.26,10.17,942,True
+2026-03-01,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,35301,5300,967.53,332363.2,204396.79,69144.5,0.0,605904.5,17.16,2373,True
+2026-03-02,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,44330,5300,935.95,398069.26,222390.62,66209.6,0.0,686669.48,15.49,1998,True
+2026-03-03,"Gladstone, Australia","Paradip, India",Capesize,Coal,116199,6300,864.18,704012.55,482601.72,70142.97,0.0,1256757.24,10.82,2443,True
+2026-03-04,"Gladstone, Australia","Paradip, India",Handysize,Coal,23272,6300,706.26,288388.26,217622.22,57953.08,56389.94,620353.51,26.66,1830,True
+2026-03-06,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,17886,4600,761.82,227136.56,127652.84,67660.72,33662.45,456112.56,25.5,913,True
+2026-03-06,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,55998,4600,765.83,282693.98,202797.53,65169.77,29228.65,579889.93,10.36,2285,True
+2026-03-06,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,164629,5300,964.53,661036.47,359851.72,66558.55,6183.26,1093630.0,6.64,1938,True
+2026-03-07,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,31708,4600,856.09,255242.47,198083.95,70116.71,38698.09,562141.22,17.73,2980,True
+2026-03-08,"Gladstone, Australia","Paradip, India",Handysize,Coal,25411,6300,705.81,288207.79,258642.22,55197.97,0.0,602047.98,23.69,2709,True
+2026-03-08,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,34433,4600,719.07,214388.62,176140.25,71894.39,17028.75,479452.0,13.92,2336,True
+2026-03-10,"Gladstone, Australia","Paradip, India",Handysize,Coal,10116,6300,800.07,326694.01,180522.22,68653.61,21111.58,596981.42,59.01,1035,True
+2026-03-10,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,19425,4600,880.12,262407.05,162646.91,56382.81,0.0,481436.78,24.78,1940,True
+2026-03-11,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,148799,5300,809.52,554802.67,378310.34,60431.48,6266.52,999811.02,6.72,2140,True
+2026-03-14,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,13665,4600,722.57,215433.85,134365.43,66548.58,0.0,416347.86,30.47,1110,True
+2026-03-15,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,46770,5300,944.06,401516.43,173120.25,67111.71,0.0,641748.39,13.72,743,True
+2026-03-16,"Gladstone, Australia","Paradip, India",Handysize,Coal,18616,6300,913.7,373092.93,265735.56,68433.26,0.0,707261.74,37.99,2861,True
+2026-03-16,"Gladstone, Australia","Paradip, India",Handysize,Coal,33092,6300,764.44,312145.86,208755.56,71303.49,0.0,592204.9,17.9,1640,True
+2026-03-18,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,148546,4600,962.45,572490.2,370379.31,63865.99,57393.17,1064128.67,7.16,2670,True
+2026-03-18,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,54227,4600,747.13,275792.85,156081.98,61615.18,54270.08,547760.09,10.1,914,True
+2026-03-19,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,68527,5300,866.91,425428.65,322030.62,76002.37,0.0,823461.64,12.02,2902,True
+2026-03-20,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,165028,4600,708.84,421640.37,336831.03,57974.57,0.0,816445.98,4.95,2247,True
+2026-03-23,"Gladstone, Australia","Paradip, India",Panamax,Coal,68801,6300,903.87,527259.86,317831.11,74191.37,0.0,919282.35,13.36,1858,True
+2026-03-24,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,141586,4600,752.26,447465.48,380768.97,69951.89,0.0,898186.33,6.34,2801,True
+2026-03-25,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,51924,6300,811.86,410438.11,248484.44,62910.58,0.0,721833.13,13.9,1658,True
+2026-03-27,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,102011,5300,916.73,628278.32,381874.14,74031.46,29692.43,1113876.35,10.92,2179,True
+2026-03-28,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,53931,4600,730.72,269736.73,176492.35,60847.31,0.0,507076.39,9.4,1513,True
+2026-03-28,"Gladstone, Australia","Paradip, India",Panamax,Coal,85026,6300,850.87,496342.0,339982.22,76224.17,0.0,912548.39,10.73,2214,True
+2026-03-29,"Gladstone, Australia","Paradip, India",Panamax,Coal,74127,6300,926.48,540448.38,262328.89,61938.98,8412.8,873129.05,11.78,966,True
+2026-03-29,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,54283,6300,890.44,450164.57,288431.11,76288.27,0.0,814883.95,15.01,2514,True
+2026-03-29,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,91396,4600,764.2,325490.91,270593.58,60236.05,0.0,656320.54,7.18,2706,True
+2026-03-30,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,13292,5300,742.0,254892.1,150650.86,67560.2,0.0,473103.16,35.59,1004,True
+2026-03-31,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,37763,5300,948.81,325932.72,184178.27,56818.14,27135.64,594064.77,15.73,1858,True
+2026-03-31,"Gladstone, Australia","Paradip, India",Capesize,Coal,105551,6300,918.04,747889.55,428400.0,68141.58,31733.35,1276164.48,12.09,1944,True
+2026-04-01,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,32793,5300,803.07,275870.19,150219.01,76727.56,0.0,502816.76,15.33,993,True
+2026-04-05,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,152534,4600,860.31,511736.25,334134.48,66503.84,41089.58,953464.16,6.25,2213,True
+2026-04-05,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,60425,4600,927.64,395106.87,200037.53,70057.21,12473.91,677675.52,11.22,1153,True
+2026-04-06,"Gladstone, Australia","Paradip, India",Panamax,Coal,86641,6300,736.22,429462.26,324613.33,76186.6,0.0,830262.19,9.58,1967,True
+2026-04-06,"Gladstone, Australia","Paradip, India",Panamax,Coal,89094,6300,928.93,541873.12,379555.56,57166.99,0.0,978595.66,10.98,2850,True
+2026-04-07,"Gladstone, Australia","Paradip, India",Panamax,Coal,88103,6300,791.61,461774.88,248640.0,68021.51,0.0,778436.39,8.84,746,True
+2026-04-09,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,43103,4600,838.61,309562.07,161465.68,56793.42,0.0,527821.18,12.25,1072,True
+2026-04-11,"Gladstone, Australia","Paradip, India",Capesize,Coal,163788,6300,746.44,608090.43,403525.86,59007.12,0.0,1070623.41,6.54,1715,True
+2026-04-15,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,64150,4600,938.7,399818.11,244379.26,59010.09,0.0,703207.45,10.96,2129,True
+2026-04-15,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,103584,4600,844.59,502386.05,282027.59,55553.75,63090.44,903057.83,8.72,1556,True
+2026-04-17,"Gladstone, Australia","Paradip, India",Panamax,Coal,74915,6300,766.88,447344.95,282551.11,63164.72,8415.64,801476.42,10.7,1291,True
+2026-04-18,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,18524,5300,813.73,279531.72,164862.72,64458.08,0.0,508852.52,27.47,1366,True
+2026-04-19,"Gladstone, Australia","Paradip, India",Handysize,Coal,16146,6300,855.53,349342.16,250802.22,68384.4,30602.44,699131.22,43.3,2541,True
+2026-04-19,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,124176,5300,755.92,518063.17,390189.66,63098.39,0.0,971351.22,7.82,2270,True
+2026-04-20,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,107035,5300,959.92,657874.84,446844.83,67347.2,0.0,1172066.87,10.95,2890,True
+2026-04-21,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,123891,4600,943.45,561189.67,218737.93,70469.04,0.0,850396.64,6.86,758,True
+2026-04-22,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,84175,4600,750.34,319587.87,283360.0,76165.9,0.0,679113.77,8.07,2987,True
+2026-04-23,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,80212,4600,778.47,331569.91,265777.78,74304.67,39708.79,711361.15,8.87,2600,True
+2026-04-24,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,42825,4600,719.72,265676.06,197516.05,76990.69,46314.74,586497.53,13.7,2130,True
+2026-04-26,"Gladstone, Australia","Paradip, India",Handysize,Coal,12596,6300,705.7,288161.31,196762.22,73204.15,43653.32,601781.0,47.78,1383,True
+2026-04-29,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,40169,5300,989.36,420781.5,188941.73,63358.87,0.0,673082.1,16.76,1146,True
+2026-04-29,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,75254,4600,992.19,422601.13,188997.53,59700.71,15681.37,686980.75,9.13,910,True
+2026-04-30,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,89657,4600,734.21,312717.8,211622.72,54050.53,25756.31,604147.35,6.74,1408,True
+2026-05-02,"Gladstone, Australia","Paradip, India",Panamax,Coal,76203,6300,951.96,555309.34,303955.56,71613.71,0.0,930878.61,12.22,1635,True
+2026-05-03,"Gladstone, Australia","Paradip, India",Panamax,Coal,89153,6300,740.53,431978.44,370720.0,58071.84,43222.41,903992.69,10.14,2708,True
+2026-05-03,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,42027,4600,835.16,308286.32,189883.46,76594.87,0.0,574764.65,13.68,1906,True
+2026-05-04,"Gladstone, Australia","Paradip, India",Handysize,Coal,35096,6300,829.13,338561.66,211508.89,67731.09,0.0,617801.63,17.6,1699,True
+2026-05-09,"Gladstone, Australia","Paradip, India",Panamax,Coal,92266,6300,969.44,565504.54,379742.22,73981.68,48506.1,1067734.55,11.57,2853,True
+2026-05-09,"Gladstone, Australia","Paradip, India",Panamax,Coal,67547,6300,840.5,490291.33,252497.78,57237.41,86511.96,886538.48,13.12,808,True
+2026-05-09,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,26444,4600,964.61,287596.77,174947.65,57808.93,0.0,520353.35,19.68,2301,True
+2026-05-10,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,102061,4600,701.98,417559.27,377437.93,63460.79,1324.12,859782.11,8.42,2759,True
+2026-05-17,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,46130,6300,794.37,401600.19,280637.78,68246.43,0.0,750484.4,16.27,2347,True
+2026-05-18,"Gladstone, Australia","Paradip, India",Handysize,Coal,13049,6300,788.27,321877.19,232835.56,69911.1,0.0,624623.85,47.87,2156,True
+2026-05-18,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,109632,4600,969.78,576851.91,302886.21,67990.84,2996.83,950725.79,8.67,1819,True
+2026-05-18,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,50678,4600,812.82,300039.7,196800.49,62395.36,37268.71,596504.26,11.77,2109,True
+2026-05-19,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,50842,6300,991.04,501027.55,204057.78,65659.37,29395.26,800139.97,15.74,706,True
+2026-05-20,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,17693,5300,966.18,331899.96,152653.09,62938.85,35692.63,583184.53,32.96,1055,True
+2026-05-21,"Gladstone, Australia","Paradip, India",Capesize,Coal,142363,6300,959.27,781477.58,412106.9,57472.02,0.0,1251056.49,8.79,1794,True
+2026-05-22,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,55976,6300,763.64,386060.4,243817.78,61827.79,0.0,691705.97,12.36,1558,True
+2026-05-27,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,30707,4600,854.61,254801.2,147313.58,70526.52,0.0,472641.3,15.39,1490,True
+2026-05-27,"Gladstone, Australia","Paradip, India",Panamax,Coal,66249,6300,968.44,564921.8,244160.0,59284.63,69327.34,937693.76,14.15,674,True
+2026-05-31,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,70945,4600,719.59,306490.38,178866.17,60858.65,23146.23,569361.43,8.03,687,True
+2026-06-02,"Gladstone, Australia","Paradip, India",Handysize,Coal,32320,6300,709.17,289577.32,226722.22,65242.09,0.0,581541.64,17.99,2025,True
+2026-06-03,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,40613,6300,885.92,447881.97,264024.44,71848.38,18882.11,802636.91,19.76,1991,True
+2026-06-03,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,60829,4600,954.87,406705.03,261552.59,56427.39,69819.36,794504.38,13.06,2507,True
+2026-06-04,"Gladstone, Australia","Paradip, India",Capesize,Coal,142753,6300,820.72,668603.89,403091.38,66751.49,0.0,1138446.75,7.97,1711,True
+2026-06-05,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,54949,4600,985.11,363638.09,192677.53,72982.15,0.0,629297.78,11.45,1988,True
+2026-06-09,"Gladstone, Australia","Paradip, India",Panamax,Coal,74243,6300,760.27,443488.92,307377.78,69792.06,32196.0,852854.76,11.49,1690,True
+2026-06-12,"Gladstone, Australia","Paradip, India",Handysize,Coal,23134,6300,900.78,367817.18,190835.56,76578.76,0.0,635231.49,27.46,1256,True
+2026-06-12,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,20194,5300,912.87,313588.03,195720.49,57119.95,0.0,566428.47,28.05,2152,True
+2026-06-14,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,78656,4600,894.54,381006.55,269321.48,72602.6,0.0,722930.63,9.19,2678,True
+2026-06-15,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,41101,6300,935.19,472789.4,292024.44,65863.71,0.0,830677.56,20.21,2591,True
+2026-06-15,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,12954,5300,864.88,297101.54,220767.9,75045.21,0.0,592914.65,45.77,2790,True
+2026-06-18,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,122216,5300,741.65,508287.37,341118.97,60173.36,0.0,909579.7,7.44,1733,True
+2026-06-20,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,11434,4600,950.56,283407.11,131673.58,58108.69,0.0,473189.38,41.38,1031,True
+2026-06-21,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,56522,6300,840.41,424872.04,231264.44,72602.72,26399.82,755139.02,13.36,1289,True
+2026-06-21,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,18600,5300,885.43,304161.83,144408.64,69061.15,0.0,517631.62,27.83,845,True
+2026-06-23,"Gladstone, Australia","Paradip, India",Panamax,Coal,65118,6300,975.17,568851.16,261893.33,55420.44,34453.45,920618.38,14.14,959,True
+2026-06-23,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,22533,5300,934.57,321043.73,188575.31,65032.74,39698.9,614350.68,27.26,1970,True
+2026-06-24,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,62976,4600,766.16,326325.5,281860.74,55259.99,19604.04,683050.27,10.85,2954,True
+2026-06-26,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,66788,5300,981.68,481749.88,225086.42,60082.72,0.0,766919.02,11.48,1050,True
+2026-06-28,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,28128,4600,980.59,292361.83,195221.73,65107.44,0.0,552691.0,19.65,2896,True
+2026-06-28,"Gladstone, Australia","Paradip, India",Capesize,Coal,143357,6300,805.54,656239.9,473368.97,60231.08,0.0,1189839.94,8.3,2358,True
+2026-06-30,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,55574,5300,984.05,418526.93,190119.51,60096.3,0.0,668742.74,12.03,1176,True
+2026-07-01,"Gladstone, Australia","Paradip, India",Capesize,Coal,101673,6300,856.82,698012.03,282739.66,62760.02,0.0,1043511.7,10.26,603,True
+2026-07-02,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,34771,5300,923.79,317337.36,138166.42,70120.29,0.0,525624.07,15.12,686,True
+2026-07-04,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,81363,5300,759.12,372532.23,220689.38,60034.13,55707.88,708963.63,8.71,966,True
+2026-07-04,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,13583,4600,930.69,277482.37,163123.95,57825.79,41197.39,539629.5,39.73,1954,True
+2026-07-06,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,56303,6300,929.72,470025.23,223891.11,68099.9,0.0,762016.24,13.53,1131,True
+2026-07-07,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,50214,4600,819.7,302579.76,194074.57,64076.3,0.0,560730.63,11.17,2029,True
+2026-07-07,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,51987,6300,817.75,413417.8,307144.44,70864.22,17417.05,808843.52,15.56,2915,True
+2026-07-08,"Gladstone, Australia","Paradip, India",Capesize,Coal,118343,6300,937.15,763453.63,306418.97,65518.24,0.0,1135390.83,9.59,821,True
+2026-07-08,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,53594,6300,896.48,453218.71,287964.44,68160.0,43178.14,852521.29,15.91,2504,True
+2026-07-08,"Gladstone, Australia","Paradip, India",Panamax,Coal,79490,6300,771.26,449904.28,245964.44,63036.75,0.0,758905.48,9.55,703,True
+2026-07-09,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,17692,5300,889.35,305507.61,177072.35,76940.8,0.0,559520.75,31.63,1677,True
+2026-07-10,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,27168,4600,710.15,211729.05,123938.77,75739.33,0.0,411407.14,15.14,804,True
+2026-07-11,"Gladstone, Australia","Paradip, India",Panamax,Coal,72387,6300,701.64,409290.49,235137.78,67293.7,3009.29,714731.26,9.87,529,True
+2026-07-14,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,24474,5300,983.57,337874.75,225321.98,60880.55,0.0,624077.27,25.5,2906,True
+2026-07-15,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,66967,4600,713.73,303997.57,200900.74,65325.71,0.0,570224.02,8.52,1172,True
+2026-07-16,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,84962,4600,998.39,425239.47,269094.32,60782.65,28950.36,784066.8,9.23,2673,True
+2026-07-17,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,28766,4600,734.26,218918.85,189360.99,72935.5,0.0,481215.35,16.73,2724,True
+2026-07-17,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,18300,4600,844.37,251747.02,155252.84,58570.64,0.0,465570.5,25.44,1723,True
+2026-07-18,"Gladstone, Australia","Paradip, India",Panamax,Coal,87023,6300,929.26,542065.6,343031.11,73001.56,13925.92,972024.19,11.17,2263,True
+2026-07-19,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,42686,5300,952.54,405122.6,186075.8,74499.83,15717.67,681415.9,15.96,1073,True
+2026-07-19,"Gladstone, Australia","Paradip, India",Panamax,Coal,70716,6300,951.3,554922.74,299226.67,71226.11,0.0,925375.52,13.09,1559,True
+2026-07-19,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,44228,4600,829.79,306303.53,149676.05,73121.99,0.0,529101.57,11.96,726,True
+2026-07-21,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,56085,6300,730.78,369448.02,196777.78,67203.48,0.0,633429.27,11.29,550,True
+2026-07-21,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,129427,4600,796.54,473804.32,333420.69,75064.66,27818.29,910107.96,7.03,2204,True
+2026-07-22,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,27404,5300,746.51,256439.2,178407.16,72846.63,31985.04,539678.03,19.69,1711,True
+2026-07-22,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,161621,5300,713.06,488692.21,373193.1,76563.91,6650.24,945099.46,5.85,2084,True
+2026-07-25,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,61897,5300,754.12,370079.77,262513.58,75195.36,0.0,707788.72,11.43,1765,True
+2026-07-25,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,53998,4600,866.76,319950.38,148517.53,76362.68,70949.19,615779.77,11.4,692,True
+2026-07-26,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,10381,4600,893.02,266252.14,135455.8,65628.05,0.0,467336.0,45.02,1142,True
+2026-07-26,"Gladstone, Australia","Paradip, India",Handysize,Coal,35109,6300,891.59,364064.81,223968.89,69513.33,0.0,657547.03,18.73,1966,True
+2026-07-26,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,66396,5300,841.23,412827.92,251730.37,70679.29,52239.75,787477.34,11.86,1559,True
+2026-07-27,"Gladstone, Australia","Paradip, India",Capesize,Coal,124874,6300,870.01,708758.57,513341.38,61996.29,33433.68,1317529.92,10.55,2726,True
+2026-07-28,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,47757,6300,959.38,485020.75,228277.78,74272.57,0.0,787571.1,16.49,1225,True
+2026-07-29,"Gladstone, Australia","Paradip, India",Capesize,Coal,132754,6300,748.98,610161.12,444910.34,73053.82,6825.29,1134950.58,8.55,2096,True
+2026-07-30,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,131142,5300,853.28,584788.77,336093.1,69937.53,0.0,990819.4,7.56,1678,True
+2026-07-31,"Gladstone, Australia","Paradip, India",Capesize,Coal,102180,6300,810.51,660284.0,320213.79,76537.65,49472.62,1106508.06,10.83,948,True
+2026-07-31,"Gladstone, Australia","Paradip, India",Handysize,Coal,18132,6300,735.54,300343.65,235075.56,67945.31,33153.02,636517.53,35.1,2204,True
+2026-08-01,"Gladstone, Australia","Paradip, India",Panamax,Coal,82752,6300,844.5,492622.38,291200.0,72508.28,0.0,856330.66,10.35,1430,True
+2026-08-03,"Richards Bay, South Africa","Visakhapatnam, India",Handymax / Supramax,Coal,55843,4600,981.75,362400.03,147597.53,59032.84,0.0,569030.4,10.19,665,True
+2026-08-04,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,70309,5300,776.53,381077.27,218333.83,74568.17,22684.17,696663.44,9.91,921,True
+2026-08-04,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,109587,5300,787.2,539500.57,253577.59,59765.82,13531.92,866375.9,7.91,775,True
+2026-08-05,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,117132,5300,771.03,528422.46,326132.76,73571.02,50442.85,978569.09,8.35,1569,True
+2026-08-05,"Port Hedland, Australia","Visakhapatnam, India",Capesize,Iron Ore,112972,5300,907.16,621719.44,250836.21,58955.75,0.0,931511.39,8.25,745,True
+2026-08-05,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,50427,5300,976.31,415233.7,199070.62,68711.88,0.0,683016.2,13.54,1404,True
+2026-08-06,"Gladstone, Australia","Paradip, India",Panamax,Coal,71322,6300,928.82,541810.37,251875.56,54383.86,0.0,848069.78,11.89,798,True
+2026-08-07,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,50367,6300,958.72,484685.3,228884.44,71915.65,0.0,785485.4,15.6,1238,True
+2026-08-08,"Gladstone, Australia","Paradip, India",Handymax / Supramax,Coal,42805,6300,857.05,433284.05,263371.11,55556.62,33167.83,785379.61,18.35,1977,True
+2026-08-09,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,74572,5300,905.9,444559.8,298265.68,74850.11,42360.38,860035.96,11.53,2448,True
+2026-08-09,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,104910,4600,751.66,447108.05,329137.93,57308.61,0.0,833554.6,7.95,2150,True
+2026-08-10,"Port Hedland, Australia","Visakhapatnam, India",Handysize,Iron Ore,15450,5300,777.48,267078.05,159798.27,65882.74,39610.36,532369.42,34.46,1237,True
+2026-08-11,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,151712,4600,945.51,562417.36,245782.76,60680.41,0.0,868880.53,5.73,1099,True
+2026-08-12,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,50388,5300,892.7,379673.7,235935.06,64714.16,17913.64,698236.56,13.86,2343,True
+2026-08-13,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,35059,4600,901.68,268835.56,151163.95,67253.68,29104.45,516357.63,14.73,1603,True
+2026-08-15,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,87146,4600,812.55,346086.83,184408.89,68573.44,28148.26,627217.42,7.2,809,True
+2026-08-16,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,43393,5300,816.22,347146.13,260118.77,67941.7,0.0,675206.59,15.56,2959,True
+2026-08-17,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,119476,4600,833.96,496064.92,355548.28,61937.85,0.0,913551.05,7.65,2483,True
+2026-08-19,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,120315,4600,811.42,482654.76,227303.45,59720.61,0.0,769678.82,6.4,866,True
+2026-08-20,"Port Hedland, Australia","Visakhapatnam, India",Panamax,Iron Ore,70991,5300,917.26,450134.91,269737.28,75214.09,0.0,795086.29,11.2,1903,True
+2026-08-21,"Richards Bay, South Africa","Visakhapatnam, India",Panamax,Coal,77089,4600,761.28,324247.93,228796.05,59489.78,0.0,612533.76,7.95,1786,True
+2026-08-21,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,55110,5300,891.37,379107.96,237466.17,59872.51,802.05,677248.69,12.29,2382,True
+2026-08-22,"Richards Bay, South Africa","Visakhapatnam, India",Handysize,Coal,35087,4600,872.71,260196.01,180126.91,54135.61,28672.08,523130.61,14.91,2453,True
+2026-08-22,"Richards Bay, South Africa","Visakhapatnam, India",Capesize,Coal,138691,4600,745.72,443576.86,305424.14,59290.43,24745.82,833037.25,6.01,1851,True
+2026-08-22,"Gladstone, Australia","Paradip, India",Capesize,Coal,147447,6300,765.8,623859.86,333031.03,65719.1,0.0,1022610.0,6.94,1066,True
+2026-08-24,"Port Hedland, Australia","Visakhapatnam, India",Handymax / Supramax,Iron Ore,41663,5300,900.95,383181.9,248969.14,59190.45,0.0,691341.49,16.59,2675,True

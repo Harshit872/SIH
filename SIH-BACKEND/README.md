@@ -37,7 +37,7 @@ Backend API for "The Odyssey" — a freight forecasting and charter optimization
 .\venv\Scripts\Activate.ps1
 
 # Run API server (dev mode)
-uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+uvicorn app.main:app --host 127.0.0.1 --port 8080 --reload
 
 # Run all tests
 python -m pytest tests/ -v

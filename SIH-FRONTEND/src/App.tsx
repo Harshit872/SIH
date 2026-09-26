@@ -14,36 +14,42 @@ import { VoyageReceipt } from "./pages/finalplan/VoyageReceipt";
 import { Settings } from "./pages/settings/Settings";
 import { VoyageProvider } from "./contexts/VoyageContext";
 import { ApprovalProvider } from "./contexts/ApprovalContext";
+import { AuthProvider } from "./contexts/AuthContext";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <VoyageProvider>
-      <ApprovalProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Navigate to="/login" replace />} />
+    <AuthProvider>
+      <VoyageProvider>
+        <ApprovalProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Navigate to="/login" replace />} />
 
-            <Route element={<AuthLayout />}>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Route>
+              <Route element={<AuthLayout />}>
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+              </Route>
 
-            <Route element={<MainLayout />}>
-              <Route path="/voyage-requirement-input" element={<VoyageRequirementInput />} />
-              <Route path="/freight-forecasting"      element={<FreightForecasting />} />
-              <Route path="/decision-workspace"       element={<DecisionWorkspace />} />
-              <Route path="/final-recommendation"     element={<FinalRecommendation />} />
-              <Route path="/human-approval"           element={<HumanApproval />} />
-              <Route path="/final-plan"               element={<FinalPlan />} />
-              <Route path="/voyage-receipt"           element={<VoyageReceipt />} />
-              <Route path="/settings"                 element={<Settings />} />
-            </Route>
+              <Route element={<ProtectedRoute />}>
+                <Route element={<MainLayout />}>
+                  <Route path="/voyage-requirement-input" element={<VoyageRequirementInput />} />
+                  <Route path="/freight-forecasting"      element={<FreightForecasting />} />
+                  <Route path="/decision-workspace"       element={<DecisionWorkspace />} />
+                  <Route path="/final-recommendation"     element={<FinalRecommendation />} />
+                  <Route path="/human-approval"           element={<HumanApproval />} />
+                  <Route path="/final-plan"               element={<FinalPlan />} />
+                  <Route path="/voyage-receipt"           element={<VoyageReceipt />} />
+                  <Route path="/settings"                 element={<Settings />} />
+                </Route>
+              </Route>
 
-            <Route path="/foundation-check" element={<FoundationCheck />} />
-          </Routes>
-        </BrowserRouter>
-      </ApprovalProvider>
-    </VoyageProvider>
+              <Route path="/foundation-check" element={<FoundationCheck />} />
+            </Routes>
+          </BrowserRouter>
+        </ApprovalProvider>
+      </VoyageProvider>
+    </AuthProvider>
   );
 }
 

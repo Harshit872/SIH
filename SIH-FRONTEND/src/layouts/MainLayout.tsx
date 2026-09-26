@@ -5,6 +5,7 @@ import {
   CheckCircle, FileText, Menu, Pencil, Settings, User, LogOut, Lock
 } from "lucide-react";
 import { useVoyage } from "../contexts/VoyageContext";
+import { useAuth } from "../contexts/AuthContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,9 +16,9 @@ import {
 } from "../components/ui/dropdown-menu";
 
 // Example avatar
-const AVATAR_INITIALS = "HS";
-const USER_NAME = "Harshit Sachan";
-const USER_EMAIL = "harshit@odyssey.app";
+
+
+
 
 const NAV_ITEMS = [
   { path: "/voyage-requirement-input", label: "Voyage Details", icon: Navigation },
@@ -120,6 +121,11 @@ function Sidebar({ location, handleEditVoyage, setIsMobileOpen }: { location: an
 }
 
 export function MainLayout() {
+  const { logout, user } = useAuth();
+
+  const USER_NAME = user ? `${user.first_name || ''} ${user.last_name || ''}`.trim() || "User" : "User";
+  const USER_EMAIL = user ? user.sub : "user@odyssey.app";
+  const AVATAR_INITIALS = user ? `${(user.first_name || "U")[0]}${(user.last_name || "S")[0]}`.toUpperCase() : "US";
   const { requirements, completedSteps } = useVoyage();
   const location = useLocation();
   const navigate = useNavigate();
@@ -140,7 +146,7 @@ export function MainLayout() {
   };
 
   const handleLogout = () => {
-    navigate("/login");
+    logout(); navigate("/login");
   };
 
 
@@ -253,3 +259,9 @@ export function MainLayout() {
     </div>
   );
 }
+
+
+
+
+
+

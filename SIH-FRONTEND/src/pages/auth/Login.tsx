@@ -1,18 +1,30 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { Button } from "../../components/ui/button";
+import { authService } from "../../services/authService";
+import { useAuth } from "../../contexts/AuthContext";
 
 export function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
+    setError("");
+    try {
+      const data = await authService.login(email, password);
+      login(data.access_token);
       navigate("/voyage-requirement-input");
-    }, 1200);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleDemoAccess = () => {
@@ -29,6 +41,7 @@ export function Login() {
       </div>
 
       <form onSubmit={handleLogin} className="space-y-6">
+        {error && <div className="p-3 text-sm text-red-600 bg-red-50 rounded-md">{error.includes('Sign Up') ? <span>{error} <Link to="/signup" className="underline font-bold">Go to Sign Up</Link></span> : error}</div>}
         <div className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium leading-none text-slate-900">
@@ -37,6 +50,8 @@ export function Login() {
             <input
               id="email"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="name@company.com"
               required
               className="flex h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
@@ -47,13 +62,12 @@ export function Login() {
               <label htmlFor="password" className="text-sm font-medium leading-none text-slate-900">
                 Password
               </label>
-              <a href="#" className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline transition-colors">
-                Forgot password?
-              </a>
             </div>
             <input
               id="password"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
               className="flex h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
             />
@@ -91,3 +105,4 @@ export function Login() {
     </div>
   );
 }
+

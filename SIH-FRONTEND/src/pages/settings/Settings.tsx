@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { useAuth } from "../../contexts/AuthContext";
 import { User, Bell, Shield, Palette, Database, Info, LogOut } from "lucide-react";
 
 export function Settings() {
   const [activeTab, setActiveTab] = useState("profile");
+  const { user } = useAuth();
+  const USER_NAME = user ? `${user.first_name || ''} ${user.last_name || ''}`.trim() || "User" : "User";
+  const USER_EMAIL = user ? user.sub : "user@odyssey.app";
+  const AVATAR_INITIALS = user ? `${(user.first_name || "U")[0]}${(user.last_name || "S")[0]}`.toUpperCase() : "US";
 
   return (
     <div className="w-full relative">
@@ -81,7 +86,7 @@ export function Settings() {
                   {/* Photo */}
                   <div className="flex flex-col sm:flex-row sm:items-center gap-6">
                     <div className="h-24 w-24 rounded-full bg-blue-600 flex items-center justify-center text-white text-3xl font-bold shadow-sm ring-4 ring-slate-50">
-                      HS
+                      {AVATAR_INITIALS}
                     </div>
                     <div>
                       <button className="px-5 py-2.5 bg-white border border-slate-300 rounded-xl text-[14px] font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm focus:outline-none focus:ring-4 focus:ring-slate-100">
@@ -95,7 +100,7 @@ export function Settings() {
                   <div className="space-y-5">
                     <div className="space-y-2">
                       <label className="text-[13px] font-semibold text-slate-500 uppercase tracking-wider">Full Name</label>
-                      <input type="text" defaultValue="Harshit Sachan" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all shadow-sm" />
+                      <input type="text" defaultValue={USER_NAME} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all shadow-sm" />
                     </div>
                     
                     <div className="space-y-2">
@@ -103,22 +108,22 @@ export function Settings() {
                         <span>Email</span>
                         <span className="text-xs text-slate-400 normal-case font-normal">Managed by your account</span>
                       </label>
-                      <input type="email" defaultValue="harshit@odyssey.app" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-500 bg-slate-50 cursor-not-allowed outline-none shadow-sm" readOnly />
+                      <input type="email" defaultValue={USER_EMAIL} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-500 bg-slate-50 cursor-not-allowed outline-none shadow-sm" readOnly />
                     </div>
 
                     <div className="space-y-2">
                       <label className="text-[13px] font-semibold text-slate-500 uppercase tracking-wider">Phone</label>
-                      <input type="tel" defaultValue="+91 98765 43210" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all shadow-sm" />
+                      <input type="tel" defaultValue={""} placeholder="Add phone number..." className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all shadow-sm" />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <label className="text-[13px] font-semibold text-slate-500 uppercase tracking-wider">Organization</label>
-                        <input type="text" defaultValue="Global Maritime Corp" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all shadow-sm" />
+                        <input type="text" defaultValue={""} placeholder="Add organization..." className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all shadow-sm" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-[13px] font-semibold text-slate-500 uppercase tracking-wider">Role</label>
-                        <input type="text" defaultValue="Chartering Manager" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all shadow-sm" />
+                        <input type="text" defaultValue={""} placeholder="Add role..." className="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] md:text-[16px] text-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all shadow-sm" />
                       </div>
                     </div>
                   </div>
@@ -337,3 +342,7 @@ export function Settings() {
     </div>
   );
 }
+
+
+
+

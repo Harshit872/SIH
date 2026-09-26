@@ -9,3 +9,8 @@ __pycache__/
 .venv/
 venv/
 .DS_Store
+
+*.sqlite3
+*.db
+DATASETS/raw/
+data/reference/processed/*.csv

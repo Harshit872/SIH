@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import { useVoyage } from "../../contexts/VoyageContext";
+import { DatasetService } from "../../data/DatasetService";
 import { 
   CalendarCheck, Clock, GitBranch, ShieldCheck, 
   Navigation, Anchor, AlertCircle
@@ -12,6 +13,7 @@ export function DecisionWorkspace() {
   const navigate = useNavigate();
   const scenarios = evaluateScenarios(requirements);
   const decision = runDecisionEngine(scenarios, requirements);
+  const selectedScenario = scenarios.find(s => s.scenario === decision.bestTime) || scenarios[0];
 
   return (
     <div className="w-full relative flex flex-col min-h-full">
@@ -56,10 +58,10 @@ export function DecisionWorkspace() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150">
+        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150">
           
           {/* Explore Timing Options */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="w-full">
             <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden flex flex-col h-full">
               <div className="bg-slate-50 border-b border-slate-100 p-5 flex items-center gap-3">
                 <div className="p-2 bg-blue-100 text-blue-700 rounded-lg">
@@ -81,7 +83,7 @@ export function DecisionWorkspace() {
                           <span className="text-xs text-slate-500 block">Total Cost</span>
                           <span className="text-sm font-semibold text-slate-900">
                             {evalData.totalCost === "Unavailable" ? (
-                              <span className="text-slate-400 text-xs italic">Unavailable</span>
+                              <span className="text-slate-400 text-xs italic">N/A - see note above</span>
                             ) : `$${evalData.totalCost.toLocaleString()}`}
                           </span>
                         </div>
@@ -89,7 +91,7 @@ export function DecisionWorkspace() {
                           <span className="text-xs text-slate-500 block">Risk Score</span>
                           <span className="text-sm font-semibold text-slate-900">
                             {evalData.riskScore === "Unavailable" ? (
-                              <span className="text-slate-400 text-xs italic">Unavailable</span>
+                              <span className="text-slate-400 text-xs italic">N/A - see note above</span>
                             ) : evalData.riskScore}
                           </span>
                         </div>
@@ -97,7 +99,7 @@ export function DecisionWorkspace() {
                           <span className="text-xs text-slate-500 block">Deadline Buffer</span>
                           <span className="text-sm font-semibold text-slate-900">
                             {evalData.deadlineBuffer === "Unavailable" ? (
-                              <span className="text-slate-400 text-xs italic">Unavailable</span>
+                              <span className="text-slate-400 text-xs italic">N/A - see note above</span>
                             ) : evalData.deadlineBuffer < 0 ? (
                               <span className="text-red-600 font-bold">{Math.abs(evalData.deadlineBuffer as number)} days late</span>
                             ) : (
@@ -190,16 +192,16 @@ export function DecisionWorkspace() {
                 <h3 className="font-semibold text-slate-900">Delivery Feasibility</h3>
               </div>
               <div className="p-6 flex flex-col justify-center items-center py-8">
-                 {scenarios[0] && scenarios[0].deadlineBuffer !== "Unavailable" ? (
+                 {selectedScenario && selectedScenario.deadlineBuffer !== "Unavailable" ? (
                    <>
-                     <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-3 ${scenarios[0].deadlineBuffer >= 0 ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'}`}>
+                     <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-3 ${selectedScenario.deadlineBuffer >= 0 ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'}`}>
                         <ShieldCheck size={24} />
                      </div>
-                     <div className={`inline-flex items-center px-4 py-2 rounded-full border font-medium text-sm ${scenarios[0].deadlineBuffer >= 0 ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-red-50 border-red-200 text-red-700'}`}>
-                        {scenarios[0].deadlineBuffer >= 0 ? 'Feasible (Book Now)' : 'Infeasible Plan'}
+                     <div className={`inline-flex items-center px-4 py-2 rounded-full border font-medium text-sm ${selectedScenario.deadlineBuffer >= 0 ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-red-50 border-red-200 text-red-700'}`}>
+                        {selectedScenario.deadlineBuffer >= 0 ? `Feasible (${selectedScenario.scenario})` : 'Infeasible Plan'}
                      </div>
                      <p className="text-xs text-center text-slate-500 mt-3 max-w-[200px]">
-                        {scenarios[0].deadlineBuffer >= 0 ? `Current requirements allow a ${scenarios[0].deadlineBuffer}-day buffer.` : `Target arrival is ${Math.abs(scenarios[0].deadlineBuffer as number)} days late.`}
+                        {selectedScenario.deadlineBuffer >= 0 ? `Current requirements allow a ${selectedScenario.deadlineBuffer}-day buffer.` : `Target arrival is ${Math.abs(selectedScenario.deadlineBuffer as number)} days late.`}
                      </p>
                    </>
                  ) : (

@@ -1,0 +1,91 @@
+[33mcommit ca7368cc5acd854521d9a817c83469b4e4b1e5c6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Umang Agarwal <umang01aga@gmail.com>
+Date:   Sat Sep 26 17:13:31 2026 +0530
+
+    Added Models,Trained Model, reorganised repo and datasets.
+
+ DATASETS/processed/synthetic_voyages_v1.csv        | 501 [32m+++++++++++++++++++++[m
+ DATASETS/processed/synthetic_voyages_v1_README.md  |  31 [32m++[m
+ DATASETS/processed/training_table_freight_v1.csv   |   1 [32m+[m
+ .../processed/training_table_freight_v1_README.md  |  40 [32m++[m
+ ...rgo handled at Major Ports April 2026_p6_t1.csv |  84 [32m++++[m
+ ...rgo handled at Major Ports April 2026_p7_t1.csv |  26 [32m++[m
+ ...ndian_20Shipping_20Statistics_202025_p14_t1.csv |  16 [32m+[m
+ ...ndian_20Shipping_20Statistics_202025_p15_t1.csv |  16 [32m+[m
+ ...ndian_20Shipping_20Statistics_202025_p15_t2.csv |  17 [32m+[m
+ .../reference}/reference/processed/cleaning_log.md |   0
+ .../reference/processed/data_dictionary.md         |   0
+ .../reference/processed/dataset_inventory.md       |   0
+ .../processed/major_ports_traffic_cleaned.csv      |  15 [32m+[m
+ ..._20indian_20port_20sector_2031032023_p10_t1.csv |  24 [32m+[m
+ ..._20indian_20port_20sector_2031032023_p11_t1.csv |  26 [32m++[m
+ ..._20indian_20port_20sector_2031032023_p13_t1.csv |  22 [32m+[m
+ ..._20indian_20port_20sector_2031032023_p14_t1.csv |  37 [32m++[m
+ ..._20indian_20port_20sector_2031032023_p15_t1.csv |  33 [32m++[m
+ ...n_20indian_20port_20sector_2031032023_p5_t2.csv |  12 [32m+[m
+ ...n_20indian_20port_20sector_2031032023_p6_t1.csv |  12 [32m+[m
+ .../reference/processed/validation_report.md       |   0
+ SIH-AI-ML/models/freight_rate_lgbm_v1.pkl          | Bin [31m0[m -> [32m151781[m bytes
+ SIH-AI-ML/scripts/exploratory/audit.py             |  87 [32m++++[m
+ SIH-AI-ML/scripts/exploratory/check_6.py           |  21 [32m+[m
+ SIH-AI-ML/scripts/exploratory/check_all_cols.py    |  13 [32m+[m
+ SIH-AI-ML/scripts/exploratory/check_base.py        |   9 [32m+[m
+ SIH-AI-ML/scripts/exploratory/check_cols.py        |   3 [32m+[m
+ SIH-AI-ML/scripts/exploratory/check_ds1.py         |   6 [32m+[m
+ SIH-AI-ML/scripts/exploratory/check_rows.py        |   3 [32m+[m
+ SIH-AI-ML/scripts/exploratory/check_sheets.py      |   3 [32m+[m
+ SIH-AI-ML/scripts/exploratory/check_trans.py       |   4 [32m+[m
+ .../scripts/exploratory/explore_data.py            |   0
+ SIH-AI-ML/scripts/exploratory/generalize.py        |  56 [32m+++[m
+ SIH-AI-ML/scripts/exploratory/generalize2.py       |  57 [32m+++[m
+ SIH-AI-ML/scripts/exploratory/inspect_data_rows.py |  11 [32m+[m
+ SIH-AI-ML/scripts/exploratory/inspect_dataset.py   |   9 [32m+[m
+ SIH-AI-ML/scripts/exploratory/inspect_more.py      |  24 [32m+[m
+ SIH-AI-ML/scripts/exploratory/inspect_new_data.py  |  23 [32m+[m
+ SIH-AI-ML/scripts/exploratory/inspect_sih_reqs.py  |   9 [32m+[m
+ SIH-AI-ML/scripts/exploratory/list_files.py        |  10 [32m+[m
+ SIH-AI-ML/scripts/exploratory/reorganize.py        |  36 [32m++[m
+ SIH-AI-ML/scripts/exploratory/sanity.py            |  25 [32m+[m
+ SIH-AI-ML/scripts/exploratory/script.py            |  99 [32m++++[m
+ SIH-AI-ML/scripts/exploratory/verify.py            |  15 [32m+[m
+ .../src/data_prep/clean_data.py                    |   0
+ .../src/data_prep/extract_pdfs.py                  |   0
+ SIH-AI-ML/src/data_prep/gen_synthetic.py           | 132 [32m++++++[m
+ SIH-AI-ML/src/data_prep/prepare_dataset.py         | 136 [32m++++++[m
+ SIH-AI-ML/src/data_prep/run_etl.py                 |  94 [32m++++[m
+ SIH-AI-ML/src/model/guardrails.py                  |  93 [32m++++[m
+ SIH-AI-ML/src/model/train.py                       |  98 [32m++++[m
+ SIH-BACKEND/app/api/routes.py                      | 107 [32m++++[m[31m-[m
+ SIH-BACKEND/app/auth/database.py                   |   5 [32m+[m[31m-[m
+ SIH-BACKEND/app/auth/dependencies.py               |  23 [32m+[m[31m-[m
+ SIH-BACKEND/app/optimization/cost_engine/engine.py | 170 [32m+++[m[31m----[m
+ SIH-BACKEND/app/scenario_evaluation/engine.py      |  71 [32m+[m[31m--[m
+ SIH-BACKEND/scripts/patch_routes.py                |  25 [32m+[m
+ SIH-BACKEND/scripts/patch_routes2.py               |  24 [32m+[m
+ SIH-BACKEND/scripts/test_backend_flow.py           |  32 [32m++[m
+ SIH-BACKEND/scripts/test_backend_flow2.py          |  26 [32m++[m
+ SIH-BACKEND/scripts/test_backend_flow3.py          |  42 [32m++[m
+ SIH-BACKEND/scripts/test_submit.py                 |  45 [32m++[m
+ SIH-BACKEND/scripts/test_submit2.py                |  39 [32m++[m
+ SIH-BACKEND/scripts/test_submit3.py                |  23 [32m+[m
+ SIH-FRONTEND/scripts/patch_all_frontend.py         | 473 [32m+++++++++++++++++++[m
+ SIH-FRONTEND/scripts/patch_components.py           |  43 [32m++[m
+ SIH-FRONTEND/scripts/patch_decision.py             | 116 [32m+++++[m
+ SIH-FRONTEND/scripts/patch_final_rec.py            |  95 [32m++++[m
+ SIH-FRONTEND/scripts/patch_finalrec2.py            |  31 [32m++[m
+ SIH-FRONTEND/scripts/patch_forecasting.py          |  57 [32m+++[m
+ SIH-FRONTEND/scripts/patch_hardcodes.py            |  27 [32m++[m
+ SIH-FRONTEND/scripts/patch_human.py                |  20 [32m+[m
+ SIH-FRONTEND/scripts/patch_pages.py                | 157 [32m+++++++[m
+ SIH-FRONTEND/scripts/patch_rest.py                 | 176 [32m++++++++[m
+ SIH-FRONTEND/scripts/patch_voyage_receipt.py       | 101 [32m+++++[m
+ SIH-FRONTEND/src/pages/approval/HumanApproval.tsx  |  12 [32m+[m[31m-[m
+ .../src/pages/decision/DecisionWorkspace.tsx       |  10 [32m+[m[31m-[m
+ SIH-FRONTEND/src/pages/finalplan/VoyageReceipt.tsx | 117 [32m++++[m[31m-[m
+ .../src/pages/forecasting/FreightForecasting.tsx   |  45 [32m+[m[31m-[m
+ .../pages/recommendation/FinalRecommendation.tsx   | 107 [32m++++[m[31m-[m
+ .../src/pages/voyage/VoyageRequirementInput.tsx    |  21 [32m+[m[31m-[m
+ SIH-FRONTEND/src/services/api.ts                   |  27 [32m++[m
+ report_out.md                                      | 259 [32m+++++++++++[m
+ sih_workbook_dump.txt                              | 148 [32m++++++[m
+ 84 files changed, 4433 insertions(+), 230 deletions(-)

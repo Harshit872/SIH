@@ -11,7 +11,7 @@ import {
 // ── helpers ──────────────────────────────────────────────────────────────────
 
 function UnavailablePill() {
-  return <span className="text-slate-400 italic text-sm">Unavailable</span>;
+  return <span className="text-slate-400 italic text-xs">N/A - see note above</span>;
 }
 
 function PlanRow({ icon, label, value }: { icon: React.ReactNode; label: string; value: React.ReactNode }) {
@@ -49,8 +49,7 @@ export function FinalPlan() {
   const navigate = useNavigate();
 
   const evaluations  = evaluateScenarios(requirements);
-  const bookNowEval  = evaluations.find(e => e.scenario === "BOOK NOW");
-
+  
   // ── Guard — no approval state ────────────────────────────────────────────
   if (!approvalResult) {
     return (
@@ -76,6 +75,7 @@ export function FinalPlan() {
   }
 
   const { status, approvedAt, originalRecommendation, finalDecision } = approvalResult;
+  const selectedEval = evaluations.find(e => e.scenario === finalDecision?.bestTime) || evaluations[0];
   const isModified = status === "modified";
 
   const vesselLabel = finalDecision.bestVessel !== "Unavailable"
@@ -133,7 +133,7 @@ export function FinalPlan() {
             <div className="px-6 py-6 space-y-4">
               <div className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl font-black text-xl border-2 ${
                 finalDecision.recommendation === "BOOK NOW"   ? "bg-emerald-50 border-emerald-400 text-emerald-700" :
-                finalDecision.recommendation === "WAIT"       ? "bg-amber-50 border-amber-400 text-amber-700" :
+                finalDecision.recommendation?.includes("WAIT")       ? "bg-amber-50 border-amber-400 text-amber-700" :
                 finalDecision.recommendation === "CHANGE PLAN"? "bg-rose-50 border-rose-400 text-rose-700" :
                 "bg-slate-100 border-slate-300 text-slate-600"
               }`}>
@@ -207,16 +207,16 @@ export function FinalPlan() {
             <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400">Decision Context</h3>
           </div>
           <div className="px-6 py-2">
-            <PlanRow icon={<BarChart3 size={15} />} label="Freight Cost (BOOK NOW)"
+            <PlanRow icon={<BarChart3 size={15} />} label={`Freight Cost (${finalDecision?.bestTime || "Selected"})`}
               value={
-                bookNowEval?.details.freightCost !== "Unavailable" && bookNowEval?.details.freightCost !== undefined
-                  ? `$${bookNowEval.details.freightCost.toLocaleString()}`
+                selectedEval?.details.freightCost !== "Unavailable" && selectedEval?.details.freightCost !== undefined
+                  ? `$${selectedEval.details.freightCost.toLocaleString()}`
                   : <UnavailablePill />
               } />
             <PlanRow icon={<AlertCircle size={15} />} label="Risk Score"
-              value={bookNowEval?.riskScore === "Unavailable" ? <UnavailablePill /> : String(bookNowEval?.riskScore)} />
+              value={selectedEval?.riskScore === "Unavailable" ? <UnavailablePill /> : String(selectedEval?.riskScore)} />
             <PlanRow icon={<Clock size={15} />} label="Deadline Buffer"
-              value={bookNowEval?.deadlineBuffer === "Unavailable" ? <UnavailablePill /> : `${bookNowEval?.deadlineBuffer} days`} />
+              value={selectedEval?.deadlineBuffer === "Unavailable" ? <UnavailablePill /> : `${selectedEval?.deadlineBuffer} days`} />
           </div>
         </div>
 
@@ -227,7 +227,16 @@ export function FinalPlan() {
               <Anchor size={16} className="text-amber-600" />
               <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400">Vessel Specifications</h3>
             </div>
-            <div className="p-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            
+              {finalDecision.bestVessel === "Unavailable" && (
+                <div className="px-6 py-4 bg-slate-50 border-y border-slate-100">
+                  <p className="text-sm text-slate-700 font-medium">No feasible single-vessel plan exists for this cargo volume.</p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Multi-voyage planning required - approximately {Math.ceil(Number(requirements?.cargoMt || 0) / 170000)} voyages based on Capesize limits.
+                  </p>
+                </div>
+              )}
+              <div className="p-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
               {[
                 ["DWT (mt)",        finalDecision.bestVessel["DWT (mt)"]],
                 ["Draft (m)",       finalDecision.bestVessel["SSW Draft (m)"]],

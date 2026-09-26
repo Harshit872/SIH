@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/v1';
 
 async function fetchApi(endpoint: string, payload: any) {
   const token = localStorage.getItem('odyssey_auth_token');

@@ -12,15 +12,28 @@ import { submitVoyage } from "../../services/api";
 import { DatasetService } from "../../data/DatasetService";
 import { DEMO_SCENARIOS } from "../../data/demo/demoVoyages";
 
-const PORT_OPTIONS = DatasetService.getUniquePorts().map(port => ({
-  value: port.toLowerCase().replace(/[^a-z0-9]/g, '_'),
-  label: port
-}));
+const ORIGIN_OPTIONS = [
+  { value: "Port Hedland", label: "Port Hedland" },
+  { value: "Gladstone", label: "Gladstone" },
+  { value: "Newcastle", label: "Newcastle" },
+  { value: "Hay Point", label: "Hay Point" },
+  { value: "Dalrymple Bay", label: "Dalrymple Bay" },
+  { value: "Richards Bay", label: "Richards Bay" },
+];
 
-const COMMODITY_OPTIONS = DatasetService.getCargoes().map(cargo => ({
-  value: cargo.Cargo.toLowerCase().replace(/[^a-z0-9]/g, '_'),
-  label: cargo.Cargo
-}));
+const DESTINATION_OPTIONS = [
+  { value: "Dhamra", label: "Dhamra" },
+  { value: "Paradip", label: "Paradip" },
+  { value: "Haldia", label: "Haldia" },
+  { value: "Visakhapatnam", label: "Visakhapatnam" },
+];
+
+const COMMODITY_OPTIONS = [
+  { value: "Iron Ore", label: "Iron Ore" },
+  { value: "Coal", label: "Coal" },
+  { value: "Coking Coal", label: "Coking Coal" },
+  { value: "Thermal Coal", label: "Thermal Coal" },
+];
 
 const CONTRACT_OPTIONS = [
   { value: "voyage_charter", label: "Voyage Charter" },
@@ -105,9 +118,9 @@ export function VoyageRequirementInput() {
       setIsLoading(true);
       try {
         const reqPayload = {
-          origin: PORT_OPTIONS.find(o => o.value === origin)?.label || origin,
-          destination: PORT_OPTIONS.find(o => o.value === destination)?.label || destination,
-          commodity: COMMODITY_OPTIONS.find(o => o.value === commodity)?.label || commodity,
+          origin: origin,
+          destination: destination,
+          commodity: commodity,
           cargoMt: Number(cargoMt),
           deliveryDate: deliveryDate ? format(deliveryDate, "yyyy-MM-dd") : "",
           contract: CONTRACT_OPTIONS.find(o => o.value === contract)?.label || contract,
@@ -172,7 +185,7 @@ export function VoyageRequirementInput() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground">Origin Port / Region</label>
                   <SearchableSelect 
-                    options={PORT_OPTIONS}
+                    options={ORIGIN_OPTIONS}
                     value={origin}
                     onChange={(val) => { setOrigin(val); clearError("origin"); }}
                     placeholder="Search origin..."
@@ -184,7 +197,7 @@ export function VoyageRequirementInput() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground">Destination Port / Region</label>
                   <SearchableSelect 
-                    options={PORT_OPTIONS}
+                    options={DESTINATION_OPTIONS}
                     value={destination}
                     onChange={(val) => { setDestination(val); clearError("destination"); }}
                     placeholder="Search destination..."

@@ -325,3 +325,169 @@ async def generate_recommendation(_: Any = None):
 
 
 
+
+from app.optimization.freight_forecasting.schemas import FreightForecastRequest, FreightForecastResponse
+from app.optimization.freight_forecasting.ml_service import predict_freight_rate
+from fastapi import HTTPException
+
+@router.post("/forecast/freight-rate", response_model=FreightForecastResponse, tags=["Machine Learning"])
+async def forecast_freight_rate(request: FreightForecastRequest):
+    try:
+        result = predict_freight_rate(
+            origin=request.origin_port,
+            destination=request.destination_port,
+            vessel_class=request.vessel_class,
+            commodity=request.cargo_type,
+            cargo_mt=request.quantity_mt,
+            route_distance_nm=request.route_distance_nm,
+            bunker_price=request.bunker_price_usd_per_mt,
+            bdi_value=request.bdi_value
+        )
+        return FreightForecastResponse(**result)
+    except RuntimeError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+from app.optimization.rules.schemas import (
+    VesselFeasibilityRequest, VesselFeasibilityResponse,
+    VoyageCostRequest, VoyageCostResponse,
+    DeadlineCheckRequest, DeadlineCheckResponse
+)
+from app.optimization.rules.vessel_feasibility import evaluate_vessel_feasibility
+from app.optimization.rules.cost_engine import calculate_voyage_cost
+from app.optimization.rules.deadline_validator import check_deadline
+
+@router.post("/vessel-feasibility", response_model=VesselFeasibilityResponse, tags=["Rules"])
+async def vessel_feasibility(req: VesselFeasibilityRequest):
+    res = evaluate_vessel_feasibility(req.cargo_quantity_mt, req.origin_port, req.destination_port)
+    return res
+
+@router.post("/voyage-cost", response_model=VoyageCostResponse, tags=["Rules"])
+async def voyage_cost(req: VoyageCostRequest):
+    res = calculate_voyage_cost(
+        req.origin_port, req.destination_port,
+        req.freight_rate_usd_per_mt, req.quantity_mt, req.bunker_price_usd_per_mt,
+        req.route_distance_nm, req.vessel_class, req.port_turnaround_days, req.demurrage_rate
+    )
+    return res
+
+@router.post("/deadline-check", response_model=DeadlineCheckResponse, tags=["Rules"])
+async def deadline_check(req: DeadlineCheckRequest):
+    res = check_deadline(
+        req.route_distance_nm, req.vessel_speed_knots, req.port_turnaround_days,
+        req.laycan_start_date, req.required_delivery_date
+    )
+    return res
+
+from app.optimization.rules.schemas import (
+    RiskScoreRequest, RiskScoreResponse,
+    WhatIfRequest, WhatIfResponse
+)
+from app.optimization.rules.risk_engine import calculate_risk_score
+from app.optimization.rules.decision_engine import compute_what_if_scenarios
+
+@router.post("/risk-score", response_model=RiskScoreResponse, tags=["Rules"])
+async def risk_score(req: RiskScoreRequest):
+    return calculate_risk_score(
+        req.freight_rate_confidence_flag, req.deadline_buffer_days,
+        req.port_cost_source, req.vessel_feasibility_mode
+    )
+
+@router.post("/what-if", response_model=WhatIfResponse, tags=["Rules"])
+async def what_if_engine(req: WhatIfRequest):
+    return compute_what_if_scenarios(req)
+
+import uuid
+import json
+from app.optimization.rules.schemas import ApprovePlanRequest, ApprovedPlanResponse
+from app.auth.database import get_db
+
+
+
+@router.get("/plan/{plan_id}", tags=["Plan"])
+async def get_plan(plan_id: str, db: sqlite3.Connection = Depends(get_db)):
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM approved_plans WHERE plan_id = ?", (plan_id,))
+    row = cursor.fetchone()
+    if not row:
+        raise HTTPException(status_code=404, detail="Plan not found")
+        
+    return {
+        "plan_id": row["plan_id"],
+        "user_email": row["user_email"],
+        "voyage_details": json.loads(row["voyage_details"]),
+        "chosen_scenario": json.loads(row["chosen_scenario"]),
+        "total_cost_usd": row["total_cost_usd"],
+        "risk_tier": row["risk_tier"],
+        "created_at": row["created_at"]
+    }
+
+from app.auth.dependencies import get_current_user
+from app.optimization.rules.decision_engine import compute_what_if_scenarios
+from app.optimization.rules.schemas import WhatIfRequest
+
+@router.post("/plan/approve", response_model=ApprovedPlanResponse, tags=["Plan"])
+async def approve_plan(req: ApprovePlanRequest, db: sqlite3.Connection = Depends(get_db), current_user: dict = Depends(get_current_user)):
+    chosen_scenario_name = req.what_if_response.get("recommended_scenario") if req.user_decision == "approve" else req.modified_scenario
+    
+    if not chosen_scenario_name:
+        raise HTTPException(status_code=400, detail="No scenario provided")
+        
+    # Re-run the What-If Engine to ensure data is authentic and not spoofed by frontend
+    wi_req = WhatIfRequest(**req.voyage_details)
+    fresh_what_if = compute_what_if_scenarios(wi_req)
+    
+    chosen_scenario = next((s for s in fresh_what_if["scenarios"] if s.scenario_name == chosen_scenario_name), None)
+    if not chosen_scenario:
+        raise HTTPException(status_code=400, detail="Invalid scenario chosen")
+        
+    plan_id = str(uuid.uuid4())
+    cursor = db.cursor()
+    cursor.execute(
+        "INSERT INTO approved_plans (plan_id, user_email, voyage_details, chosen_scenario, total_cost_usd, risk_tier) VALUES (?, ?, ?, ?, ?, ?)",
+        (
+            plan_id,
+            current_user["email"],
+            json.dumps(req.voyage_details),
+            chosen_scenario.model_dump_json(),
+            chosen_scenario.total_cost_usd,
+            chosen_scenario.risk_tier
+        )
+    )
+    db.commit()
+    
+    return {
+        "plan_id": plan_id,
+        "status": "stored",
+        "chosen_scenario": chosen_scenario_name,
+        "total_cost_usd": chosen_scenario.total_cost_usd,
+        "risk_tier": chosen_scenario.risk_tier
+    }
+
+from app.optimization.rules.schemas import IdleCheckRequest, IdleCheckResponse
+
+@router.post("/idle-check", response_model=IdleCheckResponse, tags=["Rules"])
+async def idle_check(req: IdleCheckRequest):
+    note = "Alternative employment/repositioning recommendations require vessel position and cargo opportunity data not currently available. This module currently flags idle time only."
+    
+    if not req.next_laycan_start_date:
+        return {
+            "idle_days": None,
+            "status": "none",
+            "note": note
+        }
+        
+    idle_days = (req.next_laycan_start_date - req.current_voyage_arrival_date).days
+    
+    if idle_days > 0:
+        status = "idle_gap"
+    elif idle_days < 0:
+        status = "tight_scheduling"
+    else:
+        status = "none"
+        
+    return {
+        "idle_days": idle_days,
+        "status": status,
+        "note": note
+    }

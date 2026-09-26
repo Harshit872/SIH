@@ -1,13 +1,14 @@
 import { useVoyage } from "../../contexts/VoyageContext";
+import { evaluateScenarios, runDecisionEngine, generateFinalRecommendation } from "../../utils/DecisionLogic";
+import type { FinalRecommendationType } from "../../utils/DecisionLogic";
+
 import { useNavigate } from "react-router";
 import {
   CheckCircle2, Clock, AlertTriangle,
   RefreshCw, Info, Anchor, Map, CalendarClock, BarChart3
 } from "lucide-react";
 import { Button } from "../../components/ui/button";
-import { useState, useEffect } from "react";
-import { evaluateScenarios as apiEvaluateScenarios, generateRecommendation as apiRunDecision } from "../../services/api";
-type FinalRecommendationType = "BOOK NOW" | "WAIT" | "CHANGE PLAN" | "UNAVAILABLE";
+
 
 function RecommendationBadge({ rec }: { rec: FinalRecommendationType }) {
   if (rec === "BOOK NOW") {
@@ -18,11 +19,11 @@ function RecommendationBadge({ rec }: { rec: FinalRecommendationType }) {
       </div>
     );
   }
-  if (rec === "WAIT") {
+  if (rec?.includes("WAIT")) {
     return (
       <div className="inline-flex items-center gap-3 px-6 py-3 bg-amber-50 border-2 border-amber-400 rounded-xl">
         <Clock size={28} className="text-amber-600" aria-hidden="true" />
-        <span className="text-2xl font-black text-amber-700 tracking-tight">WAIT</span>
+        <span className="text-2xl font-black text-amber-700 tracking-tight">{rec}</span>
       </div>
     );
   }
@@ -58,83 +59,13 @@ export function FinalRecommendation() {
   const { requirements, markStepComplete } = useVoyage();
   const navigate = useNavigate();
 
-  const [evaluations, setEvaluations] = useState<any[]>([]);
-  const [decision, setDecision] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [finalRec, setFinalRec] = useState<{recommendation: FinalRecommendationType, reason: string}>({
-    recommendation: "UNAVAILABLE",
-    reason: "Awaiting calculation..."
-  });
 
-  useEffect(() => {
-    async function loadData() {
-      if (!requirements) {
-        setIsLoading(false);
-        return;
-      }
-      try {
-        const payload = {
-          origin: requirements.origin,
-          destination: requirements.destination,
-          commodity: requirements.commodity,
-          cargoMt: requirements.cargoMt,
-          deliveryDate: requirements.deliveryDate || new Date().toISOString(),
-          contract: requirements.contract,
-          laycan: requirements.laycan,
-          noOfVoyages: requirements.noOfVoyages
-        };
-        const scenariosRes = await apiEvaluateScenarios(payload);
-        
-        const mappedScenarios = scenariosRes.scenarios.map((s: any) => {
-          const getComp = (name: string) => {
-            if (!s.cost_report || !s.cost_report.components) return "Unavailable";
-            const c = s.cost_report.components.find((x: any) => x.name === name);
-            return c && c.amount !== null ? c.amount : "Unavailable";
-          };
-          return {
-            scenario: s.name.toUpperCase(),
-            totalCost: (s.cost_report && s.cost_report.total_amount !== null) ? s.cost_report.total_amount : "Unavailable",
-            riskScore: (s.risk_report && s.risk_report.score !== null) ? s.risk_report.score : "Unavailable",
-            deadlineBuffer: (s.schedule_report && s.schedule_report.buffer_days !== null) ? s.schedule_report.buffer_days : "Unavailable",
-            details: {
-              freightCost: getComp("Freight Cost"),
-              bunkerCost: getComp("Bunker Cost"),
-              portCost: getComp("Port Charges"),
-              delayCost: getComp("Waiting Cost"),
-            }
-          };
-        });
-        setEvaluations(mappedScenarios);
-
-        try {
-          const decisionRes = await apiRunDecision(payload);
-          setDecision(decisionRes);
-          setFinalRec({
-            recommendation: decisionRes.bestTime === "BOOK NOW" ? "BOOK NOW" : (decisionRes.bestTime === "WAIT 7 DAYS" || decisionRes.bestTime === "WAIT 14 DAYS" ? "WAIT" : "CHANGE PLAN"),
-            reason: decisionRes.bestTimeExplanation
-          });
-        } catch(e) {
-          setDecision({
-            bestTime: "Unavailable",
-            bestTimeExplanation: "Backend decision engine not implemented yet.",
-            bestVessel: "Unavailable",
-            bestVesselExplanation: "",
-            bestPort: "Unavailable",
-            bestPortExplanation: ""
-          });
-        }
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    loadData();
-  }, [requirements]);
-
-  if (isLoading) return <div className="p-8 text-center text-slate-500">Generating final recommendation...</div>;
-
-  const bookNowEval = evaluations.find(e => e.scenario === "BOOK NOW");
+  const evaluations = evaluateScenarios(requirements);
+  const decision = runDecisionEngine(evaluations, requirements);
+  const finalRec = generateFinalRecommendation(evaluations, decision);
+  const isLoading = false;
+  
+  const selectedEval = evaluations.find(e => e.scenario === decision?.bestTime) || evaluations[0];
 
 
   return (
@@ -156,6 +87,15 @@ export function FinalRecommendation() {
           </div>
           <div className="px-8 py-8 space-y-6">
             <RecommendationBadge rec={finalRec.recommendation} />
+            {decision?.bestVessel === "Unavailable" && (
+              <div className="mt-6 p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                <p className="text-sm text-slate-700 font-medium">No feasible single-vessel plan exists for this cargo volume.</p>
+                <p className="text-xs text-slate-500 mt-1">
+                  Multi-voyage planning required - approximately {Math.ceil(Number(requirements?.cargoMt || 0) / 170000)} voyages based on Capesize limits.
+                </p>
+              </div>
+            )}
+
             <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 flex gap-3">
               <Info size={18} className="text-slate-400 mt-0.5 shrink-0" aria-hidden="true" />
               <p className="text-sm text-slate-700 leading-relaxed">{finalRec.reason}</p>
@@ -190,9 +130,9 @@ export function FinalRecommendation() {
                 <div key={ev.scenario} className="flex justify-between items-center text-sm py-2 border-b border-slate-100 last:border-0">
                   <span className="font-semibold text-slate-700">{ev.scenario}</span>
                   <div className="text-right text-xs text-slate-500 space-y-0.5">
-                    <div>Cost: <span className="italic">{ev.totalCost === "Unavailable" ? "Unavailable" : ev.totalCost}</span></div>
-                    <div>Risk: <span className="italic">{ev.riskScore === "Unavailable" ? "Unavailable" : ev.riskScore}</span></div>
-                    <div>Buffer: <span className="italic">{ev.deadlineBuffer === "Unavailable" ? "Unavailable" : (ev.deadlineBuffer as number) < 0 ? `${Math.abs(ev.deadlineBuffer as number)} days late` : `+${ev.deadlineBuffer} days`}</span></div>
+                    <div>Cost: <span className="italic">{ev.totalCost === "Unavailable" ? "N/A - see note above" : ev.totalCost}</span></div>
+                    <div>Risk: <span className="italic">{ev.riskScore === "Unavailable" ? "N/A - see note above" : ev.riskScore}</span></div>
+                    <div>Buffer: <span className="italic">{ev.deadlineBuffer === "Unavailable" ? "N/A - see note above" : (ev.deadlineBuffer as number) < 0 ? `${Math.abs(ev.deadlineBuffer as number)} days late` : `+${ev.deadlineBuffer} days`}</span></div>
                   </div>
                 </div>
               ))}
@@ -204,13 +144,13 @@ export function FinalRecommendation() {
             <h4 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4">Cost Breakdown</h4>
             <ContextRow
               label="Freight Cost"
-              value={bookNowEval?.details.freightCost !== "Unavailable" && bookNowEval?.details.freightCost !== undefined
-                ? `$${bookNowEval.details.freightCost.toLocaleString()}`
+              value={selectedEval?.details.freightCost !== "Unavailable" && selectedEval?.details.freightCost !== undefined
+                ? `$${selectedEval.details.freightCost.toLocaleString()}`
                 : "Unavailable"}
               icon={<BarChart3 size={16} />}
             />
-            <ContextRow label="Bunker Cost" value={bookNowEval?.details.bunkerCost !== "Unavailable" ? "$" + bookNowEval?.details.bunkerCost.toLocaleString() : "Unavailable"} icon={<BarChart3 size={16} />} />
-            <ContextRow label="Port Cost" value={bookNowEval?.details.portCost !== "Unavailable" ? "$" + bookNowEval?.details.portCost.toLocaleString() : "Unavailable"} icon={<BarChart3 size={16} />} />
+            <ContextRow label="Bunker Cost" value={selectedEval?.details.bunkerCost !== "Unavailable" ? "$" + selectedEval?.details.bunkerCost.toLocaleString() : "Unavailable"} icon={<BarChart3 size={16} />} />
+            <ContextRow label="Port Cost" value={selectedEval?.details.portCost !== "Unavailable" ? "$" + selectedEval?.details.portCost.toLocaleString() : "Unavailable"} icon={<BarChart3 size={16} />} />
             <div className="mt-4 p-3 bg-blue-50 border border-blue-100 rounded-lg">
               <p className="text-xs text-blue-700 leading-relaxed">
                 Full cost breakdown requires forecasting model for bunker and port tariffs.

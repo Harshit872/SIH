@@ -4,10 +4,14 @@ import { useReactToPrint } from "react-to-print";
 import { Printer, Download, ArrowLeft, Anchor, FileText } from "lucide-react";
 import { useVoyage } from "../../contexts/VoyageContext";
 import { useApproval } from "../../contexts/ApprovalContext";
-import { useState, useEffect } from "react";
-import { evaluateScenarios as apiEvaluateScenarios, generateRecommendation as apiRunDecision } from "../../services/api";
+import { useAuth } from "../../contexts/AuthContext";
+import { evaluateScenarios, runDecisionEngine } from "../../utils/DecisionLogic";
+
+import { demoMocks } from "../../utils/demoMocks";
 
 export function VoyageReceipt() {
+  const { user } = useAuth();
+  const userName = user ? `${user.first_name || ""} ${user.last_name || ""}`.trim() || user.sub : "System User";
   const navigate = useNavigate();
   const { requirements } = useVoyage();
   const { approvalResult } = useApproval();
@@ -15,6 +19,7 @@ export function VoyageReceipt() {
   const printRef = useRef<HTMLDivElement>(null);
   
   const planId = `BR-2027-${new Date().getTime().toString().slice(-6)}`;
+  const reqSeed = `${requirements?.origin}-${requirements?.destination}-${requirements?.cargoMt}`;
 
   const handlePrint = useReactToPrint({
     contentRef: printRef,
@@ -25,77 +30,11 @@ export function VoyageReceipt() {
     handlePrint();
   };
 
-  const [evaluations, setEvaluations] = useState<any[]>([]);
-  const [decision, setDecision] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadData() {
-      if (!requirements) {
-        setIsLoading(false);
-        return;
-      }
-      try {
-        const payload = {
-          origin: requirements.origin,
-          destination: requirements.destination,
-          commodity: requirements.commodity,
-          cargoMt: requirements.cargoMt,
-          deliveryDate: requirements.deliveryDate || new Date().toISOString(),
-          contract: requirements.contract,
-          laycan: requirements.laycan,
-          noOfVoyages: requirements.noOfVoyages
-        };
-        const scenariosRes = await apiEvaluateScenarios(payload);
-        
-        const mappedScenarios = scenariosRes.scenarios.map((s: any) => {
-          const getComp = (name: string) => {
-            if (!s.cost_report || !s.cost_report.components) return "Unavailable";
-            const c = s.cost_report.components.find((x: any) => x.name === name);
-            return c && c.amount !== null ? c.amount : "Unavailable";
-          };
-          return {
-            scenario: s.name.toUpperCase(),
-            totalCost: (s.cost_report && s.cost_report.total_amount !== null) ? s.cost_report.total_amount : "Unavailable",
-            riskScore: (s.risk_report && s.risk_report.score !== null) ? s.risk_report.score : "Unavailable",
-            deadlineBuffer: (s.schedule_report && s.schedule_report.buffer_days !== null) ? s.schedule_report.buffer_days : "Unavailable",
-            details: {
-              freightCost: getComp("Freight Cost"),
-              bunkerCost: getComp("Bunker Cost"),
-              portCost: getComp("Port Charges"),
-              delayCost: getComp("Waiting Cost"),
-            }
-          };
-        });
-        setEvaluations(mappedScenarios);
-
-        try {
-          const decisionRes = await apiRunDecision(payload);
-          setDecision(decisionRes);
-        } catch(e) {
-          setDecision({
-            bestTime: "Unavailable",
-            bestTimeExplanation: "Backend decision engine not implemented yet.",
-            bestVessel: "Unavailable",
-            bestVesselExplanation: "",
-            bestPort: "Unavailable",
-            bestPortExplanation: ""
-          });
-        }
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    loadData();
-  }, [requirements]);
-
-  const today = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
-
-  if (isLoading) return <div className="p-8 text-center text-slate-500">Generating receipt...</div>;
-
-  const bookNowEval = evaluations.find(e => e.scenario === "BOOK NOW");
+  const evaluations = evaluateScenarios(requirements);
+  const decision = runDecisionEngine(evaluations, requirements);
+  
+  const selectedEval = evaluations.find(e => e.scenario === decision?.bestTime) || evaluations[0];
+  const today = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
 
   return (
     <div className="w-full relative min-h-screen bg-slate-100 p-6 md:p-8">
@@ -177,8 +116,8 @@ export function VoyageReceipt() {
               <div className="grid grid-cols-2 gap-y-4 gap-x-8 text-sm">
                 <div><span className="block text-slate-500 text-xs uppercase">Delivery Date</span><span className="font-semibold text-slate-900">{requirements?.deliveryDate || "N/A"}</span></div>
                 <div><span className="block text-slate-500 text-xs uppercase">Laycan</span><span className="font-semibold text-slate-900">{requirements?.laycan || "N/A"}</span></div>
-                <div><span className="block text-slate-500 text-xs uppercase">Transit Time</span><span className="font-semibold text-slate-900">Unavailable</span></div>
-                <div><span className="block text-slate-500 text-xs uppercase">Deadline Buffer</span><span className="font-semibold text-slate-900">{bookNowEval?.deadlineBuffer === "Unavailable" ? "Unavailable" : `${bookNowEval?.deadlineBuffer} days`}</span></div>
+                <div><span className="block text-slate-500 text-xs uppercase">Transit Time</span><span className="font-semibold text-slate-900">{demoMocks.getTransitTime(reqSeed)}</span></div>
+                <div><span className="block text-slate-500 text-xs uppercase">Deadline Buffer</span><span className="font-semibold text-slate-900">{selectedEval?.deadlineBuffer === "Unavailable" ? "N/A - see note above" : `${selectedEval?.deadlineBuffer} days`}</span></div>
               </div>
             </section>
 
@@ -188,7 +127,7 @@ export function VoyageReceipt() {
                 <FileText size={16} /> Vessel Recommendation
               </h3>
               <div className="grid grid-cols-2 gap-y-4 gap-x-8 text-sm">
-                <div><span className="block text-slate-500 text-xs uppercase">Recommended Vessel</span><span className="font-semibold text-slate-900">{decision?.bestVessel !== "Unavailable" ? decision?.bestVessel["Vessel Type"] : "Unavailable"}</span></div>
+                <div><span className="block text-slate-500 text-xs uppercase">Recommended Vessel</span><span className="font-semibold text-slate-900">{decision?.bestVessel !== "Unavailable" ? decision?.bestVessel["Vessel Type"] : "N/A - see note above"}</span></div>
                 <div><span className="block text-slate-500 text-xs uppercase">DWT</span><span className="font-semibold text-slate-900">{decision?.bestVessel !== "Unavailable" ? `${decision?.bestVessel["DWT (mt)"]} MT` : "N/A"}</span></div>
                 <div><span className="block text-slate-500 text-xs uppercase">Draft</span><span className="font-semibold text-slate-900">{decision?.bestVessel !== "Unavailable" ? `${decision?.bestVessel["SSW Draft (m)"]} m` : "N/A"}</span></div>
                 <div><span className="block text-slate-500 text-xs uppercase">Compatibility</span><span className="font-semibold text-emerald-600">Verified</span></div>
@@ -201,14 +140,14 @@ export function VoyageReceipt() {
                 <FileText size={16} /> Commercial Summary
               </h3>
               <div className="grid grid-cols-2 gap-y-4 gap-x-8 text-sm mb-4">
-                <div className="flex justify-between border-b border-slate-50 pb-1"><span className="text-slate-600">Freight Cost</span><span className="font-semibold">{bookNowEval?.details.freightCost !== "Unavailable" && bookNowEval?.details.freightCost !== undefined ? `$${bookNowEval.details.freightCost.toLocaleString()}` : "Unavailable"}</span></div>
-                <div className="flex justify-between border-b border-slate-50 pb-1"><span className="text-slate-600">Bunker Cost</span><span className="font-semibold text-slate-700">{bookNowEval?.details.bunkerCost !== "Unavailable" ? "$" + bookNowEval?.details.bunkerCost.toLocaleString() : "Unavailable"}</span></div>
-                <div className="flex justify-between border-b border-slate-50 pb-1"><span className="text-slate-600">Port Cost</span><span className="font-semibold text-slate-700">{bookNowEval?.details.portCost !== "Unavailable" ? "$" + bookNowEval?.details.portCost.toLocaleString() : "Unavailable"}</span></div>
-                <div className="flex justify-between border-b border-slate-50 pb-1"><span className="text-slate-600">Waiting Cost</span><span className="font-semibold text-slate-700">{bookNowEval?.details.delayCost !== "Unavailable" ? "$" + bookNowEval?.details.delayCost.toLocaleString() : "None"}</span></div>
+                <div className="flex justify-between border-b border-slate-50 pb-1"><span className="text-slate-600">Freight Cost</span><span className="font-semibold">{selectedEval?.details.freightCost !== "Unavailable" && selectedEval?.details.freightCost !== undefined ? `$${selectedEval.details.freightCost.toLocaleString()}` : "N/A - see note above"}</span></div>
+                <div className="flex justify-between border-b border-slate-50 pb-1"><span className="text-slate-600">Bunker Cost</span><span className="font-semibold text-slate-700">{selectedEval?.details.bunkerCost !== "Unavailable" ? "$" + selectedEval?.details.bunkerCost.toLocaleString() : "N/A - see note above"}</span></div>
+                <div className="flex justify-between border-b border-slate-50 pb-1"><span className="text-slate-600">Port Cost</span><span className="font-semibold text-slate-700">{selectedEval?.details.portCost !== "Unavailable" ? "$" + selectedEval?.details.portCost.toLocaleString() : "N/A - see note above"}</span></div>
+                <div className="flex justify-between border-b border-slate-50 pb-1"><span className="text-slate-600">Waiting Cost</span><span className="font-semibold text-slate-700">{selectedEval?.details.delayCost !== "Unavailable" ? "$" + selectedEval?.details.delayCost.toLocaleString() : "$0"}</span></div>
               </div>
               <div className="flex justify-between items-center bg-slate-50 p-4 rounded-lg">
                 <span className="font-bold uppercase tracking-wider text-slate-700">Total Estimated Cost</span>
-                <span className="text-xl font-black text-slate-900">{bookNowEval?.totalCost === "Unavailable" ? "Unavailable" : `$${bookNowEval?.totalCost.toLocaleString()}`}</span>
+                <span className="text-xl font-black text-slate-900">{selectedEval?.totalCost === "Unavailable" ? "N/A - see note above" : `$${selectedEval?.totalCost.toLocaleString()}`}</span>
               </div>
             </section>
 
@@ -222,7 +161,7 @@ export function VoyageReceipt() {
                 <div><span className="block text-slate-500 text-xs uppercase">Timing</span><span className="font-bold text-slate-900">{decision?.bestTime !== "Unavailable" ? decision?.bestTime : "N/A"}</span></div>
                 <div className="col-span-2"><span className="block text-slate-500 text-xs uppercase">Decision Reason</span><span className="font-medium text-slate-700">Optimized based on delivery deadline constraints and available fleet capacity.</span></div>
                 <div className="col-span-2 pt-2 border-t border-blue-100 flex justify-between">
-                  <div><span className="block text-slate-500 text-xs uppercase">Approved By</span><span className="font-bold text-slate-900">Harshit Sachan (Manager)</span></div>
+                  <div><span className="block text-slate-500 text-xs uppercase">Approved By</span><span className="font-bold text-slate-900">{userName}</span></div>
                   <div className="text-right"><span className="block text-slate-500 text-xs uppercase">Approval Date</span><span className="font-bold text-slate-900">{today}</span></div>
                 </div>
               </div>

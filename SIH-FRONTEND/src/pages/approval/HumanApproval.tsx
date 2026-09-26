@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { demoMocks } from "../../utils/demoMocks";
 import { useNavigate } from "react-router";
 import { useVoyage } from "../../contexts/VoyageContext";
 import { useApproval, type FinalDecision } from "../../contexts/ApprovalContext";
@@ -19,7 +20,7 @@ import {
 // ── helpers ─────────────────────────────────────────────────────────────────
 
 function UnavailablePill() {
-  return <span className="text-slate-400 italic text-sm">Unavailable</span>;
+  return <span className="text-slate-400 italic text-xs">N/A - see note above</span>;
 }
 
 function SummaryRow({ icon, label, value }: { icon: React.ReactNode; label: string; value: React.ReactNode }) {
@@ -61,6 +62,7 @@ function RecTag({ rec }: { rec: FinalRecommendationType }) {
 
 export function HumanApproval() {
   const { requirements, markStepComplete } = useVoyage();
+  const reqSeed = `${requirements?.origin}-${requirements?.destination}-${requirements?.cargoMt}`;
   const { setApprovalResult } = useApproval();
   const navigate = useNavigate();
 
@@ -68,7 +70,7 @@ export function HumanApproval() {
   const evaluations = evaluateScenarios(requirements);
   const decision    = runDecisionEngine(evaluations, requirements);
   const finalRec    = generateFinalRecommendation(evaluations, decision);
-  const bookNowEval = evaluations.find(e => e.scenario === "BOOK NOW");
+  const selectedEval = evaluations.find(e => e.scenario === decision?.bestTime) || evaluations[0];
 
   // ── Local UI state ───────────────────────────────────────────────────────
   const [mode, setMode] = useState<"idle" | "approving" | "modifying" | "approved">("idle");
@@ -165,7 +167,9 @@ export function HumanApproval() {
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-700">Current Recommendation</h3>
           </div>
           <div className="px-8 py-6 space-y-4">
-            <RecTag rec={finalRec.recommendation} />
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-700 font-bold text-sm">
+                <CheckCircle2 size={15} /> {decision?.bestTime === "Unavailable" ? "Unavailable" : `${decision?.bestTime} - ${decision?.bestVessel?.["Vessel Type"] || "Vessel"} via ${decision?.bestPort?.["Port"] || "Port"}`}
+              </span>
             <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 flex gap-3">
               <Info size={16} className="text-slate-400 mt-0.5 shrink-0" />
               <p className="text-sm text-slate-700 leading-relaxed">{finalRec.reason}</p>
@@ -189,12 +193,12 @@ export function HumanApproval() {
             </div>
             <div className="divide-y divide-slate-100">
               <SummaryRow icon={<AlertCircle size={15} />} label="Risk Score"
-                value={bookNowEval?.riskScore === "Unavailable" ? <UnavailablePill /> : String(bookNowEval?.riskScore)} />
+                value={selectedEval?.riskScore === "Unavailable" ? <UnavailablePill /> : String(selectedEval?.riskScore)} />
               <SummaryRow icon={<Clock size={15} />} label="Deadline Buffer"
-                value={bookNowEval?.deadlineBuffer === "Unavailable" ? <UnavailablePill /> : `${bookNowEval?.deadlineBuffer} days`} />
-              <SummaryRow icon={<BarChart3 size={15} />} label="Freight Cost (BOOK NOW)"
-                value={bookNowEval?.details.freightCost !== "Unavailable" && bookNowEval?.details.freightCost !== undefined
-                  ? `$${bookNowEval.details.freightCost.toLocaleString()}`
+                value={selectedEval?.deadlineBuffer === "Unavailable" ? <UnavailablePill /> : `${selectedEval?.deadlineBuffer} days`} />
+              <SummaryRow icon={<BarChart3 size={15} />} label={`Freight Cost (${decision?.bestTime || "Selected"})`}
+                value={selectedEval?.details.freightCost !== "Unavailable" && selectedEval?.details.freightCost !== undefined
+                  ? `$${selectedEval.details.freightCost.toLocaleString()}`
                   : <UnavailablePill />} />
             </div>
           </div>

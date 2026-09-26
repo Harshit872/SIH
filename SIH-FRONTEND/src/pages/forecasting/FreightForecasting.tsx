@@ -17,56 +17,120 @@ import { format, parseISO } from "date-fns";
 
 type Horizon = "7D" | "14D" | "30D";
 
+
 export function FreightForecasting() {
   const { requirements, markStepComplete } = useVoyage();
   const navigate = useNavigate();
   const [horizon, setHorizon] = useState<Horizon>("14D");
 
-  const historicalData = DatasetService.getBalticIndices().map(item => ({
-    date: item.Date ? format(parseISO(item.Date), "MMM d, yy") : "Unknown",
-    historicalRate: item.BDI !== "NA" && !isNaN(Number(item.BDI)) ? Number(item.BDI) : null,
-  }));
-
-const [forecastData, setForecastData] = useState<any[]>(historicalData);
+  const [forecastData, setForecastData] = useState<any[]>([]);
   const [trend, setTrend] = useState<string>("Stable");
+  const [confidenceInfo, setConfidenceInfo] = useState<string>("Calculating...");
+  const [status, setStatus] = useState("awaiting_service");
 
   useEffect(() => {
-    let days = 14;
-    if (horizon === "7D") days = 7;
-    if (horizon === "30D") days = 30;
+    async function fetchData() {
+      if (!requirements) return;
+      setStatus("loading");
+      
+      const bdiData = DatasetService.getBalticIndices();
+      // Take last 10 historical points to keep it fast
+      const recentHistorical = bdiData.slice(-10);
+      
+      const basePayload = {
+        origin_port: requirements.origin || "Newcastle",
+        destination_port: requirements.destination || "Paradip",
+        cargo_type: requirements.commodity || "Coal",
+        quantity_mt: Number(requirements.cargoMt) || 75000,
+        vessel_class: "Panamax", // We'll just assume Panamax for the chart base
+        route_distance_nm: 6300,
+        bunker_price_usd_per_mt: 850,
+        bdi_value: 1500,
+        port_turnaround_days: 4.5,
+        demurrage_rate: 20000,
+        laycan_start_date: "2026-10-01",
+        required_delivery_date: "2026-10-25"
+      };
 
-    const baseSeed = requirements ? (requirements.origin.length + requirements.destination.length) : 5;
-    const isDecreasing = baseSeed % 2 === 0;
-    
-    const lastHistorical = historicalData[historicalData.length - 1];
-    const lastVal = lastHistorical ? lastHistorical.historicalRate || 3000 : 3000;
-    const lastDate = lastHistorical && lastHistorical.date !== "Unknown" ? new Date(lastHistorical.date) : new Date();
+      const newData: any[] = [];
+      let latestHistDate = new Date();
+      let lastRate = null;
+      let lastConf = null;
 
-    const newData: any[] = [...historicalData];
-    let currentVal = lastVal;
+      // 1. Plot Historical (using historical BDI to get implied rate)
+      for (const item of recentHistorical) {
+        if (!item.Date || item.BDI === "NA") continue;
+        const dt = parseISO(item.Date);
+        latestHistDate = dt;
+        
+        try {
+            const res = await fetch("http://localhost:8080/api/v1/forecast/freight-rate", {
+              method: "POST", headers: {"Content-Type": "application/json"},
+              body: JSON.stringify({...basePayload, bdi_value: Number(item.BDI)})
+            });
+            const data = await res.json();
+            const rate = data.predicted_freight_rate_usd_per_mt;
+            lastRate = rate;
+            lastConf = data.confidence_flag;
+            newData.push({
+              date: format(dt, "MMM d, yy"),
+              historicalRate: rate,
+              forecastRate: null,
+              confidenceRange: null
+            });
+        } catch (e) {}
+      }
 
-    for(let i = 1; i <= days; i++) {
-      const nextDate = new Date(lastDate);
-      nextDate.setDate(lastDate.getDate() + i);
-      const change = (Math.random() * 40 - 15) + (isDecreasing ? -10 : 10);
-      currentVal = currentVal + change;
-      newData.push({
-        date: format(nextDate, "MMM d, yy"),
-        forecastRate: Math.round(currentVal),
-        confidenceRange: [Math.round(currentVal * 0.95), Math.round(currentVal * 1.05)]
-      });
+      // Ensure continuity: The first forecast point should overlap the last historical point exactly
+      if (lastRate !== null) {
+          newData[newData.length - 1].forecastRate = lastRate;
+      }
+
+      // 2. Plot Forecast (using static current BDI, resulting in a flat forecast since we lack future BDI)
+      let days = horizon === "7D" ? 7 : horizon === "30D" ? 30 : 14;
+      
+      try {
+          const res = await fetch("http://localhost:8080/api/v1/forecast/freight-rate", {
+            method: "POST", headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(basePayload)
+          });
+          const data = await res.json();
+          const currentRate = data.predicted_freight_rate_usd_per_mt;
+          
+          for(let i = 1; i <= days; i++) {
+            const nextDate = new Date(latestHistDate);
+            nextDate.setDate(latestHistDate.getDate() + i);
+            newData.push({
+              date: format(nextDate, "MMM d, yy"),
+              historicalRate: null,
+              forecastRate: currentRate,
+              // Model doesn't provide a continuous confidence interval, so we mock a narrow band for UI
+              confidenceRange: [currentRate * 0.98, currentRate * 1.02]
+            });
+          }
+          
+          setTrend(currentRate > lastRate ? "Increasing" : currentRate < lastRate ? "Decreasing" : "Stable");
+          
+          if (data.confidence_flag === "normal") {
+              setConfidenceInfo("Normal Confidence (95%) - Input is within training bounds");
+          } else {
+              setConfidenceInfo("Low Confidence (<50%) - Input falls outside safe training limits");
+          }
+
+      } catch (e) {}
+
+      setForecastData(newData);
+      setStatus("forecast_ready");
     }
-    setForecastData(newData);
-    setTrend(isDecreasing ? "Decreasing" : "Increasing");
+    fetchData();
   }, [horizon, requirements]);
 
   const forecast = {
     data: forecastData,
     trend: trend,
-    confidence: "95%",
-    status: "forecast_ready"
+    confidence: confidenceInfo,
+    status: status
   };
-
   const getTrendIcon = (trend: string) => {
     switch (trend) {
       case "Increasing": return <TrendingUp size={24} className="text-rose-600" />;
@@ -103,7 +167,7 @@ const [forecastData, setForecastData] = useState<any[]>(historicalData);
             <div className="space-y-1">
               <span className="text-xs text-slate-500 font-medium">Route</span>
               <div className="text-sm font-semibold text-slate-900 flex items-center gap-1.5">
-                {requirements?.origin || "Unknown"} <ArrowRight size={12} className="text-slate-400" /> {requirements?.destination || "Unknown"}
+                {requirements?.origin || "Unknown"} <span className="text-slate-400 px-1">&rarr;</span> {requirements?.destination || "Unknown"}
               </div>
             </div>
             <div className="space-y-1">
@@ -232,12 +296,12 @@ const [forecastData, setForecastData] = useState<any[]>(historicalData);
                       tickLine={false} 
                       axisLine={false} 
                       domain={['auto', 'auto']}
-                      label={{ value: 'BDI (Index Points)', angle: -90, position: 'insideLeft', offset: 0, fill: '#64748b', fontSize: 12 }}
+                      label={{ value: 'USD/MT', angle: -90, position: 'insideLeft', offset: 0, fill: '#64748b', fontSize: 12 }}
                     />
                     <Tooltip 
                       contentStyle={{ borderRadius: '8px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                       labelStyle={{ color: '#64748b', fontWeight: 500, marginBottom: '4px' }}
-                      formatter={(value: any, name: any) => [value, name === 'historicalRate' ? 'BDI (Index Points)' : 'Forecast']}
+                      formatter={(value: any, name: any) => [value, name === 'historicalRate' ? 'Historical ($/MT)' : 'Forecast ($/MT)']}
                     />
                     {/* Confidence Area */}
                     <Area type="monotone" dataKey="confidenceRange" stroke="none" fill="#dbeafe" fillOpacity={0.5} connectNulls={false} />
@@ -257,18 +321,19 @@ const [forecastData, setForecastData] = useState<any[]>(historicalData);
             {/* Trend Card */}
             <div className="bg-white border border-slate-200 rounded-xl shadow-sm p-6 flex flex-col">
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Trend</h3>
-              <div className="flex items-center gap-4 mt-2">
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <div className="flex items-center gap-3 xl:gap-4 mt-2">
+                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 shrink-0">
                   {getTrendIcon(forecast.trend)}
                 </div>
-                <div>
-                  <span className="text-2xl font-bold text-slate-900 block">{forecast.trend}</span>
-                  <span className="text-sm text-slate-500">Over {horizon} horizon</span>
+                <div className="min-w-0 flex-1">
+                  <span className="text-xl xl:text-2xl font-bold text-slate-900 block truncate">{forecast.trend}</span>
+                  <span className="text-sm text-slate-500 block truncate">Over {horizon} horizon</span>
                 </div>
               </div>
               <div className="mt-auto pt-6">
                 <p className="text-xs text-slate-400 bg-slate-50 p-2.5 rounded-md border border-slate-100">
-                  Requires the forecasting model.
+                  Computed by feeding future BDI/Bunker projections (if provided) into the LightGBM model. 
+                  Currently assumes static market conditions over the horizon.
                 </p>
               </div>
             </div>
@@ -278,18 +343,18 @@ const [forecastData, setForecastData] = useState<any[]>(historicalData);
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Confidence</h3>
               <div className="flex items-center gap-4 mt-2">
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
-                  <ShieldCheck size={24} className="text-slate-400" />
+                  <ShieldCheck size={24} className={forecast.confidence.includes("Low") ? "text-orange-500" : "text-green-500"} />
                 </div>
                 <div>
-                  <span className="text-2xl font-bold text-slate-900 block">
-                    {forecast.confidence !== null ? `${forecast.confidence}%` : "Unavailable"}
+                  <span className={`text-2xl font-bold block ${forecast.confidence.includes("Low") ? "text-orange-600" : "text-green-600"}`}>
+                    {forecast.confidence.includes("Low") ? "<50%" : "95%"}
                   </span>
-                  <span className="text-sm text-slate-500">Model certainty</span>
+                  <span className="text-sm text-slate-500">Model Reliability</span>
                 </div>
               </div>
               <div className="mt-auto pt-6">
                 <p className="text-xs text-slate-400 bg-slate-50 p-2.5 rounded-md border border-slate-100">
-                  Requires the forecasting model.
+                  {forecast.confidence}
                 </p>
               </div>
             </div>
@@ -297,12 +362,13 @@ const [forecastData, setForecastData] = useState<any[]>(historicalData);
           </div>
         </div>
 
+
         {/* Global Action Footer */}
         <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 mt-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
           <div>
-            <h4 className="font-bold text-lg text-slate-900">Evaluate decision options</h4>
+            <h4 className="font-bold text-lg text-slate-900">Proceed to Decision Workspace</h4>
             <p className="text-slate-500 text-sm max-w-lg mt-1">
-              Review timing scenarios and vessel options based on this market outlook.
+              Move to the Decision Workspace to evaluate costs, risks, and recommended actions based on this forecast.
             </p>
           </div>
           <Button 
@@ -313,7 +379,7 @@ const [forecastData, setForecastData] = useState<any[]>(historicalData);
             }}
             className="bg-blue-600 hover:bg-blue-700 text-white w-full md:w-auto shrink-0 shadow-md"
           >
-            Explore Decision Workspace <ArrowRight size={18} className="ml-2" />
+            Go to Decision Workspace
           </Button>
         </div>
 

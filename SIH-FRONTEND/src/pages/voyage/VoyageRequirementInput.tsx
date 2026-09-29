@@ -9,7 +9,6 @@ import type { DateRange } from "react-day-picker";
 import { format } from "date-fns";
 import { submitVoyage } from "../../services/api";
 
-import { DatasetService } from "../../data/DatasetService";
 import { DEMO_SCENARIOS } from "../../data/demo/demoVoyages";
 
 const ORIGIN_OPTIONS = [

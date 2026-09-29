@@ -32,8 +32,12 @@ export function FreightForecasting() {
 
   useEffect(() => {
     async function fetchData() {
-      if (!requirements) return;
+      if (!requirements) {
+        setStatus("forecast_ready");
+        return;
+      }
       setStatus("loading");
+
 
       // --- Pure frontend mock: no backend needed ---
       // Seed based on route + cargo + volume so results are consistent per input but different across inputs
@@ -108,13 +112,14 @@ export function FreightForecasting() {
         });
       }
 
+      // Small simulated processing delay so it feels like a model ran
+      await new Promise(r => setTimeout(r, 700));
+
       setForecastData(newData);
       setTrend(trendDir);
       setConfidenceInfo("Normal Confidence (95%) - Input is within training bounds");
       setStatus("forecast_ready");
 
-      // Small simulated processing delay so it feels like a model ran
-      await new Promise(r => setTimeout(r, 700));
     }
     fetchData();
   }, [horizon, requirements]);

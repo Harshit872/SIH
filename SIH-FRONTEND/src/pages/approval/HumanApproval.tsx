@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { demoMocks } from "../../utils/demoMocks";
 import { useNavigate } from "react-router";
 import { useVoyage } from "../../contexts/VoyageContext";
 import { useApproval, type FinalDecision } from "../../contexts/ApprovalContext";
@@ -35,34 +34,10 @@ function SummaryRow({ icon, label, value }: { icon: React.ReactNode; label: stri
   );
 }
 
-function RecTag({ rec }: { rec: FinalRecommendationType }) {
-  if (rec === "BOOK NOW") return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-700 font-bold text-sm">
-      <CheckCircle2 size={15} /> BOOK NOW
-    </span>
-  );
-  if (rec === "WAIT") return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-700 font-bold text-sm">
-      <Clock size={15} /> WAIT
-    </span>
-  );
-  if (rec === "CHANGE PLAN") return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-50 border border-rose-300 text-rose-700 font-bold text-sm">
-      <AlertTriangle size={15} /> CHANGE PLAN
-    </span>
-  );
-  return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-300 text-slate-600 font-bold text-sm">
-      <RefreshCw size={15} /> Unavailable
-    </span>
-  );
-}
-
 // ── component ────────────────────────────────────────────────────────────────
 
 export function HumanApproval() {
   const { requirements, markStepComplete } = useVoyage();
-  const reqSeed = `${requirements?.origin}-${requirements?.destination}-${requirements?.cargoMt}`;
   const { setApprovalResult } = useApproval();
   const navigate = useNavigate();
 

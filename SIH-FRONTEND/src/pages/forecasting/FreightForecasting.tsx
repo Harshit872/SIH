@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useVoyage } from "../../contexts/VoyageContext";
 import { 
-  Ship, ArrowRight, TrendingUp, TrendingDown, Minus, 
+  Ship, TrendingUp, TrendingDown, Minus,
   AlertCircle, LineChart as ChartIcon, ShieldCheck,
   Database, ChevronDown, CheckCircle2, XCircle
 } from "lucide-react";
@@ -55,7 +55,6 @@ export function FreightForecasting() {
       const newData: any[] = [];
       let latestHistDate = new Date();
       let lastRate = null;
-      let lastConf = null;
 
       // 1. Plot Historical (using historical BDI to get implied rate)
       for (const item of recentHistorical) {
@@ -71,7 +70,6 @@ export function FreightForecasting() {
             const data = await res.json();
             const rate = data.predicted_freight_rate_usd_per_mt;
             lastRate = rate;
-            lastConf = data.confidence_flag;
             newData.push({
               date: format(dt, "MMM d, yy"),
               historicalRate: rate,

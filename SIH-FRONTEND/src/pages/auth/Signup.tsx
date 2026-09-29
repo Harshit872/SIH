@@ -38,8 +38,10 @@ export function Signup() {
   };
 
   const handleDemoAccess = () => {
+    login(authService.getDemoToken());
     navigate("/voyage-requirement-input");
   };
+
 
   return (
     <div className="w-full">

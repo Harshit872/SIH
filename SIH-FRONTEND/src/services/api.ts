@@ -1,27 +1,74 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/v1';
+// Demo mode: all API calls return realistic mock data locally.
+// No backend required.
 
-async function fetchApi(endpoint: string, payload: any) {
-  const token = localStorage.getItem('odyssey_auth_token');
-  const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
-  };
-  if (token) {
-    headers['Authorization'] = 'Bearer ' + token;
-  }
-  const res = await fetch(API_URL + endpoint, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(payload)
-  });
-  if (!res.ok) {
-    throw new Error('API Error ' + res.status);
-  }
-  return res.json();
+import { demoMocks } from "../utils/demoMocks";
+
+function buildSeed(payload: any): string {
+  return `${payload?.origin_port || ""}|${payload?.destination_port || ""}|${payload?.cargo_type || ""}|${payload?.quantity_mt || ""}`;
 }
 
-export const submitVoyage = async (req: any) => fetchApi('/voyage/submit', req);
-export const getFeasibility = async (req: any) => fetchApi('/voyage/feasibility', req);
-export const getCosts = async (req: any) => fetchApi('/voyage/cost', req);
-export const getRisks = async (req: any) => fetchApi('/voyage/risk', req);
-export const evaluateScenarios = async (req: any) => fetchApi('/evaluate_scenarios', req);
-export const generateRecommendation = async (req: any) => fetchApi('/generate_recommendation', req);
+async function sleep(ms: number) {
+  return new Promise(r => setTimeout(r, ms));
+}
+
+export const submitVoyage = async (req: any) => {
+  await sleep(400);
+  const seed = buildSeed(req);
+  return { voyage_id: `V-${Date.now()}`, status: "submitted", seed };
+};
+
+export const getFeasibility = async (req: any) => {
+  await sleep(350);
+  const seed = buildSeed(req);
+  return {
+    feasibility: demoMocks.getDeliveryFeasibility(seed),
+    transit_time: demoMocks.getTransitTime(seed),
+    deadline_buffer_days: demoMocks.getDeadlineBufferNum(seed, "BOOK NOW"),
+  };
+};
+
+export const getCosts = async (req: any) => {
+  await sleep(350);
+  const seed = buildSeed(req);
+  const breakdown = demoMocks.getCostBreakdown(
+    seed, "BOOK NOW",
+    req?.origin_port, req?.destination_port, req?.quantity_mt
+  );
+  return {
+    total_cost: breakdown.freight + breakdown.bunker + breakdown.port,
+    freight_cost: breakdown.freight,
+    bunker_cost: breakdown.bunker,
+    port_cost: breakdown.port,
+  };
+};
+
+export const getRisks = async (req: any) => {
+  await sleep(300);
+  const seed = buildSeed(req);
+  return {
+    risk_score: demoMocks.getRiskScore(seed, "BOOK NOW"),
+    risk_label: demoMocks.getRiskScore(seed, "BOOK NOW") > 60 ? "High" : demoMocks.getRiskScore(seed, "BOOK NOW") > 35 ? "Medium" : "Low",
+  };
+};
+
+export const evaluateScenarios = async (req: any) => {
+  await sleep(500);
+  const seed = buildSeed(req);
+  return {
+    scenarios: ["BOOK NOW", "WAIT 7D", "WAIT 14D"].map(s => ({
+      scenario: s,
+      total_cost: demoMocks.getTotalCost(seed, s, req?.origin_port, req?.destination_port, req?.quantity_mt),
+      risk_score: demoMocks.getRiskScore(seed, s),
+      deadline_buffer: demoMocks.getDeadlineBufferNum(seed, s),
+    })),
+  };
+};
+
+export const generateRecommendation = async (req: any) => {
+  await sleep(400);
+  const seed = buildSeed(req);
+  return {
+    recommendation: demoMocks.getRecommendedTiming(seed),
+    reason: demoMocks.getRecommendationString(seed, req?.destination_port || "Port"),
+  };
+};

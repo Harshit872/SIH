@@ -4,6 +4,7 @@ import { Button } from "../../components/ui/button";
 import { authService } from "../../services/authService";
 import { useAuth } from "../../contexts/AuthContext";
 
+
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,8 +29,10 @@ export function Login() {
   };
 
   const handleDemoAccess = () => {
+    login(authService.getDemoToken());
     navigate("/voyage-requirement-input");
   };
+
 
   return (
     <div className="w-full">

@@ -63,7 +63,6 @@ export function FinalRecommendation() {
   const evaluations = evaluateScenarios(requirements);
   const decision = runDecisionEngine(evaluations, requirements);
   const finalRec = generateFinalRecommendation(evaluations, decision);
-  const isLoading = false;
   
   const selectedEval = evaluations.find(e => e.scenario === decision?.bestTime) || evaluations[0];
 
